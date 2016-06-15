@@ -1,7 +1,7 @@
 % linoSPAD Laser power due to scanning methods
 
 
-tab_path = '../report/tab/';
+tab_path = '../tab/';
 
 
 %% Pulse frequency graph
@@ -11,3 +11,4 @@ roundtrip_time = max_altitude.*2./3e8;
 f_pulse = 1./roundtrip_time;
 
 f_pulse_tab %make latex table
+
