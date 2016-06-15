@@ -1,0 +1,23 @@
+\subsubsection{Background Noise}\label{ssec:background_noise}
+For the background noise, it is assumed that the sun is the dominant source. The sum is modelled as an ideal black body. The spectral irradiance of the sun can be calculated using \cref{eq:spectral_irradiance}.
+\begin{align}\label{eq:spectral_irradiance}
+I_\lambda(\lambda,T) = \frac{2hc^2}{\lambda^5}\frac{1}{e^{\frac{hc}{\lambda kT}}-1}
+\end{align}
+where $I_\lambda(v,t)$ is spectral irradiance with unit $W/m^3$. \\
+$h$ is the planck constant\\
+$c$ is the speed of light in vacuum \\
+$k$ is the Boltzman constant \\
+$\lambda$ is the wavelength of the electromagnetic radiation\\
+$T$ is the absolute temperature of the body\\
+The spectral irradiance of the sun is calculated in \cref{tab:sun_irradiance}.
+
+\input{tab/sun_irradiance_tab}
+
+The next step is to calculate the power emitted by the sun in the specified bandwidth, at the location of Europa. This is done by modelling sun as a point source, and then spreading that power over a sphere with a radius equal to the distance between the sun and Europa, as is done in \cref{eq:point_source}.
+
+\begin{align}\label{eq:point_source}
+    P_{sun} = I_{\text{sun}} B_\lambda S \frac{r_{\text{sun}}^2}{r_{\text{europa}}^2}
+\end{align}
+where $I_{\text{sun}}$ is the spectral irradiance of the sun at the center frequency of the filter, $B_\lambda$ is the bandwidth of the filter in meters, $S$ the surface area of the target area on Europa, $r_{\text{sun}}$ the of radius of the sun, and $r_{\text{europa}}$ the distance between Europa and the sun. The effective radiance of the background noise at Europa is calculated in \cref{tab:power_background} using \cref{eq:point_source}.
+
+\input{tab/effective_irradiance_tab}

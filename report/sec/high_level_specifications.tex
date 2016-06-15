@@ -1,0 +1,22 @@
+\section{High level specifications} 
+\label{sec:high_level_specifications}
+The radiation and mass, power and volume budget are listed in \cref{tab:req_radiation} and \cref{tab:req_mpv}.
+
+\input{tab/radiation_tab}
+\input{tab/mass_power_volume_tab}
+
+The Lidar sensor features two operation modes: the Altimetry Mode, and the Hazard Detection Mode. 
+
+\subsection{Altimetry Mode} 
+\label{ssec:altimetry_mode}
+
+Altimetry Mode is the first phase of the landing. During the Altimetry Mode, the Lidar sensor has to provide the altitude of the sensor in relationship to the surface op Europa. The requirements for the Altimetry Mode are listed in \cref{tab:req_altimetry}
+
+\input{tab/req_altimetry_mode_tab}
+
+\subsection{Hazard Detection Mode} 
+\label{ssec:hazard_detection_mode}
+
+During the Hazard Detection Mode a 3d map of the surface of Europa must be created around the landing place. The Hazard Mode is operational when the sensor is close enough to the surface of Europa. The requirements for the Hazard Detection Mode can be found in \cref{tab:req_hazard_detection}
+
+\input{tab/req_hazard_mode_tab}

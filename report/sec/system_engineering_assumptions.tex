@@ -1,0 +1,33 @@
+\subsection{Assumptions} 
+\label{ssec:assumptions}
+This section will list the assumption that are made throughout the design.\\
+\\
+\textbf{Reflectivity of surface Europa}: It is assumed that out of all light that hit's Europa, $35\%$ is reflected in a perfectly diffuse manner. The rest of the light is either reflected in a specular way that will not hit the sensor, or absorbed by the ice on the surface of Europa. This assumption is made in order to avoid the added complexity when using a more elaborate model.\\
+\\
+\textbf{Wavelength laser}: The wavelength of light emitted by the laser is assumed to be $850\,nm$. This wavelength is a typcial choice for Silicon SPAD's. \\
+\\
+\textbf{Bandpass filter}:A bandpass filter will be used o filter background noise. This filter is assumed to be a bandpass filter with a center frequency of $850\,nm$ and a FWHM of $10\,nm$.The minimum transmission of the filter is $50\%$. These values are directly taken from the "\textit{850nm, 10nm FWHM, 12.5mm Mounted Diameter}" product made by Edmund Optics and sold for $75\,\$$.\\
+\\
+\textbf{Jitter of SPAD Sensor}: The jitter of the SPAD Sensor, or Full Width Half Max (FWHM) is assumed to be $100\,ps$. This value is a typical FWHM for state of the art Silicon SPAD's. \\
+\\
+\textbf{Jitter of TDC}: The jitter of the TDC's is assumed to be insignificant when compared to the jitter of $100\,ps$ caused by the SPAD Sensors. Experience with previous designs show that TDC jitter is generally a very small contributor to overall jitter.\\
+\\
+\textbf{Accuracy of TDC}: The accuracy of the TDC is assumed to be $50\,ps$, and therefore well within the accuracy requirements. The accuracy should be $5\,cm$. Using \cref{eq:accuracy}, the desired accuracy is $333\,ps$. 
+
+\begin{align}\label{eq:accuracy}
+t = \frac{2x}{c}
+\end{align}
+where $x$ is the accuracy in distance, and $c\approx 3\cdot10^8$ the speed of light. The factor two is present because the light travels the distance twice.\\
+\\
+\textbf{Sunlight}: It is assumed that the light from the sun that is reflected of Europa is the only signifant contributor to background noise. No other sources of light will be considered. \\
+\\
+\textbf{Photon Detection Probability}: It is assumed that the PDP of the SPADs is $35\%$.\\
+\\
+\textbf{Effective area on chip}: It is assumed that $5\%$ of the SPAD Array can be used to receive photons. This assumption is based on current gen Silicon SPAD's.\\
+\todo[inline]{What should I choose here? Swisspad or LinoSPAD? (confused)}
+
+\textbf{Signal to Noise Background Ratio}: It is assumed that a Signal to Noise Background Ratio (SNBR) of 0 dB will be sufficient for the sensor. This value is based on previous research on Silicon SPADs.\\
+\\
+\textbf{Laser efficiency}: It is assumed that the laser has an efficiency of $10\%$.\\
+\\
+\textbf{Surface of SPAD}: It is assumed that the surface of a single SPAD is $20\times 20 \,\mu m^2$.

@@ -1,0 +1,31 @@
+\subsubsection{Laser}
+The laser is responsible for the photons that are used for the Time of Flight (ToF) measurement. The laser has to ensure that the Signal to Background Noise Ratio (SBNR) is at least 0 dB. The power budget of the entire system is $50\,W$, which is the main bottleneck for the performance of the laser. The wavelength of the laser is $850\,nm$. The $P_B$ is already calculated in \cref{ssec:background_noise}. In order to achieve an SNR of 0 dB, the signal power $P_S$ must therefore at least match the background noise power that hits the surface of Europa. One can calculate the signal power at the optics using \cref{eq:P_S}.
+
+\begin{align}\label{eq:P_S}
+	P_S = P_{pulse} \cdot f_{pulse} \cdot R_{\text{Europa}}
+\end{align}
+where $P_{pulse}$ is the power of a single pulse of the laser, $f_{pulse}$ the frequency at which the pulses are transmitted, $R_{\text{Europa}}$ the reflectivity of Europa, and $r$ the altitude from the sensor to the surface of Europa. The SBNR can then be calculated using \cref{eq:SBNR}.
+
+\begin{align}\label{eq:SBNR}
+	SBNR &= \frac{P_S}{P_B}
+\end{align}
+
+the power of a single pulse can be calculated by combining \cref{eq:P_S} and \cref{eq:SBNR} into \cref{eq:p_pulse}. This is done in \cref{tab:p_pulse}.
+
+\begin{align}
+	P_{pulse} &= \frac{P_B\cdot SBNR}{f_{pulse}\cdot R_{\text{Europa}}}
+\end{align}
+
+\input{tab/p_pulse_tab}
+
+The $P_{pulse}$ is the optical power that is emitted by the laser. The electrical power is $\frac{P_{pulse}}{0.1}=3.4\,W$, which is well within the power envelope of $50\,W$. The next step is to calculate the required peak power $p_{peak}$ of the laser, using \cref{eq:p_peak}
+
+\begin{align}\label{eq:p_peak}
+ 	P_{peak} &= \frac{P_{pulse}}{t_{pulse} \cdot f_{pulse}}
+ \end{align} 
+where $P_{peak}$ is the peak power and $t_{pulse}$ the FWHM of a pulse.
+
+Using a typical pulse width of $t_{pulse} = 100\,ns$ and the $f_{pulse}$ as calculated in \cref{ssec:high_low_freq} one gets the resuls shown in \cref{tab:p_peak}.
+
+\input{tab/p_peak_tab}
+

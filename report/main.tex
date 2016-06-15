@@ -1,0 +1,62 @@
+\documentclass{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{todonotes}
+\usepackage{pgfplots}
+\usepackage{epstopdf}
+\usepackage{listings}
+\usepackage{circuitikz}
+\usepackage{float}
+\usepackage{cleveref}
+\usepackage{ragged2e} % For text alignment
+
+
+\newenvironment{custom_itemize}{
+\begin{itemize}
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{itemize}}
+
+
+\usepackage[hmarginratio=1:1,top=22mm,columnsep=16pt]{geometry} % Document margins
+%\usepackage{multicol} % Used for the two-column layout of the document
+
+
+%\usepackage{bm}
+
+
+\title{NASA project}
+\author{Kees Kroep 4246373}
+
+
+\begin{document}
+%  \twocolumn[{%
+% \begin{@twocolumnfalse}
+  \maketitle
+%   \end{@twocolumnfalse}
+% }]
+
+
+\section*{Introduction}
+Insert story.
+\clearpage
+\tableofcontents
+\clearpage
+\input{sec/high_level_specifications}
+
+\clearpage
+\input{sec/system_engineering_level_design}
+
+
+
+
+%\clearpage
+%\input{sec/old_draft}
+
+
+\end{document}
+

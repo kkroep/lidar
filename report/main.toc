@@ -1,0 +1,13 @@
+\contentsline {section}{\numberline {1}High level specifications}{3}
+\contentsline {subsection}{\numberline {1.1}Altimetry Mode}{3}
+\contentsline {subsection}{\numberline {1.2}Hazard Detection Mode}{3}
+\contentsline {section}{\numberline {2}System engineering level design}{4}
+\contentsline {subsection}{\numberline {2.1}Overview}{4}
+\contentsline {subsection}{\numberline {2.2}Assumptions}{6}
+\contentsline {subsection}{\numberline {2.3}Trade-offs and Methodology}{7}
+\contentsline {subsubsection}{\numberline {2.3.1}High Frequency vs Low Frequency pulses}{7}
+\contentsline {subsubsection}{\numberline {2.3.2}Optics}{8}
+\contentsline {subsubsection}{\numberline {2.3.3}SPAD Array and Scanning Motion}{9}
+\contentsline {subsubsection}{\numberline {2.3.4}Background Noise}{11}
+\contentsline {subsubsection}{\numberline {2.3.5}Resolution}{11}
+\contentsline {subsubsection}{\numberline {2.3.6}standard deviation shortcut}{13}

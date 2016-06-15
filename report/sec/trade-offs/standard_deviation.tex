@@ -1,0 +1,63 @@
+\subsubsection{standard deviation shortcut}
+To calculate the standard deviation of the sum of multiple random variables that are independent and uncorrelated, one can use \cref{eq:variance_weighted_sum}
+
+
+\begin{align}\label{eq:variance_weighted_sum}
+\newcommand{\Var}{\mathrm{Var}}
+ 	\Var[aX+bY+cZ] = a^2\Var[X]+b^2\Var[Y]+c^2\Var[Z]
+\end{align}
+
+
+
+
+Next consider a situation where there are two random variable distributions. The first distribution is $S$, which is a normal distribution with $\mu_s=ToF$, where $ToF \in \{0, 50\mu\}$, and $\sigma_s=100p$. The second distribution is $N$, which is a uniform distribution with $\mu_n=\frac{50\mu}{2}$ and $\sigma_n=\frac{50\mu}{\sqrt{12}}$.
+
+\begin{align}
+	\mu_{mean} &= \frac{1}{110}\Big(\sum_{k=1}^{100}\mu_s+\sum_{l=1}^{10}\mu_n\Big)\\
+			   &= \frac{100ToF+10*25\mu}{110}\\
+			   &= \frac{10}{11}ToF+227.3n
+\end{align}
+
+
+\begin{align}
+	\mathrm{Var}_{mean} &= \mathrm{Var}\Big[\frac{1}{110}\Big(\sum_{k=1}^{100}S_k+\sum_{l=1}^{10}N_l\Big)\Big]\\ 
+	 &= \frac{1}{110^2}\Big(\sum_{k=1}^{100}\mathrm{Var}[S]+\sum_{l=1}^{10}\mathrm{Var}[N]\Big)\\
+	&= \frac{1}{110^2}(100\sigma_s^2+10\sigma_n^2)\\
+	&= \frac{10^{-18}+2.0833\cdot10^{-9}}{110^2}\\
+	&= 1.7218\cdot10^{-13}\\
+	\sigma_{mean} &= \sqrt{\mathrm{Var}_{mean}}\\
+				  &= 414.94n
+\end{align}
+
+
+
+% Now we grab 100 samples out of $S$ and 10 out of $N$. First, the $\sigma$ and $\mu$ of the average of the 100 samples of $S$ is calculated.
+
+% \begin{align}
+% 	\mu_{s,mean} &= \frac{1}{100}\sum_{k=1}^{100}\mu_s\\
+% 			     &= ToF
+% \end{align}
+
+% \begin{align}
+% 	\mathrm{Var}[\frac{1}{100}\sum_{k=1}^{100}S_k] &= \frac{1}{100^2}\sum_{k=1}^{100} \mathrm{Var}[S_k]\\
+% 						  &= \frac{\mathrm{Var}[S]}{100}\\
+% 	\sigma_{s,mean} &= \frac{\sigma_s}{\sqrt{100}}\\
+% 					&= 10p
+% \end{align}
+
+% Next the average of 10 samples of $N$ is calculated.
+
+% \begin{align}
+% 	\mu_{n,mean} &= \frac{1}{10}\sum_{k=1}^{10}\mu_n\\
+% 			     &= 25\mu
+% \end{align}
+
+% \begin{align}
+% 	\mathrm{Var}[\frac{1}{10}\sum_{k=1}^{10}] &= \frac{1}{10^2}\sum_{k=1}^{10} \mathrm{Var}[N_k]\\
+% 						  &= \frac{\mathrm{Var}[N]}{10}\\
+% 	\sigma_{s,mean} &= \frac{\sigma_n}{\sqrt{10}}\\
+% 					&= \frac{50\mu}{\sqrt{120}}
+% 					&\approx 4.5644\mu
+% \end{align}
+
+% Next the two resulting functions are combined
