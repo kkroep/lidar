@@ -29,6 +29,17 @@ I_lambda = 2*h*c^2/lambda^5/(e^(h*c/(lambda*k*T))-1);% [W/m^3]
 sun_irradiation_tab
 
 
+%------------------------------------
+
+Bw = 10e-9; % bandwidth [m]
+
+r_sun = 695700; % [m]
+r_europa = 8e8; % [m]
+P_B = 2; % [W]
+
+
+
+
 
 
 
