@@ -31,7 +31,7 @@ I_lambda = 2*h*c^2/lambda^5/(e^(h*c/(lambda*k*T))-1);% [W/m^3]
 
 %-----------------------------------
 resolution = 0.05; % [m]
-surface_length = 125; % [m²]
+surface_length = 100; % [m²]
 line_width = 4;
 Mode = 2; % pyut in hazard detection mode
 
@@ -71,6 +71,12 @@ P_B2 = P_B*reflectivity*diameter_lens*opacity_optics*opacity_filter/(2*max_altit
 %--------------------------
 
 e_photon = h*c/lambda;
+
+%-------------------------
+
+PDP = 0.35;
+
+
 
 
 f_pulse_tab 
