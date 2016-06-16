@@ -12,7 +12,6 @@ max_altitude = [8000 500];
 roundtrip_time = max_altitude.*2./3e8;
 f_pulse = 1./roundtrip_time;
 
-f_pulse_tab %make latex table
 
 %----------------------------------
 
@@ -26,27 +25,13 @@ I_lambda = 2*h*c^2/lambda^5/(e^(h*c/(lambda*k*T))-1);% [W/m^3]
 
 
 
-sun_irradiation_tab
-
-
-%------------------------------------
-
-Bw = 10e-9; % bandwidth [m]
-
-r_sun = 695700; % [m]
-r_europa = 8e8; % [m]
-P_B = 2; % [W]
-
-
-
-
 
 
 
 
 %-----------------------------------
 resolution = 0.05; % [m]
-surface_length = 100; % [m²]
+surface_length = 125; % [m²]
 line_width = 4;
 Mode = 2; % pyut in hazard detection mode
 
@@ -66,6 +51,31 @@ surface_area = no_spads.*resolution.^2;
 
 
 
+%------------------------------------
+
+Bw = 10e-9; % bandwidth [m]
+
+r_sun = 695700; % [m]
+r_europa = 8e8; % [m]
+P_B = I_lambda*Bw*surface_area(1)*(r_sun^2/r_europa^2); % [W]
+
+% -----------------
+
+reflectivity = 0.35; % [-]
+diameter_lens = 0.05; % [m]
+opacity_filter = 0.5; % [-]
+opacity_optics = 0.146; % [-]
+
+P_B2 = P_B*reflectivity*diameter_lens*opacity_optics*opacity_filter/(2*max_altitude(2)^2); % [W]
+
+%--------------------------
+
+e_photon = h*c/lambda;
 
 
+f_pulse_tab 
+sun_irradiation_tab
+background_power_tab
+energy_of_photon_tab
 scanning_power_tab
+effective_noise_power_tab

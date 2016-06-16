@@ -20,7 +20,7 @@ function latextable (data, name, path, caption)
 
 % 
 
-align = sprintf ("|l|%s|", repmat (cstrcat ("l"), [1, columns(data)-1]));
+align = sprintf ("|l|%s|", repmat (cstrcat ("r"), [1, columns(data)-1]));
   str = sprintf ("\\begin{table}[H]\n");
   str = strcat(str, sprintf("\\centering\n"));
   str = strcat(str, sprintf("\\caption{%s}\n", caption));
