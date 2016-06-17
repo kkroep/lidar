@@ -71,7 +71,7 @@ threshold = [1 1 1 1]; #ceil(PPS_B_BIN*2);
 for i=1:4
 	average = PPS_B_BIN(i);
 	accumulation(i)=0;
-	for events = threshold+1:(threshold(i)+1)*3
+	for events = threshold+1:(threshold(i)+1)*5
 		Poission_events = average.^events.*exp(-average)./factorial(events);
 		#chance of a number getting dropped times the amount of photons dropped
 		accumulation(i) += Poission_events*events; 
