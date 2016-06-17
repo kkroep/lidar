@@ -63,6 +63,53 @@ A{10,3} = number_converter_exp(PPS_BN_SPAD(2), '');
 A{10,4} = number_converter_exp(PPS_BN_SPAD(3), '');
 A{10,5} = number_converter_exp(PPS_BN_SPAD(4), '');
 
+A{11,1} = sprintf('$PPS_S/SPAD$');
+A{11,2} = number_converter_exp(PPS_S_SPAD(1), '');
+A{11,3} = number_converter_exp(PPS_S_SPAD(2), '');
+A{11,4} = number_converter_exp(PPS_S_SPAD(3), '');
+A{11,5} = number_converter_exp(PPS_S_SPAD(4), '');
+
+A{12,1} = sprintf('$P_{av}$');
+A{12,2} = number_converter(P_av(1), 'W');
+A{12,3} = number_converter(P_av(2), 'W');
+A{12,4} = number_converter(P_av(3), 'W');
+A{12,5} = number_converter(P_av(4), 'W');
+
+A{13,1} = sprintf('$P_{peak}$');
+A{13,2} = number_converter_exp(P_peak(1), 'W');
+A{13,3} = number_converter_exp(P_peak(2), 'W');
+A{13,4} = number_converter_exp(P_peak(3), 'W');
+A{13,5} = number_converter_exp(P_peak(4), 'W');
+
+A{14,1} = sprintf('threshold ($\\gamma$)');
+A{14,2} = number_converter_normal(threshold(1), '');
+A{14,3} = number_converter_normal(threshold(2), '');
+A{14,4} = number_converter_normal(threshold(3), '');
+A{14,5} = number_converter_normal(threshold(4), '');
+
+A{15,1} = sprintf('$PPS_{B+N}/SPAD$');
+A{15,2} = number_converter_exp(PPS_BN_SPAD_2(1), '');
+A{15,3} = number_converter_exp(PPS_BN_SPAD_2(2), '');
+A{15,4} = number_converter_exp(PPS_BN_SPAD_2(3), '');
+A{15,5} = number_converter_exp(PPS_BN_SPAD_2(4), '');
+
+A{16,1} = sprintf('$PPS_S/SPAD$');
+A{16,2} = number_converter_exp(PPS_S_SPAD_2(1), '');
+A{16,3} = number_converter_exp(PPS_S_SPAD_2(2), '');
+A{16,4} = number_converter_exp(PPS_S_SPAD_2(3), '');
+A{16,5} = number_converter_exp(PPS_S_SPAD_2(4), '');
+
+A{17,1} = sprintf('$P_{av}$');
+A{17,2} = number_converter(P_av_2(1), 'W');
+A{17,3} = number_converter(P_av_2(2), 'W');
+A{17,4} = number_converter(P_av_2(3), 'W');
+A{17,5} = number_converter(P_av_2(4), 'W');
+
+A{18,1} = sprintf('$P_{peak}$');
+A{18,2} = number_converter_exp(P_peak_2(1), 'W');
+A{18,3} = number_converter_exp(P_peak_2(2), 'W');
+A{18,4} = number_converter_exp(P_peak_2(3), 'W');
+A{18,5} = number_converter_exp(P_peak_2(4), 'W');
 
 caption = sprintf('Pulse frequency for both modes of operation');
 latextable(A, name, tab_path, caption);

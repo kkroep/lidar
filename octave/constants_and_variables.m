@@ -25,4 +25,8 @@ opacity_filter = 0.5; % [-]
 opacity_optics = 0.146; % [-]
 
 PDP = 0.35; % [-]
-DCR_SPAD = 2000; % [Hz]
+DCR_SPAD = 200; % [Hz]
+
+FWHM = 333e-12; % [m]
+pulse_FWHM = 100e-12;
+
