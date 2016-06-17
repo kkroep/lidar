@@ -29,7 +29,7 @@ surface_area = no_spads.*resolution.^2;
 %------------------------------------
 
 P_B = I_lambda*Bw*surface_area(1)*(r_sun^2/r_europa^2); % [W]
-P_B = P_B;
+
 % -----------------
 
 
@@ -65,19 +65,20 @@ P_peak = P_av./pulse_s./pulse_FWHM;
 %---------------------
 
 
-PPS_B_BIN = (PPS_BN_SPAD./window.*100e-12);
-threshold = ceil(PPS_B_BIN*2);
+PPS_B_BIN = (PPS_BN_SPAD./window.*bin_width);
+threshold = [1 1 1 1]; #ceil(PPS_B_BIN*2);
 
 for i=1:4
 	average = PPS_B_BIN(i);
 	accumulation(i)=0;
-	for events = threshold(i)+1:(threshold(i)+1)*3
+	for events = threshold+1:(threshold(i)+1)*3
 		Poission_events = average.^events.*exp(-average)./factorial(events);
-		accumulation(i) += Poission_events;
+		#chance of a number getting dropped times the amount of photons dropped
+		accumulation(i) += Poission_events*events; 
 	end
 end
 
-PPS_BN_SPAD_2 = PPS_BN_SPAD.*accumulation;
+PPS_BN_SPAD_2 = accumulation.*window./bin_width;
 n = PPS_BN_SPAD_2;
 PPS_S_SPAD_2 = n.*(sigma_n.^2-C)./(C-sigma_s^2);
 P_av_2 = PPS_S_SPAD_2/PPS_B*P_B.*no_spads;
