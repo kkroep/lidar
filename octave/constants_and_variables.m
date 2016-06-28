@@ -1,6 +1,6 @@
 %constants
 h = 6.63e-34; % ['Js]']
-c = 3e8; % [m/s]ct line_width
+c = 3e8; % [m/s]
 k = 1.38e-23; % [j/K]
 T = 5780; % [K]
 r_sun = 695700e3; % [m]
@@ -31,3 +31,4 @@ FWHM = 333e-12; % [m]
 pulse_FWHM = 100e-12; % [s]
 
 bin_width = 100e-12; % [s]
+
