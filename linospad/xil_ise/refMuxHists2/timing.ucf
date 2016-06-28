@@ -1,0 +1,42 @@
+#other timing ignores and ff group definitions are in .xcf
+
+NET "clkctrl/clock_freq_estimator_inst/ext_clk" TNM_NET = "clkin";
+TIMESPEC "TS_clkin" = PERIOD "clkin" 133.4 MHz HIGH 50 %;
+
+#reset signals (TODO: synchronous resets)
+NET "*_reset_gen/s_int_reset_reg" TIG;
+NET "*_reset_gen/s_ext_reset_reg" TIG;
+
+#delay line inputs
+NET "tdcs/tdc_array[*].tdc/trigger" TIG;
+
+#intensity counter inputs
+NET "intensity_counters/pixel_inputs*" TIG;
+NET "aux_intensity_counters/aux_pixels*" TIG;
+
+#clock switch, trigger sync and divider
+NET "clkctrl/s_clk_ctrl_select_reg" TIG;
+NET "clkctrl/s_pll_reset" TIG;
+NET "TRIGGER_IN" TIG;
+#main to ref/mod
+NET "clkctrl/div_enable" TIG;
+NET "clkctrl/div_count*" TIG;
+NET "clkctrl/mod_trigger_sel_reg" TIG;
+#ref to main
+NET "clkctrl/pll_clkout0" TNM_NET = FFS: "CLKREFFFS";
+NET "s_main_clk_100MHz" TNM_NET = FFS: "CLKMAINFFS";
+TIMESPEC TS_TRIGIGNORE = FROM "CLKREFFFS" TO "CLKMAINFFS" TIG;
+
+#fifo core constraints
+NET "*/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc*" TIG;
+NET "*/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc*" TIG;
+NET "*/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/gsync_stage*" TIG;
+
+#multi-cycle synchronization
+
+#clock crossing in rate reduction module
+TIMESPEC TS_TDCsync_to_MOD = FROM "CLKTDCSYNCFFS" TO "CLKMODFFS" TS_clkctrl_pll_clkout2 / 3;
+
+#clock enable delay register in reduction module
+TIMESPEC TS_CLKMUL = FROM "CLKMODFFS" TO "MOD2SRLADDR" TS_clkctrl_pll_clkout2 /3;
+
