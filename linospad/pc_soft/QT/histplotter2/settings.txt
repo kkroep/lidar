@@ -30,7 +30,7 @@ Length=5000000
 [MainWindow]
 Pos=@Point(706 24)
 Size=@Size(1214 1028)
-Tab=2
+Tab=4
 
 [Preview]
 AutoRepeat=true
