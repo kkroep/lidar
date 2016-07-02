@@ -1274,12 +1274,12 @@ void MainWindow::on_usbResetButton_clicked()
 
 void MainWindow::on_savePreviewButton_clicked()
 {
-    // cerr << "No file entered 1277." << endl;
+    cerr << "debug 1277." << endl;
     QString histfilename = QFileDialog::getSaveFileName(this,"Choose save file name line 1277","results/");
-//    cerr << "No file entered 1279." << endl;
-    // if(histfilename.isNull()) return;
-    new_file_location = "~/garbage.txt"
-    ofstream hist(new_file_location);
+    cerr << "debug 1279." << endl;
+     if(histfilename.isNull()) return;
+    Qstring new_file_location = "~\garbage.txt ";
+    ofstream hist(histfilename.toStdString().c_str());
 
     uint32_t len = histogramLength*2;
     if(ui->histField->maximum()==63)
