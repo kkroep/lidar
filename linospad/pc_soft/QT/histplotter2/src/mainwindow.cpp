@@ -1223,7 +1223,7 @@ void MainWindow::fx3GetIntensity()
     fx3.sendWord(5,0x10000000);
     //high count
     if( 256 != fx3.receive(256, totalCounts.data()) ) {
-        cerr << "Error reading intensities 1." << endl;
+        cerr << "Error reading intensities 1. mainwindow.cpp line 1226" << endl;
         return;
     }
     //edge count

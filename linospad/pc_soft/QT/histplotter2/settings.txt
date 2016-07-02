@@ -25,12 +25,12 @@ RefSignal=0
 Binary=false
 Cycles=1
 Delay=0
-Length=5000000
+Length=100000
 
 [MainWindow]
 Pos=@Point(706 24)
 Size=@Size(1214 1028)
-Tab=4
+Tab=0
 
 [Preview]
 AutoRepeat=true
