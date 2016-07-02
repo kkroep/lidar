@@ -1279,14 +1279,21 @@ void MainWindow::on_usbResetButton_clicked()
 
 void MainWindow::on_savePreviewButton_clicked()
 {
-    cerr << "debug 1282 tester. folder: " << folder_number << "   file: " << file_number << endl;
+    // cerr << "debug 1282 tester. folder: " << folder_number << "   file: " << file_number << endl;
     //QString histfilename = QFileDialog::getSaveFileName(this,"Choose save file name line 1277","results/");
 
-    QString new_file_location = "../../../results/garbage_";
+    QString new_file_location = "../../../results/hour_";
+    new_file_location.append(QString::number(folder_number));
+    new_file_location.append("/minute");
     new_file_location.append(QString::number(file_number));
     new_file_location.append(".txt");
     file_number++;
-    cerr << "debug 1289   " << new_file_location.toStdString() << endl;
+    if(file_number==60){
+        file_number = 1;
+        folder_number++;
+    }
+
+    cerr << "debug 1289   exporting to " << new_file_location.toStdString() << endl;
     
     //if(histfilename.isNull()) return;
     //ofstream hist(histfilename.toStdString().c_str());
