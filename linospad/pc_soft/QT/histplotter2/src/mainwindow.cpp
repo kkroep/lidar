@@ -1282,7 +1282,8 @@ void MainWindow::on_savePreviewButton_clicked()
     cerr << "debug 1279 tester." << endl;
 
     QString new_file_location = "../../../results/garbage.txt";
-    cerr << "debug 1282" << new_file_location.toStdString() << endl;
+    new_file_location.append(QString::number(file_number));
+    cerr << "debug 1282   " << new_file_location.toStdString() << endl;
     
     //if(histfilename.isNull()) return;
     //ofstream hist(histfilename.toStdString().c_str());
