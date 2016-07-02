@@ -311,7 +311,7 @@ int64_t FX3Stream::receive(int64_t maxBytes, unsigned char *data, unsigned timeo
 }
 
 int64_t FX3Stream::send(int64_t words, uint32_t *data, unsigned timeout) {
-    if( error ) { cerr << "Blocked" << endl; return 0; }
+    if( error ) { cerr << "Blocked testtoevoeging 314" << endl; return 0; }
     totalBytes = words*4;
     extBuf = (unsigned char*)data;
     transferredBytes = 0;
@@ -368,7 +368,7 @@ int64_t FX3Stream::send(int64_t bytes, unsigned char *data, unsigned timeout) {
 }
 
 void FX3Stream::sendWord(uint8_t adr, uint32_t data, unsigned timeout) {
-    if( error ) { cerr << "Blocked" << endl; return; }
+    if( error ) { cerr << "Blocked  testtoevoeging 371" << endl; return; }
     uint32_t msg[2] = { FX3_FPGA_HEADER(adr,1), data };
     send( 2, msg, timeout );
 }
