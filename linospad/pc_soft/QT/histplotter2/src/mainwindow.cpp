@@ -1275,7 +1275,8 @@ void MainWindow::on_usbResetButton_clicked()
 void MainWindow::on_savePreviewButton_clicked()
 {
     QString histfilename = QFileDialog::getSaveFileName(this,"Choose save file name line 1277","results/");
-    if(histfilename.isNull()) return;
+    if(histfilename.isNull()) cerr << "No file entered 1278." << endl; return;
+
     ofstream hist(histfilename.toStdString().c_str());
 
     uint32_t len = histogramLength*2;
