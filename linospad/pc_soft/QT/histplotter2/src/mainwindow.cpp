@@ -1279,7 +1279,8 @@ void MainWindow::on_savePreviewButton_clicked()
     cerr << "No file entered 1279." << endl;
      if(histfilename.isNull()) return;
     QString new_file_location = "~\garbage.txt ";
-    ofstream hist(histfilename.toStdString().c_str());
+    // ofstream hist(histfilename.toStdString().c_str());
+    ofstream hist(new_file_location);
 
     uint32_t len = histogramLength*2;
     if(ui->histField->maximum()==63)
