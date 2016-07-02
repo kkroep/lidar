@@ -1279,7 +1279,7 @@ void MainWindow::on_savePreviewButton_clicked()
     cerr << "debug 1279 tester." << endl;
 
     QString new_file_location = "garbage.txt";
-    cerr << "debug 1282 tester." << endl;
+    cerr << "debug 1282" << new_file_location.toStdString() << endl;
     //cerr << "Debug 1283 " << new_file_location << endl;
 
     if(histfilename.isNull()) return;
