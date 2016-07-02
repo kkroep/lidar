@@ -20,12 +20,14 @@
 
 using namespace std;
 
+extern uint32_t file_number = 1;
+
 // ///////////////////////////////////////
 // Initialisation
 // ///////////////////////////////////////
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    extern uint32_t file_number = 1;
+    
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
