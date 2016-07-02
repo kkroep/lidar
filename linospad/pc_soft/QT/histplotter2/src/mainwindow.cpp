@@ -1061,6 +1061,8 @@ void MainWindow::on_intRunButton_clicked()
 
 void MainWindow::on_intSaveButton_clicked()
 {
+    cerr << "Debugjetser 1" << endl;
+    qDebug() << "Debugjetser 2";
     QString statsfilename = QFileDialog::getSaveFileName(this,"Choose save file name","results/");
     if(statsfilename.isNull()) return;
     if(ui->checkIntBinary->isChecked()) {
