@@ -25,6 +25,7 @@ using namespace std;
 // ///////////////////////////////////////
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
+    extern uint32_t file_number = 1;
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
@@ -1274,7 +1275,7 @@ void MainWindow::on_usbResetButton_clicked()
 
 void MainWindow::on_savePreviewButton_clicked()
 {
-    cerr << "debug 1277 tester." << endl;
+    cerr << "debug 1277 tester. file number: " << file_number << endl;
     //QString histfilename = QFileDialog::getSaveFileName(this,"Choose save file name line 1277","results/");
     cerr << "debug 1279 tester." << endl;
 
