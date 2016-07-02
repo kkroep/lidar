@@ -1280,11 +1280,10 @@ void MainWindow::on_savePreviewButton_clicked()
 
     QString new_file_location = "garbage.txt";
     cerr << "debug 1282" << new_file_location.toStdString() << endl;
-    //cerr << "Debug 1283 " << new_file_location << endl;
-
-    if(histfilename.isNull()) return;
-    ofstream hist(histfilename.toStdString().c_str());
-    //ofstream hist(new_file_location);
+    
+    //if(histfilename.isNull()) return;
+    //ofstream hist(histfilename.toStdString().c_str());
+    ofstream hist(new_file_location.toStdString().c_str());
 
     
     uint32_t len = histogramLength*2;
