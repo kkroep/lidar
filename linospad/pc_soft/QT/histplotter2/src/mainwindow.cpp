@@ -1286,9 +1286,10 @@ void MainWindow::on_savePreviewButton_clicked()
     new_file_location.append(QString::number(folder_number));
     if(QDir(new_file_location).exists())
         cerr << "debug 1288" << endl;
-    else
+    else{
+        QDir().mkdir(new_file_location);
         cerr << "debug 1290" << endl;
-    
+    }
     new_file_location.append("/m_");
     new_file_location.append(QString::number(file_number));
     new_file_location.append(".txt");
