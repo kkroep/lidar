@@ -1283,6 +1283,7 @@ void MainWindow::on_savePreviewButton_clicked()
 
     QString new_file_location = "../../../results/garbage.txt";
     new_file_location.append(QString::number(file_number));
+    file_number++;
     cerr << "debug 1282   " << new_file_location.toStdString() << endl;
     
     //if(histfilename.isNull()) return;
