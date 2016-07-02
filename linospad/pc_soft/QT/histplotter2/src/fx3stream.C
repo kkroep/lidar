@@ -226,7 +226,7 @@ void FX3Stream::clearInternalBuffer() {
 }
 
 int64_t FX3Stream::receive(int64_t maxWords, uint32_t *data, unsigned timeout, bool shortOK) {
-    if( error ) { cerr << "Blocked" << endl; return 0; }
+    if( error ) { cerr << "Blocked testtoevoeging 229" << endl; return 0; }
     totalBytes = maxWords*4;
     extBuf = (unsigned char*)data;
     transferredBytes = 0;
