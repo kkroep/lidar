@@ -1278,8 +1278,8 @@ void MainWindow::on_savePreviewButton_clicked()
     QString histfilename = QFileDialog::getSaveFileName(this,"Choose save file name line 1277","results/");
     if(histfilename.isNull()) return;
     QString new_file_location = "garbage.txt ";
-    // ofstream hist(histfilename.toStdString().c_str());
-    ofstream hist(new_file_location);
+    ofstream hist(histfilename.toStdString().c_str());
+    //ofstream hist(new_file_location);
 
     cerr << "Debug 1279 " << new_file_location << endl;
 
