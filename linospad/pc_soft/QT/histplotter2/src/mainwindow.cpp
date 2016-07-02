@@ -890,7 +890,7 @@ void MainWindow::on_procResetButton_clicked()
 
 void MainWindow::on_procSaveButton_clicked()
 {
-    QString statsfilename = QFileDialog::getSaveFileName(this,"Choose save file name","results/");
+    QString statsfilename = QFileDialog::getSaveFileName(this,"Choose save file name line 893","results/");
     if(statsfilename.isNull()) return;
     ofstream stats(statsfilename.toStdString().c_str());
     proc.save( stats );
@@ -1001,7 +1001,7 @@ void MainWindow::on_acqRunButton_clicked()
 
 void MainWindow::on_acqSaveButton_clicked()
 {
-    QString statsfilename = QFileDialog::getSaveFileName(this,"Choose save file name","results/");
+    QString statsfilename = QFileDialog::getSaveFileName(this,"Choose save file name line 1004","results/");
     if(statsfilename.isNull()) return;
     if(ui->checkBinary->isChecked()) {
         ofstream stats(statsfilename.toStdString().c_str(), ios::binary);
@@ -1061,7 +1061,7 @@ void MainWindow::on_intRunButton_clicked()
 
 void MainWindow::on_intSaveButton_clicked()
 {
-    QString statsfilename = QFileDialog::getSaveFileName(this,"Choose save file name","results/");
+    QString statsfilename = QFileDialog::getSaveFileName(this,"Choose save file name 1064","results/");
     if(statsfilename.isNull()) return;
     if(ui->checkIntBinary->isChecked()) {
         ofstream stats(statsfilename.toStdString().c_str(), ios::binary);
@@ -1274,7 +1274,7 @@ void MainWindow::on_usbResetButton_clicked()
 
 void MainWindow::on_savePreviewButton_clicked()
 {
-    QString histfilename = QFileDialog::getSaveFileName(this,"Choose save file name","results/");
+    QString histfilename = QFileDialog::getSaveFileName(this,"Choose save file name line 1277","results/");
     if(histfilename.isNull()) return;
     ofstream hist(histfilename.toStdString().c_str());
 
@@ -1469,7 +1469,7 @@ void MainWindow::rotSave( ostream& shift )
 
 void MainWindow::on_rotSaveButton_clicked()
 {
-    QString shiftfilename = QFileDialog::getSaveFileName(this,"Choose save file name","results/");
+    QString shiftfilename = QFileDialog::getSaveFileName(this,"Choose save file name line 1472","results/");
     if(shiftfilename.isNull()) return;
     ofstream shift(shiftfilename.toStdString().c_str());
     rotSave(shift);
