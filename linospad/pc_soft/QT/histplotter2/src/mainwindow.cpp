@@ -1287,7 +1287,7 @@ void MainWindow::on_savePreviewButton_clicked()
     QString new_file_location = "../../../results/h_";
     new_file_location.append(QString::number(folder_number));
     if(QDir(new_file_location).exists())
-        cerr << "debug 1288" << endl;
+        cerr << "debug 1288    folder_number: " << folder_number << endl;
     else{
         QDir().mkdir(new_file_location);
         cerr << "debug 1290" << endl;
