@@ -1346,6 +1346,7 @@ void MainWindow::on_savePreviewButton_clicked()
     tmp_time.replace(" ","_");
     tmp_time.replace(":","-");
     base_folder.append(tmp_time);
+    QDir().mkdir(base_folder);
     
 
     timer_kees = new QTimer();
