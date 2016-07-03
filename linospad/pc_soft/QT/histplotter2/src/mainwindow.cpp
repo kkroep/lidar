@@ -1269,8 +1269,6 @@ void MainWindow::fx3GetIntensity()
 
 void MainWindow::on_usbResetButton_clicked()
 {
-    cerr << "Debugjetser 1" << endl;
-    qDebug() << "Debugjetser 2";
     fx3Reset();
     if(fx3) {
         applySettings();
@@ -1281,6 +1279,10 @@ void MainWindow::on_savePreviewButton_clicked()
 {
     // cerr << "debug 1282 tester. folder: " << folder_number << "   file: " << file_number << endl;
     //QString histfilename = QFileDialog::getSaveFileName(this,"Choose save file name line 1277","results/");
+    QTimer *timer = new QTimer(this);
+    // connect(timer, SIGNAL(timeout()), this, SLOT(update()));
+    connect(timer, SIGNAL(timeout()), this, SLOT(folder_number++;));
+    timer->start(1000);
 
     QString new_file_location = "../../../results/h_";
     new_file_location.append(QString::number(folder_number));
