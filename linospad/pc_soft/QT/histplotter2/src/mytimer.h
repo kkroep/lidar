@@ -14,3 +14,5 @@ public:
 public slots:
 	void MySlot();
 };
+
+#endif // MYTIMER_H
