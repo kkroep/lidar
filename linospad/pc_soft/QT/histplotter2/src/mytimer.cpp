@@ -2,7 +2,7 @@
 #include <QTCore>
 #include <QDebug>
 
-mytimer::mytimer()
+myTimer::myTimer()
 {
 	timer = new QTimer(this);
 	connect(timer, SIGNAL(timeout()), this, SLOT(MySlot()));
