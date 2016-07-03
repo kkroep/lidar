@@ -1278,7 +1278,7 @@ void MainWindow::on_usbResetButton_clicked()
 
 void MainWindow::onTimeout()
 {
-    cerr << "debug 1281    timer: "<< endl;
+    cerr << "debug 1281    onTimeout: "<< endl;
 }
 
 
@@ -1297,25 +1297,25 @@ void MainWindow::on_savePreviewButton_clicked()
     timer_kees = new QTimer();
     QObject::connect(timer_kees, SIGNAL(timeout()), this, SLOT(onTimeout()));
 
-    int msec = 200;
+    int msec = 1000;
     timer_kees->setInterval(msec);
     timer_kees->start();
 
-    QString new_file_location = "../../../results/h_";
-    new_file_location.append(QString::number(folder_number));
-    if(QDir(new_file_location).exists())
-        cerr << "debug 1288    folder_number: " << folder_number << endl;
-    else{
-        QDir().mkdir(new_file_location);
-        cerr << "debug 1290" << endl;
-    }
-    new_file_location.append("/m_");
-    new_file_location.append(QString::number(file_number));
-    new_file_location.append(".txt");
-    file_number++;
-    if(file_number>60){
-        file_number = 1;
-        folder_number++;
+    // QString new_file_location = "../../../results/h_";
+    // new_file_location.append(QString::number(folder_number));
+    // if(QDir(new_file_location).exists())
+    //     cerr << "debug 1288    folder_number: " << folder_number << endl;
+    // else{
+    //     QDir().mkdir(new_file_location);
+    //     cerr << "debug 1290" << endl;
+    // }
+    // new_file_location.append("/m_");
+    // new_file_location.append(QString::number(file_number));
+    // new_file_location.append(".txt");
+    // file_number++;
+    // if(file_number>60){
+    //     file_number = 1;
+    //     folder_number++;
     }
 
     cerr << "debug 1289   exporting to " << new_file_location.toStdString() << endl;
