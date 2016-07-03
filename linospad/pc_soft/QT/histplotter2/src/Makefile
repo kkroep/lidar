@@ -408,7 +408,8 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		qcustomplot.h \
 		processing.h \
 		ui_mainwindow.h \
-		intensitybar.h
+		intensitybar.h \
+		mytimer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
 
 qcustomplot.o: qcustomplot.cpp qcustomplot.h
