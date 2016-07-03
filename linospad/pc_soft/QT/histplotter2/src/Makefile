@@ -49,6 +49,7 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = main.cpp \
+		mytimer.cpp \
 		mainwindow.cpp \
 		qcustomplot.cpp \
 		intensitybar.cpp \
@@ -58,6 +59,7 @@ SOURCES       = main.cpp \
 		moc_qcustomplot.cpp \
 		moc_intensitybar.cpp
 OBJECTS       = main.o \
+		mytimer.o \
 		mainwindow.o \
 		qcustomplot.o \
 		intensitybar.o \
@@ -130,6 +132,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		intensitybar.h \
 		fx3stream.h \
 		processing.h main.cpp \
+		mytimer.cpp \
 		mainwindow.cpp \
 		qcustomplot.cpp \
 		intensitybar.cpp \
@@ -313,7 +316,7 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents resource.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents mainwindow.h qcustomplot.h intensitybar.h fx3stream.h processing.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp mainwindow.cpp qcustomplot.cpp intensitybar.cpp fx3stream.C processing.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp mytimer.cpp mainwindow.cpp qcustomplot.cpp intensitybar.cpp fx3stream.C processing.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents mainwindow.ui $(DISTDIR)/
 
 
@@ -402,6 +405,9 @@ main.o: main.cpp mainwindow.h \
 		qcustomplot.h \
 		processing.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
+
+mytimer.o: mytimer.cpp mytimer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mytimer.o mytimer.cpp
 
 mainwindow.o: mainwindow.cpp mainwindow.h \
 		fx3stream.h \
