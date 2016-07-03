@@ -1352,7 +1352,7 @@ void MainWindow::on_savePreviewButton_clicked()
     timer_kees = new QTimer();
     QObject::connect(timer_kees, SIGNAL(timeout()), this, SLOT(onTimeout()));
 
-    int msec = 1000;
+    int msec = 60000;
     timer_kees->setInterval(msec);
     timer_kees->start();
 }
