@@ -1,5 +1,5 @@
 #include "mytimer.h"
-#include <QTCore>
+#include <QtCore>
 #include <QDebug>
 
 myTimer::myTimer()
