@@ -412,7 +412,13 @@ main.o: main.cpp mainwindow.h \
 		processing.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
-mytimer.o: mytimer.cpp mytimer.h
+mytimer.o: mytimer.cpp mainwindow.h \
+		fx3stream.h \
+		qcustomplot.h \
+		processing.h \
+		ui_mainwindow.h \
+		intensitybar.h \
+		mytimer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mytimer.o mytimer.cpp
 
 mainwindow.o: mainwindow.cpp mainwindow.h \
