@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "qcustomplot.h"
+#include "mytimer.h" // kees added this
 #include <QDebug>
 #include <QDesktopWidget>
 #include <QScreen>
@@ -1279,10 +1280,9 @@ void MainWindow::on_savePreviewButton_clicked()
 {
     // cerr << "debug 1282 tester. folder: " << folder_number << "   file: " << file_number << endl;
     //QString histfilename = QFileDialog::getSaveFileName(this,"Choose save file name line 1277","results/");
-    QTimer *timer = new QTimer(this);
-    // connect(timer, SIGNAL(timeout()), this, SLOT(update()));
-    connect(timer, SIGNAL(timeout()), this, SLOT(folder_number++;));
-    timer->start(1000);
+
+    MyTimer mTimer;
+
 
     QString new_file_location = "../../../results/h_";
     new_file_location.append(QString::number(folder_number));
