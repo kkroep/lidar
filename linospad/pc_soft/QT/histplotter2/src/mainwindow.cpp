@@ -24,6 +24,7 @@ using namespace std;
 
 extern uint32_t file_number = 1;
 extern uint32_t folder_number = 1;
+extern QString base_folder = "../../../results";
 
 
 // ///////////////////////////////////////
@@ -1280,8 +1281,11 @@ void MainWindow::on_usbResetButton_clicked()
 void MainWindow::onTimeout()
 {
     
-    QString new_file_location = "../../../results/h_";
+    // QString new_file_location = "../../../results/h_";
+    QString new_file_location = base_folder;
+    new_file_location.append("/h_");
     new_file_location.append(QString::number(folder_number));
+
     if(QDir(new_file_location).exists()){}
         // cerr << "debug 1288    folder_number: " << folder_number << endl;
     else{
@@ -1333,7 +1337,7 @@ void MainWindow::onTimeout()
 void MainWindow::on_savePreviewButton_clicked()
 {
     QDateTime local(QDateTime::currentDateTime());    
-    cerr << "debug 1336    time: "<< local.toString().toStdString() <<endl;
+    cerr << "debug 1336    time: "<< local.time().toString().toStdString() <<endl;
 
     timer_kees = new QTimer();
     QObject::connect(timer_kees, SIGNAL(timeout()), this, SLOT(onTimeout()));
