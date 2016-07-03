@@ -1286,7 +1286,7 @@ void MainWindow::onTimeout()
         // cerr << "debug 1288    folder_number: " << folder_number << endl;
     else{
         QDir().mkdir(new_file_location);
-        cerr << "debug 1290 onto hour " << folder_number << endl;
+        cerr << "l:1289 onto hour " << folder_number << endl;
     }
     new_file_location.append("/m_");
     new_file_location.append(QString::number(file_number));
@@ -1297,7 +1297,7 @@ void MainWindow::onTimeout()
         folder_number++;
     }
 
-    cerr << "debug 1300   exporting to " << new_file_location.toStdString() << endl;
+    cerr << "l:1300   exporting to " << new_file_location.toStdString() << endl;
     
     //if(histfilename.isNull()) return;
     //ofstream hist(histfilename.toStdString().c_str());
@@ -1336,7 +1336,7 @@ void MainWindow::on_savePreviewButton_clicked()
     timer_kees = new QTimer();
     QObject::connect(timer_kees, SIGNAL(timeout()), this, SLOT(onTimeout()));
 
-    int msec = 200;
+    int msec = 60*1000;
     timer_kees->setInterval(msec);
     timer_kees->start();
 }
