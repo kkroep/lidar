@@ -139,8 +139,8 @@ private:
 
     void procLoad(istream&);
 
-//private slots:
-//       void onTimeout();
+private slots:
+       void onTimeout();
 };
 
 #endif // MAINWINDOW_H
