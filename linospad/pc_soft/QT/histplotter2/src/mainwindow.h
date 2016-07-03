@@ -22,6 +22,8 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
+    QTimer *timer; // Added by Kees
+
 
 public:
     explicit MainWindow(QWidget *parent = 0);
@@ -135,6 +137,9 @@ private:
     void rotLoad(istream&);
 
     void procLoad(istream&);
+
+private slots:
+        void onTimeout();
 };
 
 #endif // MAINWINDOW_H
