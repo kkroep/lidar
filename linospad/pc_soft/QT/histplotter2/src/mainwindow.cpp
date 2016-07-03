@@ -1278,8 +1278,8 @@ void MainWindow::on_usbResetButton_clicked()
 
 void MainWindow::onTimeout()
 {
-    QDateTime local(QDateTime::currentDateTime());    
-    cerr << "debug 1281    onTimeout: "<< local <<endl;
+    // QDateTime local(QDateTime::currentDateTime());    
+    // cerr << "debug 1281    onTimeout: "<< local <<endl;
 
     QString new_file_location = "../../../results/h_";
     new_file_location.append(QString::number(folder_number));
