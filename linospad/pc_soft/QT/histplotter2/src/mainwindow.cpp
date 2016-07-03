@@ -1279,9 +1279,7 @@ void MainWindow::on_usbResetButton_clicked()
 
 void MainWindow::onTimeout()
 {
-    QDateTime local(QDateTime::currentDateTime());    
-    // cerr << "debug 1281    onTimeout: "<< local <<endl;
-
+    
     QString new_file_location = "../../../results/h_";
     new_file_location.append(QString::number(folder_number));
     if(QDir(new_file_location).exists()){}
@@ -1334,6 +1332,8 @@ void MainWindow::onTimeout()
 
 void MainWindow::on_savePreviewButton_clicked()
 {
+    QDateTime local(QDateTime::currentDateTime());    
+    cerr << "debug 1336    time: "<< local <<endl;
 
     timer_kees = new QTimer();
     QObject::connect(timer_kees, SIGNAL(timeout()), this, SLOT(onTimeout()));
