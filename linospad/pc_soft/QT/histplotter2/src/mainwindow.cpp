@@ -18,6 +18,7 @@
 #include <ctime>
 #include <complex>
 #include <algorithm>
+#include <QDateTime> // Kees added this
 
 using namespace std;
 
@@ -1278,7 +1279,7 @@ void MainWindow::on_usbResetButton_clicked()
 
 void MainWindow::onTimeout()
 {
-    // QDateTime local(QDateTime::currentDateTime());    
+    QDateTime local(QDateTime::currentDateTime());    
     // cerr << "debug 1281    onTimeout: "<< local <<endl;
 
     QString new_file_location = "../../../results/h_";
