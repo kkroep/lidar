@@ -1286,7 +1286,7 @@ void MainWindow::on_savePreviewButton_clicked()
 {
     // cerr << "debug 1282 tester. folder: " << folder_number << "   file: " << file_number << endl;
     //QString histfilename = QFileDialog::getSaveFileName(this,"Choose save file name line 1277","results/");
-    QTimer *timer;
+
     timer = new QTimer();
     QObject::connect(timer, SIGNAL(timeout()), this, SLOT(onTimeout()));
  
