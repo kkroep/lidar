@@ -26,6 +26,7 @@ SOURCES +=  main.cpp\
     processing.cpp
 
 HEADERS  += mainwindow.h \
+			mytimer.h \ # Kees added this
             qcustomplot.h \
             intensitybar.h \
     fx3stream.h \
