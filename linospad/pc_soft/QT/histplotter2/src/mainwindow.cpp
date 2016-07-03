@@ -1339,6 +1339,11 @@ void MainWindow::on_savePreviewButton_clicked()
     QDateTime local(QDateTime::currentDateTime());    
     cerr << "debug 1336    time: "<< local.time().toString().toStdString() <<endl;
 
+    // make a unique folder for a test based on the time
+    base_folder.append("/");
+    base_folder.append(local.time().toString().toStdString());
+    
+
     timer_kees = new QTimer();
     QObject::connect(timer_kees, SIGNAL(timeout()), this, SLOT(onTimeout()));
 
