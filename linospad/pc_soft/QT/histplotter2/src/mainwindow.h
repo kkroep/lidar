@@ -22,7 +22,6 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-    QTimer *timer_kees; // Added by Kees
 
 
 public:
@@ -104,6 +103,8 @@ private:
     QLabel *statusLabel, *processingLabel;
     QTimer *timer;
     QTimer *statusTimer;
+
+    QTimer *timer_kees; // Added by Kees
 
     vector<uint16_t> histogramShifts;
 
