@@ -56,6 +56,7 @@ SOURCES       = main.cpp \
 		fx3stream.C \
 		processing.cpp qrc_resource.cpp \
 		moc_mainwindow.cpp \
+		moc_mytimer.cpp \
 		moc_qcustomplot.cpp \
 		moc_intensitybar.cpp
 OBJECTS       = main.o \
@@ -67,6 +68,7 @@ OBJECTS       = main.o \
 		processing.o \
 		qrc_resource.o \
 		moc_mainwindow.o \
+		moc_mytimer.o \
 		moc_qcustomplot.o \
 		moc_intensitybar.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -128,6 +130,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
 		LinoSPAD.pro mainwindow.h \
+		mytimer.h \
 		qcustomplot.h \
 		intensitybar.h \
 		fx3stream.h \
@@ -315,7 +318,7 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents resource.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.h qcustomplot.h intensitybar.h fx3stream.h processing.h $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.h mytimer.h qcustomplot.h intensitybar.h fx3stream.h processing.h $(DISTDIR)/
 	$(COPY_FILE) --parents main.cpp mytimer.cpp mainwindow.cpp qcustomplot.cpp intensitybar.cpp fx3stream.C processing.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents mainwindow.ui $(DISTDIR)/
 
@@ -364,14 +367,17 @@ qrc_resource.cpp: resource.qrc \
 		Hist.svg
 	/usr/lib/x86_64-linux-gnu/qt5/bin/rcc -name resource resource.qrc -o qrc_resource.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_qcustomplot.cpp moc_intensitybar.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_mytimer.cpp moc_qcustomplot.cpp moc_intensitybar.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_qcustomplot.cpp moc_intensitybar.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_mytimer.cpp moc_qcustomplot.cpp moc_intensitybar.cpp
 moc_mainwindow.cpp: fx3stream.h \
 		qcustomplot.h \
 		processing.h \
 		mainwindow.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/kees/git/lidar/linospad/pc_soft/QT/histplotter2/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtSvg -I/usr/include/x86_64-linux-gnu/qt5/QtPrintSupport -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include mainwindow.h -o moc_mainwindow.cpp
+
+moc_mytimer.cpp: mytimer.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/kees/git/lidar/linospad/pc_soft/QT/histplotter2/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtSvg -I/usr/include/x86_64-linux-gnu/qt5/QtPrintSupport -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include mytimer.h -o moc_mytimer.cpp
 
 moc_qcustomplot.cpp: qcustomplot.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/kees/git/lidar/linospad/pc_soft/QT/histplotter2/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtSvg -I/usr/include/x86_64-linux-gnu/qt5/QtPrintSupport -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include qcustomplot.h -o moc_qcustomplot.cpp
@@ -436,6 +442,9 @@ qrc_resource.o: qrc_resource.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
+
+moc_mytimer.o: moc_mytimer.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mytimer.o moc_mytimer.cpp
 
 moc_qcustomplot.o: moc_qcustomplot.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_qcustomplot.o moc_qcustomplot.cpp
