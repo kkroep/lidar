@@ -10,6 +10,7 @@ class MyTimer : public QObject
 public:
 	MyTimer();
 	QTimer *timer;
+	int number;
 
 public slots:
 	void MySlot();

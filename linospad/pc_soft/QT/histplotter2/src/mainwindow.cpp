@@ -1276,12 +1276,24 @@ void MainWindow::on_usbResetButton_clicked()
     }
 }
 
+void MainWindow::onTimeout()
+{
+    cerr << "debug 1281    timer: "<< endl;
+}
+
+
 void MainWindow::on_savePreviewButton_clicked()
 {
     // cerr << "debug 1282 tester. folder: " << folder_number << "   file: " << file_number << endl;
     //QString histfilename = QFileDialog::getSaveFileName(this,"Choose save file name line 1277","results/");
+    QTimer *timer;
+    timer = new QTimer();
+    QObject::connect(timer, SIGNAL(timeout()), this, SLOT(onTimeout()));
+ 
+    int msec = 200;
+    timer->setInterval(msec);
+    timer->start();
 
-    MyTimer mTimer;
 
 
     QString new_file_location = "../../../results/h_";
