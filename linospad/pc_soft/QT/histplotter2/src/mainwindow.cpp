@@ -1288,7 +1288,7 @@ void MainWindow::on_savePreviewButton_clicked()
     //QString histfilename = QFileDialog::getSaveFileName(this,"Choose save file name line 1277","results/");
 
     timer_kees = new QTimer();
-    QObject::connect(timer_kees, SIGNAL(timeout()), this, SLOT(onTimeout()));
+//     QObject::connect(timer_kees, SIGNAL(timeout()), this, SLOT(onTimeout()));
  
     int msec = 200;
     timer_kees->setInterval(msec);
