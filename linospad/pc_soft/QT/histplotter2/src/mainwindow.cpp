@@ -1279,6 +1279,54 @@ void MainWindow::on_usbResetButton_clicked()
 void MainWindow::onTimeout()
 {
     cerr << "debug 1281    onTimeout: "<< endl;
+
+    QString new_file_location = "../../../results/h_";
+    new_file_location.append(QString::number(folder_number));
+    if(QDir(new_file_location).exists())
+        cerr << "debug 1288    folder_number: " << folder_number << endl;
+    else{
+        QDir().mkdir(new_file_location);
+        cerr << "debug 1290" << endl;
+    }
+    new_file_location.append("/m_");
+    new_file_location.append(QString::number(file_number));
+    new_file_location.append(".txt");
+    file_number++;
+    if(file_number>60){
+        file_number = 1;
+        folder_number++;
+    }
+
+    cerr << "debug 1289   exporting to " << new_file_location.toStdString() << endl;
+    
+    //if(histfilename.isNull()) return;
+    //ofstream hist(histfilename.toStdString().c_str());
+    ofstream hist(new_file_location.toStdString().c_str());
+
+    
+    uint32_t len = histogramLength*2;
+    if(ui->histField->maximum()==63)
+        len /= 4;
+
+    double persistenceDiv = 1.0;
+    if(ui->persistenceField->value()>1 && histPersistenceBuffer.size())
+        persistenceDiv = histPersistenceBuffer.size();
+
+    if( HISTOGRAM_MODE == ui->memoryModeCombo->currentIndex() ) {
+        for( uint32_t i = 0; i < len; i+=1 )
+        {
+            hist << setprecision(15) << histDisplayBuffer[i]/persistenceDiv << endl;
+        }
+    }
+    else {
+        for( uint32_t i = 0; i < len; i+=2 )
+        {
+            uint64_t h = (histDisplayBuffer[i+1]&0x7fff);
+            uint64_t l = histDisplayBuffer[i];
+            hist << setprecision(15) << (h*65536.0+l)/persistenceDiv << endl;
+        }
+    }
+
 }
 
 
@@ -1316,37 +1364,37 @@ void MainWindow::on_savePreviewButton_clicked()
     // if(file_number>60){
     //     file_number = 1;
     //     folder_number++;
-    }
+    // }
 
-    cerr << "debug 1289   exporting to " << new_file_location.toStdString() << endl;
+    // cerr << "debug 1289   exporting to " << new_file_location.toStdString() << endl;
     
-    //if(histfilename.isNull()) return;
-    //ofstream hist(histfilename.toStdString().c_str());
-    ofstream hist(new_file_location.toStdString().c_str());
+    // //if(histfilename.isNull()) return;
+    // //ofstream hist(histfilename.toStdString().c_str());
+    // ofstream hist(new_file_location.toStdString().c_str());
 
     
-    uint32_t len = histogramLength*2;
-    if(ui->histField->maximum()==63)
-        len /= 4;
+    // uint32_t len = histogramLength*2;
+    // if(ui->histField->maximum()==63)
+    //     len /= 4;
 
-    double persistenceDiv = 1.0;
-    if(ui->persistenceField->value()>1 && histPersistenceBuffer.size())
-        persistenceDiv = histPersistenceBuffer.size();
+    // double persistenceDiv = 1.0;
+    // if(ui->persistenceField->value()>1 && histPersistenceBuffer.size())
+    //     persistenceDiv = histPersistenceBuffer.size();
 
-    if( HISTOGRAM_MODE == ui->memoryModeCombo->currentIndex() ) {
-        for( uint32_t i = 0; i < len; i+=1 )
-        {
-            hist << setprecision(15) << histDisplayBuffer[i]/persistenceDiv << endl;
-        }
-    }
-    else {
-        for( uint32_t i = 0; i < len; i+=2 )
-        {
-            uint64_t h = (histDisplayBuffer[i+1]&0x7fff);
-            uint64_t l = histDisplayBuffer[i];
-            hist << setprecision(15) << (h*65536.0+l)/persistenceDiv << endl;
-        }
-    }
+    // if( HISTOGRAM_MODE == ui->memoryModeCombo->currentIndex() ) {
+    //     for( uint32_t i = 0; i < len; i+=1 )
+    //     {
+    //         hist << setprecision(15) << histDisplayBuffer[i]/persistenceDiv << endl;
+    //     }
+    // }
+    // else {
+    //     for( uint32_t i = 0; i < len; i+=2 )
+    //     {
+    //         uint64_t h = (histDisplayBuffer[i+1]&0x7fff);
+    //         uint64_t l = histDisplayBuffer[i];
+    //         hist << setprecision(15) << (h*65536.0+l)/persistenceDiv << endl;
+    //     }
+    // }
 }
 
 void MainWindow::on_resetDisplayButton_clicked()
