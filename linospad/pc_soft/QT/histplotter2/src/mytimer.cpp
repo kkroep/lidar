@@ -2,7 +2,7 @@
 #include <QtCore>
 #include <QDebug>
 
-myTimer::myTimer()
+MyTimer::MyTimer()
 {
 	timer = new QTimer(this);
 	connect(timer, SIGNAL(timeout()), this, SLOT(MySlot()));
@@ -10,7 +10,7 @@ myTimer::myTimer()
 	timer->start(1000);
 }
 
-void mytimer::MySlot()
+void MyTimer::MySlot()
 {
     // cerr << "Timer loop 1 sec" << endl;
 }
