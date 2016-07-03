@@ -9,7 +9,7 @@ class MyTimer : public QObject
 
 public:
 	MyTimer();
-//	QTimer *timer;
+	QTimer *timer;
 
 public slots:
 	void MySlot();
