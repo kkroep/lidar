@@ -12,5 +12,5 @@ MyTimer::MyTimer()
 
 void MyTimer::MySlot()
 {
-    cerr << "Timer loop 1 sec" << endl;
+    // cerr << "Timer loop 1 sec" << endl;
 }
