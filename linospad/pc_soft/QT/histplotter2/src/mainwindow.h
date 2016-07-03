@@ -22,7 +22,7 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-    QTimer *timer; // Added by Kees
+    QTimer *timer_kees; // Added by Kees
 
 
 public:
