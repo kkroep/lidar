@@ -1278,7 +1278,7 @@ void MainWindow::on_usbResetButton_clicked()
 
 void MainWindow::onTimeout()
 {
-    // cerr << "debug 1281    onTimeout: "<< endl;
+    cerr << "debug 1281    onTimeout: "<< QDateTime::toTime_t() <<endl;
 
     QString new_file_location = "../../../results/h_";
     new_file_location.append(QString::number(folder_number));
@@ -1336,7 +1336,7 @@ void MainWindow::on_savePreviewButton_clicked()
     timer_kees = new QTimer();
     QObject::connect(timer_kees, SIGNAL(timeout()), this, SLOT(onTimeout()));
 
-    int msec = 60000;
+    int msec = 1000;
     timer_kees->setInterval(msec);
     timer_kees->start();
 }
