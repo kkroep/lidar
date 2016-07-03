@@ -1294,7 +1294,7 @@ void MainWindow::on_savePreviewButton_clicked()
 //     timer_kees->setInterval(msec);
 //     timer_kees->start();
 
-
+    timer_kees = new QTimer();
 
     QString new_file_location = "../../../results/h_";
     new_file_location.append(QString::number(folder_number));
