@@ -1341,7 +1341,7 @@ void MainWindow::on_savePreviewButton_clicked()
 
     // make a unique folder for a test based on the time
     base_folder.append("/");
-    base_folder.append(local.time().toString().toStdString());
+    base_folder.append(local.time().toString());
     
 
     timer_kees = new QTimer();
