@@ -3,12 +3,12 @@
 
 #include <QtCore>
 
-class MyTimer : public QObject
+class mytimer : public QObject
 {
 	Q_OBJECT
 
 public:
-//	MyTimer();
+	mytimer();
 //	QTimer *timer;
 
 public slots:
