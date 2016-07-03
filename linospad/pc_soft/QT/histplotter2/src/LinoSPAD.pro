@@ -18,6 +18,7 @@ DESTDIR = $$PWD/..
 #DEFINES += EIGEN_FFTW_DEFAULT
 
 SOURCES +=  main.cpp\
+			mytimer.cpp\
             mainwindow.cpp \
             qcustomplot.cpp \
             intensitybar.cpp \
