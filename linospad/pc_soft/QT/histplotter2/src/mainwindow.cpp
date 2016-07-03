@@ -1333,7 +1333,7 @@ void MainWindow::onTimeout()
 void MainWindow::on_savePreviewButton_clicked()
 {
     QDateTime local(QDateTime::currentDateTime());    
-    cerr << "debug 1336    time: "<< local <<endl;
+    //cerr << "debug 1336    time: "<< local <<endl;
 
     timer_kees = new QTimer();
     QObject::connect(timer_kees, SIGNAL(timeout()), this, SLOT(onTimeout()));
