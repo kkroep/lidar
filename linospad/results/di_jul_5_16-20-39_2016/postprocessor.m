@@ -11,7 +11,10 @@ minutes = 60;
 a = csvread('h_1/m_1.txt');
 base_line = sum(a);
 base_line = 0;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 06362d2c8d45551843c623de6ab4e59e417f5f2e
 
 for i=1:hours
 	folder_loc = 'h_';
