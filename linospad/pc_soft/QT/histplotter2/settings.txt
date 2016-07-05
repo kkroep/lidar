@@ -12,7 +12,7 @@ Sync=false
 Divider=40
 IntRef=7
 TrigSrc=true
-UseExt=false
+UseExt=true
 
 [Histogram]
 CodeOffset=0
