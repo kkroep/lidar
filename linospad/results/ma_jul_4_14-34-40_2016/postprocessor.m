@@ -26,4 +26,6 @@ for i=1:hours
 end
 
 
+
 plot(1:length(b),b);
+print -deps test.eps;
