@@ -4,7 +4,7 @@ close;
 clc;
 
 
-hours =21;
+hours =2;
 minutes = 60;
 
 % base measurement
@@ -26,4 +26,6 @@ for i=1:hours
 end
 
 
+
 plot(1:length(b),b);
+print -deps test.eps;
