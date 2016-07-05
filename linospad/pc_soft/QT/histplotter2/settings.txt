@@ -12,7 +12,7 @@ Sync=false
 Divider=40
 IntRef=7
 TrigSrc=true
-UseExt=true
+UseExt=false
 
 [Histogram]
 CodeOffset=0
@@ -25,7 +25,7 @@ RefSignal=0
 Binary=false
 Cycles=1
 Delay=0
-Length=100000
+Length=100000000
 
 [MainWindow]
 Pos=@Point(706 24)
@@ -43,7 +43,7 @@ Histogram=0
 Persistence=1
 Xmax=560
 Xmin=0
-Ymax=65535
+Ymax=15828.452666582703
 Ymin=0
 
 [Processing]

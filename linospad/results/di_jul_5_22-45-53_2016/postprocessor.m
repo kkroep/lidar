@@ -4,7 +4,7 @@ close;
 clc;
 
 
-hours =2;
+hours =1;
 minutes = 60;
 
 % base measurement
