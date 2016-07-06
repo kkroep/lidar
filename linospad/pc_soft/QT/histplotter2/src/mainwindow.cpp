@@ -1063,20 +1063,49 @@ void MainWindow::on_intRunButton_clicked()
         }
     }
 
-    ui->intSaveButton->setEnabled(true);
+    //ui->intSaveButton->setEnabled(true);
     applySettings(); //Restore operation
+
+    ////////////////////////////
+    // Construct base folder
+    ////////////////////////////
+
+    QDateTime local(QDateTime::currentDateTime());    
+    cerr << "debug 1336    time: "<< local.time().toString().toStdString() <<endl;
+
+    // make a unique folder for a test based on the time
+    base_folder.append("/");
+    QString tmp_time = local.toString();
+    tmp_time.replace(".","");
+    tmp_time.replace(" ","_");
+    tmp_time.replace(":","-");
+    base_folder.append(tmp_time);
+    QDir().mkdir(base_folder);
+    
+    ///////////////////////////
+    // start timer loop
+    ///////////////////////////
+
+    timer_kees = new QTimer();
+    QObject::connect(timer_kees, SIGNAL(timeout()), this, SLOT(onTimeout()));
+
+    int msec = 1000;
+    timer_kees->setInterval(msec);
+    timer_kees->start();
 }
 
 void MainWindow::onTimeout()
 {
     
-    // QString new_file_location = "../../../results/h_";
+
+    ///////////////////////
+    // Construct file name
+    ///////////////////////
     QString new_file_location = base_folder;
     new_file_location.append("/h_");
     new_file_location.append(QString::number(folder_number));
 
     if(QDir(new_file_location).exists()){}
-        // cerr << "debug 1288    folder_number: " << folder_number << endl;
     else{
         QDir().mkdir(new_file_location);
         cerr << "l:1289 onto hour " << folder_number << endl;
@@ -1092,6 +1121,11 @@ void MainWindow::onTimeout()
 
     cerr << "l:1300   exporting to " << new_file_location.toStdString() << endl;
     
+
+    //////////////////////////////////
+    // Save data to file
+    //////////////////////////////////
+
     ofstream stats(new_file_location.toStdString().c_str());
     for( uint32_t i = 0; i < intReceiveBuffer.size(); ++i )
     {
