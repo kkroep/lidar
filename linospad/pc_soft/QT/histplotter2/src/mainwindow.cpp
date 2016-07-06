@@ -1035,36 +1035,36 @@ void MainWindow::on_acqSaveButton_clicked()
 
 void MainWindow::on_intRunButton_clicked()
 {
-    // applySettings();
+    applySettings();
 
-    // intReceiveBuffer.clear();
-    // intReceiveBuffer.resize(512);
+    intReceiveBuffer.clear();
+    intReceiveBuffer.resize(512);
 
-    // vector<uint32_t> cmd;
-    // cmd.push_back(0); //header
-    // cmd.push_back(0x30000008); //disable counting
-    // cmd.push_back(0x00000000); //read to clear counters
-    // for( uint32_t i = 0; i < ui->intCycles->value(); ++i )
-    //     cmd.push_back(0x40000000); //counting windows
-    // cmd.push_back(0x00000000); //read counts
-    // cmd[0] = FX3_FPGA_HEADER(5,cmd.size()-1);
-    // fx3.send(cmd.size(),cmd.data());
+    vector<uint32_t> cmd;
+    cmd.push_back(0); //header
+    cmd.push_back(0x30000008); //disable counting
+    cmd.push_back(0x00000000); //read to clear counters
+    for( uint32_t i = 0; i < ui->intCycles->value(); ++i )
+        cmd.push_back(0x40000000); //counting windows
+    cmd.push_back(0x00000000); //read counts
+    cmd[0] = FX3_FPGA_HEADER(5,cmd.size()-1);
+    fx3.send(cmd.size(),cmd.data());
 
-    // //read clearing data followed by counts
-    // for( uint32_t i = 0; i < 2; ++i ) {
-    //     uint32_t count = fx3.receive( 512, intReceiveBuffer.data(), 20000, false );
-    //     if(count != 512) {
-    //         cerr << "Error: Only " << count << " words received, instead of " << 512 << endl;
-    //     }
-    //     uint32_t cycles;
-    //     count = fx3.receive( 1, &cycles, 500, false );
-    //     if( count != 1 ) {
-    //         cerr << "Error: Could not read wait cycles." << endl;
-    //     }
-    // }
+    //read clearing data followed by counts
+    for( uint32_t i = 0; i < 2; ++i ) {
+        uint32_t count = fx3.receive( 512, intReceiveBuffer.data(), 20000, false );
+        if(count != 512) {
+            cerr << "Error: Only " << count << " words received, instead of " << 512 << endl;
+        }
+        uint32_t cycles;
+        count = fx3.receive( 1, &cycles, 500, false );
+        if( count != 1 ) {
+            cerr << "Error: Could not read wait cycles." << endl;
+        }
+    }
 
-    // //ui->intSaveButton->setEnabled(true);
-    // applySettings(); //Restore operation
+    //ui->intSaveButton->setEnabled(true);
+    applySettings(); //Restore operation
 
     ////////////////////////////
     // Construct base folder
