@@ -1,0 +1,1 @@
+fx3utils.o fx3utils.dep : fx3utils.C fx3stream.h fx3utils.h

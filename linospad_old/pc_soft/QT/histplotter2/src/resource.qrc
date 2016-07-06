@@ -1,0 +1,24 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Icon.svg</file>
+        <file>Hist.svg</file>
+        <file>Life.svg</file>
+        <file>Start.svg</file>
+        <file>Stop.svg</file>
+        <file>Save.svg</file>
+        <file>Reset.svg</file>
+        <file>Image.svg</file>
+        <file>Zoom.svg</file>
+        <file>USB.svg</file>
+        <file>USBon.svg</file>
+        <file>USBoff.svg</file>
+        <file>MuxClock.svg</file>
+        <file>RefClock.svg</file>
+        <file>IntClock.svg</file>
+        <file>ExtClock.svg</file>
+        <file>MuxTriggerRef.svg</file>
+        <file>warning.svg</file>
+        <file>MuxProcessing.svg</file>
+        <file>MuxStateMachine.svg</file>
+    </qresource>
+</RCC>
