@@ -1067,21 +1067,74 @@ void MainWindow::on_intRunButton_clicked()
     applySettings(); //Restore operation
 }
 
+void MainWindow::onTimeout()
+{
+    
+    // QString new_file_location = "../../../results/h_";
+    QString new_file_location = base_folder;
+    new_file_location.append("/h_");
+    new_file_location.append(QString::number(folder_number));
+
+    if(QDir(new_file_location).exists()){}
+        // cerr << "debug 1288    folder_number: " << folder_number << endl;
+    else{
+        QDir().mkdir(new_file_location);
+        cerr << "l:1289 onto hour " << folder_number << endl;
+    }
+    new_file_location.append("/m_");
+    new_file_location.append(QString::number(file_number));
+    new_file_location.append(".txt");
+    file_number++;
+    if(file_number>60){
+        file_number = 1;
+        folder_number++;
+    }
+
+    cerr << "l:1300   exporting to " << new_file_location.toStdString() << endl;
+    
+    ofstream stats(new_file_location.toStdString().c_str());
+    for( uint32_t i = 0; i < intReceiveBuffer.size(); ++i )
+    {
+        stats << intReceiveBuffer[i] << endl;
+    }
+}
+
+
 void MainWindow::on_intSaveButton_clicked()
 {
-    QString statsfilename = QFileDialog::getSaveFileName(this,"Choose save file name 1064","results/");
-    if(statsfilename.isNull()) return;
-    if(ui->checkIntBinary->isChecked()) {
-        ofstream stats(statsfilename.toStdString().c_str(), ios::binary);
-        stats.write((char*)intReceiveBuffer.data(), intReceiveBuffer.size()*4);
-    }
-    else {
-        ofstream stats(statsfilename.toStdString().c_str());
-        for( uint32_t i = 0; i < intReceiveBuffer.size(); ++i )
-        {
-            stats << intReceiveBuffer[i] << endl;
-        }
-    }
+    // QString statsfilename = QFileDialog::getSaveFileName(this,"Choose save file name 1064","results/");
+    // if(statsfilename.isNull()) return;
+    // if(ui->checkIntBinary->isChecked()) {
+    //     ofstream stats(statsfilename.toStdString().c_str(), ios::binary);
+    //     stats.write((char*)intReceiveBuffer.data(), intReceiveBuffer.size()*4);
+    // }
+    // else {
+    //     ofstream stats(statsfilename.toStdString().c_str());
+    //     for( uint32_t i = 0; i < intReceiveBuffer.size(); ++i )
+    //     {
+    //         stats << intReceiveBuffer[i] << endl;
+    //     }
+    // }
+    QDateTime local(QDateTime::currentDateTime());    
+    cerr << "debug 1336    time: "<< local.time().toString().toStdString() <<endl;
+
+    // make a unique folder for a test based on the time
+    base_folder.append("/");
+    QString tmp_time = local.toString();
+    tmp_time.replace(".","");
+    tmp_time.replace(" ","_");
+    tmp_time.replace(":","-");
+    base_folder.append(tmp_time);
+    QDir().mkdir(base_folder);
+    
+
+    timer_kees = new QTimer();
+    QObject::connect(timer_kees, SIGNAL(timeout()), this, SLOT(onTimeout()));
+
+    int msec = 1000;
+    timer_kees->setInterval(msec);
+    timer_kees->start();
+
 }
 
 void MainWindow::on_statsChoose_valueChanged(int tdc)
@@ -1276,61 +1329,6 @@ void MainWindow::on_usbResetButton_clicked()
     if(fx3) {
         applySettings();
     }
-}
-
-void MainWindow::onTimeout()
-{
-    
-    // QString new_file_location = "../../../results/h_";
-    QString new_file_location = base_folder;
-    new_file_location.append("/h_");
-    new_file_location.append(QString::number(folder_number));
-
-    if(QDir(new_file_location).exists()){}
-        // cerr << "debug 1288    folder_number: " << folder_number << endl;
-    else{
-        QDir().mkdir(new_file_location);
-        cerr << "l:1289 onto hour " << folder_number << endl;
-    }
-    new_file_location.append("/m_");
-    new_file_location.append(QString::number(file_number));
-    new_file_location.append(".txt");
-    file_number++;
-    if(file_number>60){
-        file_number = 1;
-        folder_number++;
-    }
-
-    cerr << "l:1300   exporting to " << new_file_location.toStdString() << endl;
-    
-    //if(histfilename.isNull()) return;
-    //ofstream hist(histfilename.toStdString().c_str());
-    ofstream hist(new_file_location.toStdString().c_str());
-
-    
-    uint32_t len = histogramLength*2;
-    if(ui->histField->maximum()==63)
-        len /= 4;
-
-    double persistenceDiv = 1.0;
-    if(ui->persistenceField->value()>1 && histPersistenceBuffer.size())
-        persistenceDiv = histPersistenceBuffer.size();
-
-    if( HISTOGRAM_MODE == ui->memoryModeCombo->currentIndex() ) {
-        for( uint32_t i = 0; i < len; i+=1 )
-        {
-            hist << setprecision(15) << histDisplayBuffer[i]/persistenceDiv << endl;
-        }
-    }
-    else {
-        for( uint32_t i = 0; i < len; i+=2 )
-        {
-            uint64_t h = (histDisplayBuffer[i+1]&0x7fff);
-            uint64_t l = histDisplayBuffer[i];
-            hist << setprecision(15) << (h*65536.0+l)/persistenceDiv << endl;
-        }
-    }
-
 }
 
 
