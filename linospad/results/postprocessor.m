@@ -4,12 +4,13 @@ close;
 clc;
 
 
-hours =21;
+hours =14;
 minutes = 60;
 
 % base measurement
 a = csvread('h_1/m_1.txt');
 base_line = sum(a);
+base_line = 0;
 
 
 for i=1:hours
@@ -26,4 +27,6 @@ for i=1:hours
 end
 
 
+
 plot(1:length(b),b);
+print -deps test.eps;
