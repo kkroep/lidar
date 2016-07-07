@@ -1089,7 +1089,7 @@ void MainWindow::on_intRunButton_clicked()
     timer_kees = new QTimer();
     QObject::connect(timer_kees, SIGNAL(timeout()), this, SLOT(onTimeout()));
 
-    int msec = 10000;
+    int msec = 5000;
     timer_kees->setInterval(msec);
     timer_kees->start();
 }
