@@ -34,7 +34,7 @@ print -deps bars.eps;
 
 close;
 
-max_lines = 10;
+max_lines = 3;
 
 
 no_lines = max_lines;
