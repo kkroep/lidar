@@ -1,0 +1,136 @@
+\documentclass{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{todonotes}
+\usepackage{pgfplots}
+\usepackage{epstopdf}
+\usepackage{listings}
+\usepackage{circuitikz}
+\usepackage{float}
+\usepackage{cleveref}
+\usepackage{ragged2e} % For text alignment
+
+
+\newenvironment{custom_itemize}{
+\begin{itemize}
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{itemize}}
+
+
+\usepackage[hmarginratio=1:1,top=22mm,columnsep=16pt]{geometry} % Document margins
+%\usepackage{multicol} % Used for the two-column layout of the document
+
+
+%\usepackage{bm}
+
+
+\title{NASA project}
+\author{Kees Kroep 4246373}
+
+
+\begin{document}
+%  \twocolumn[{%
+% \begin{@twocolumnfalse}
+%  \maketitle
+%   \end{@twocolumnfalse}
+% }]
+
+\begin{figure}[ht]\noindent\begin{minipage}[b]{.45\textwidth} \centering \begin{align*}
+f_{pulse}=\frac{1}{t_{round}}=\frac{c}{2r}
+\end{align*} \end{minipage} \begin{minipage}[b]{.45\textwidth} \centering
+\input{f_pulse_tab}
+\end{minipage} \end{figure}
+
+\begin{figure}[ht]\noindent\begin{minipage}[b]{.45\textwidth} \centering \begin{align*}
+I_\lambda = \frac{2hc^2}{\lambda^5}\frac{1}{e^{\frac{hc}{\lambda kT}}-1}
+\end{align*} \end{minipage} \begin{minipage}[b]{.45\textwidth} \centering
+\input{sun_irradiation_tab}
+\end{minipage} \end{figure}
+
+\begin{figure}[ht]\noindent\begin{minipage}[b]{.45\textwidth} \centering \begin{align*}
+P_B = I_\lambda B_\lambda S \frac{r_{sun}^2}{r_{europa}^2}
+\end{align*} \end{minipage} \begin{minipage}[b]{.45\textwidth} \centering
+\input{background_power_tab}
+\end{minipage} \end{figure}
+
+\begin{figure}[ht]\noindent\begin{minipage}[b]{.45\textwidth} \centering \begin{align*}
+P'_B = \frac{P_BR_{europa}D_lL_fL_l}{2r^2}
+\end{align*} \end{minipage} \begin{minipage}[b]{.45\textwidth} \centering
+\input{effective_noise_power_tab}
+\end{minipage} \end{figure}
+
+\begin{figure}[ht]\noindent\begin{minipage}[b]{.45\textwidth} \centering \begin{align*}
+E_{photon} = \frac{hc}{\lambda}
+\end{align*} \end{minipage} \begin{minipage}[b]{.45\textwidth} \centering
+\input{energy_of_photon_tab}
+\end{minipage} \end{figure}
+
+\begin{figure}[ht]\noindent\begin{minipage}[b]{.45\textwidth} \centering \begin{align*}
+PPS_B = \frac{P'_B\cdot PDP}{E_{photon}}
+\end{align*} \end{minipage} \begin{minipage}[b]{.45\textwidth} \centering
+\input{PPS_tab}
+\end{minipage} \end{figure}
+
+% \begin{align}
+% f_{pulse}=\frac{1}{t_{round}}=\frac{c}{2r}
+% \end{align}
+
+% \input{f_pulse_tab}
+
+% \begin{align}
+% I_\lambda = \frac{2hc^2}{\lambda^5}\frac{1}{e^{\frac{hc}{\lambda kT}}-1}
+% \end{align}
+% \input{sun_irradiation_tab}
+
+% \begin{align}
+% P_B = I_\lambda B_\lambda S \frac{r_{sun}}{r_{europa}}
+% \end{align}
+% \input{background_power_tab}
+
+% \newpage
+% \begin{align}
+% P'_B = \frac{P_BR_{europa}D_lL_fL_l}{2r^2}
+% \end{align}
+% \input{effective_noise_power_tab}
+
+% \begin{align}
+% E_{photon} = \frac{hc}{\lambda}
+% \end{align}
+% \input{energy_of_photon_tab}
+
+% \begin{align}
+% PPS_B = \frac{P'_B\cdot PDP}{E_{photon}}
+% \end{align}
+% \input{PPS_tab}
+
+\clearpage
+\begin{align*}
+FWHM &= 2.35\sqrt{\frac{s\sigma_s^2+n\sigma_n^2}{(s+n)pulses}}\\
+C &= (\frac{FWHM}{2.35})^2\cdot pulses\cdot \frac{\text{surface area}}{\text{max surface area}}\\
+PPS_S/SPAD &= n\frac{\sigma_n^2-C}{C-\sigma_s^2}
+\end{align*}
+\begin{align*}
+P_{av} &= \frac{PPS_S/SPAD\cdot P_B\cdot\text{No.\,SPADs}}{PPS_B}\\
+P_{peak} &= \frac{P_{av}}{f_{pulse}\cdot\text{FWHM}_{laser}}
+\end{align*}
+\begin{align*}
+\end{align*}
+\input{scanning_power_tab}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
