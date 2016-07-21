@@ -6,7 +6,7 @@ clc;
 
 hours =5;
 minutes = 60;
-no_SPADs = 512; 
+no_SPADs = 20; 
 selected_lines = [1 2 4 8 9 10 17 18 19 20]
 
 for k=1:no_SPADs
@@ -39,45 +39,56 @@ max_lines = 3;
 
 no_lines = max_lines;
 hold on;
+y_max = -realmax;
+y_min = 0;
+
 for k=1:no_SPADs
 	if(staven(k)<5e8 && no_lines>0)
 		plot(1:length(b(k,:)),b(k,:));
+    if(max(b(k,:))>y_max)
+      y_max = max(b(k,:));
+    end
 		fprintf('%d, ', k);
 		no_lines = no_lines-1;
 	end
 end
 fprintf('\n\n');
+
+x = [120 240 360];
+for i=x
+  plot([i,i],[y_min,y_max], 'r');
+end
 hold off;
 print -deps spad_low.eps;
 
-close;
+%close;
 
-no_lines = max_lines;
-hold on;
-for k=1:no_SPADs
-	if(staven(k)<15e8 && staven(k)>5e8 && no_lines>0)
-		plot(1:length(b(k,:)),b(k,:));
-		fprintf('%d, ', k);
-		no_lines = no_lines-1;
-	end
-end
-fprintf('\n\n');
-hold off;
-print -deps spad_mid.eps;
-
-close;
-
-no_lines = max_lines;
-hold on;
-for k=1:no_SPADs
-	if(staven(k)>15e8 && no_lines>0)
-		plot(1:length(b(k,:)),b(k,:));
-		fprintf('%d, ', k);
-		no_lines = no_lines-1;
-	end
-end
-fprintf('\n\n');
-hold off;
-print -deps spad_high.eps;
+%no_lines = max_lines;
+%hold on;
+%for k=1:no_SPADs
+%	if(staven(k)<15e8 && staven(k)>5e8 && no_lines>0)
+%		plot(1:length(b(k,:)),b(k,:));
+%		fprintf('%d, ', k);
+%		no_lines = no_lines-1;
+%	end
+%end
+%fprintf('\n\n');
+%hold off;
+%print -deps spad_mid.eps;
+%
+%close;
+%
+%no_lines = max_lines;
+%hold on;
+%for k=1:no_SPADs
+%	if(staven(k)>15e8 && no_lines>0)
+%		plot(1:length(b(k,:)),b(k,:));
+%		fprintf('%d, ', k);
+%		no_lines = no_lines-1;
+%	end
+%end
+%fprintf('\n\n');
+%hold off;
+%print -deps spad_high.eps;
 
 
