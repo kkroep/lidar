@@ -6,7 +6,7 @@ clc;
 
 hours =5;
 minutes = 60;
-no_SPADs = 10; 
+no_SPADs = 512; 
 selected_lines = [1 2 4 8 9 10 17 18 19 20]
 
 for k=1:no_SPADs
@@ -18,7 +18,7 @@ for k=1:no_SPADs
 
 		for j=1:minutes
 			file_loc = [folder_loc '/m_' int2str(j) '.txt'];
-			% disp(file_loc);
+			% disp(file_loc);5
 			a = csvread(file_loc);
 			b(k,(i-1)*minutes+j) = a(k);
 		end
