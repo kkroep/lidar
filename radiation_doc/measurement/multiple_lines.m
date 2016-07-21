@@ -6,7 +6,7 @@ clc;
 
 hours =5;
 minutes = 60;
-no_SPADs = 512; 
+no_SPADs = 10; 
 selected_lines = [1 2 4 8 9 10 17 18 19 20]
 
 for k=1:no_SPADs
@@ -48,7 +48,7 @@ for k=1:no_SPADs
 end
 fprintf('\n\n');
 hold off;
-print -deps SPAD_low.eps;
+print -deps spad_low.eps;
 
 close;
 
@@ -63,7 +63,7 @@ for k=1:no_SPADs
 end
 fprintf('\n\n');
 hold off;
-print -deps SPAD_mid.eps;
+print -deps spad_mid.eps;
 
 close;
 
@@ -78,6 +78,6 @@ for k=1:no_SPADs
 end
 fprintf('\n\n');
 hold off;
-print -deps SPAD_high.eps;
+print -deps spad_high.eps;
 
 
