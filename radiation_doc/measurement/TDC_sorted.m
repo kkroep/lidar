@@ -6,7 +6,7 @@ clc;
 
 hours =5;
 minutes = 60;
-range = [417:448];
+range = [1:32];
 
 for k=range
 
@@ -67,7 +67,7 @@ for i=x
 end
 
 hold off;
-print -deps 'spad_417-448.eps';
+print -deps -color 'spad_1-32.eps';
 
 
 
