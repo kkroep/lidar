@@ -6,7 +6,11 @@ clc;
 
 hours =5;
 minutes = 60;
-range = [1:32];
+
+TDC = 1;
+start_SPAD = 32*TDC-31;
+stop_SPAD = 32*TDC;
+range = [start_SPAD:stop_SPAD];
 
 for k=range
 
@@ -66,8 +70,10 @@ for i=x
   plot([i,i],[y_min,y_max],'Linewidth',2,'--', 'color','g');
 end
 
+address = ['spad_' int2str(start_SPAD) '-' int2str(stop_SPAD) '.eps']
+
 hold off;
-print -deps -color 'spad_1-32.eps';
+print('-deps', '-color', fullfile(pwd,address));
 
 
 
