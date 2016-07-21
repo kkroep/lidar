@@ -51,7 +51,7 @@
 
 \begin{figure}[h]
 	\centering
-	\includegraphics{measurement/SPAD_high}
+	\includegraphics{measurement/spad_high}
 	\caption{spad high}
 	\label{fig:spad_high}
 \end{figure}
