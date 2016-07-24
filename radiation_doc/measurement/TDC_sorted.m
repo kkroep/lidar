@@ -7,7 +7,7 @@ clc;
 hours =5;
 minutes = 60;
 
-TDC = 16;
+TDC = 13;
 start_SPAD = 32*TDC-31;
 stop_SPAD = 32*TDC;
 range = [start_SPAD:stop_SPAD];
