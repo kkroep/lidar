@@ -1,0 +1,81 @@
+\documentclass{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{todonotes}
+\usepackage{pgfplots}
+\usepackage{epstopdf}
+\usepackage{listings}
+\usepackage{circuitikz}
+\usepackage{float}
+\usepackage{cleveref}
+\usepackage{ragged2e} % For text alignment
+
+
+\newenvironment{custom_itemize}{
+\begin{itemize}
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{itemize}}
+
+
+\usepackage[hmarginratio=1:1,top=22mm,columnsep=16pt]{geometry} % Document margins
+%\usepackage{multicol} % Used for the two-column layout of the document
+
+
+%\usepackage{bm}
+
+
+\title{NASA project}
+\author{Kees Kroep 4246373}
+
+
+\begin{document}
+%  \twocolumn[{%
+% \begin{@twocolumnfalse}
+%  \maketitle
+%   \end{@twocolumnfalse}
+% }]
+
+
+	
+\begin{figure}[h]
+\centering
+\begin{minipage}{.5\textwidth}
+	\centering
+	\includegraphics{measurement/spad_1-32}
+	\caption{1 to 32}
+	\label{fig:spad_1-32}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+	\centering
+	\includegraphics{measurement/spad_33-64}
+	\caption{33 to 64}
+	\label{fig:spad_33-64}
+\end{minipage}
+\end{figure}
+
+
+
+
+
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+

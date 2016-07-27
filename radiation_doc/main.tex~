@@ -40,44 +40,138 @@
 %   \end{@twocolumnfalse}
 % }]
 
+~\newpage
+	
 \begin{figure}[h]
+\centering
+\begin{minipage}{.49\textwidth}
 	\centering
-	\includegraphics{measurement/bars}
-	\caption{bars
-	}
-	\label{fig:bars}
+	\includegraphics[width=0.71\linewidth]{measurement/spad_1-32}
+	\caption{1 to 32}
+	\label{fig:spad_1-32}
+\end{minipage}
+\begin{minipage}{.49\textwidth}
+	\centering
+	\includegraphics[width=0.71\linewidth]{measurement/spad_33-64}
+	\caption{33 to 64}
+	\label{fig:spad_33-64}
+\end{minipage}
 \end{figure}
 
+~\newpage
 
 \begin{figure}[h]
+\centering
+\begin{minipage}{.49\textwidth}
 	\centering
-	\includegraphics{measurement/spad_high}
-	\caption{spad high}
-	\label{fig:spad_high}
+	\includegraphics[width=0.71\linewidth]{measurement/spad_1-32}
+	\caption{65 to 96}
+	\label{fig:spad_65-96}
+\end{minipage}
+\begin{minipage}{.49\textwidth}
+	\centering
+	\includegraphics[width=0.71\linewidth]{measurement/spad_33-64}
+	\caption{97 to 128}
+	\label{fig:spad_97-128}
+\end{minipage}
 \end{figure}
 
+~\newpage
+\begin{figure}[h]
+\centering
+\begin{minipage}{.49\textwidth}
+	\centering
+	\includegraphics[width=0.71\linewidth]{measurement/spad_129-160}
+	\caption{129 to 160}
+	\label{fig:spad_129-160}
+\end{minipage}
+\begin{minipage}{.49\textwidth}
+	\centering
+	\includegraphics[width=0.71\linewidth]{measurement/spad_161-192}
+	\caption{161 to 192}
+	\label{fig:spad_161-192}
+\end{minipage}
+\end{figure}
 
 \begin{figure}[h]
+\centering
+\begin{minipage}{.49\textwidth}
 	\centering
-	\includegraphics{measurement/spad_mid}
-	\caption{spad mid}
-	\label{fig:spad_mid}
+	\includegraphics[width=0.71\linewidth]{measurement/spad_193-224}
+	\caption{193 to 224}
+	\label{fig:spad_193-224}
+\end{minipage}
+\begin{minipage}{.49\textwidth}
+	\centering
+	\includegraphics[width=0.71\linewidth]{measurement/spad_225-256}
+	\caption{225 to 256}
+	\label{fig:spad_225-256}
+\end{minipage}
 \end{figure}
 
 \begin{figure}[h]
+\centering
+\begin{minipage}{.49\textwidth}
 	\centering
-	\includegraphics{measurement/spad_low}
-	\caption{spad low}
-	\label{fig:spad_low}
+	\includegraphics[width=0.71\linewidth]{measurement/spad_257-288}
+	\caption{257 to 288}
+	\label{fig:spad_257-288}
+\end{minipage}
+\begin{minipage}{.49\textwidth}
+	\centering
+	\includegraphics[width=0.71\linewidth]{measurement/spad_289-320}
+	\caption{289 to 320}
+	\label{fig:spad_289-320}
+\end{minipage}
 \end{figure}
 
+\begin{figure}[h]
+\centering
+\begin{minipage}{.49\textwidth}
+	\centering
+	\includegraphics[width=0.79\linewidth]{measurement/spad_321-352}
+	\caption{321 to 352}
+	\label{fig:spad_321-352}
+\end{minipage}
+\begin{minipage}{.49\textwidth}
+	\centering
+	\includegraphics[width=0.79\linewidth]{measurement/spad_353-384}
+	\caption{353 to 384}
+	\label{fig:spad_353-384}
+\end{minipage}
+\end{figure}
 
+\begin{figure}[h]
+\centering
+\begin{minipage}{.49\textwidth}
+	\centering
+	\includegraphics[width=0.79\linewidth]{measurement/spad_385-416}
+	\caption{385 to 416}
+	\label{fig:spad_385-416}
+\end{minipage}
+\begin{minipage}{.49\textwidth}
+	\centering
+	\includegraphics[width=0.79\linewidth]{measurement/spad_417-448}
+	\caption{417 to 448}
+	\label{fig:spad_417-448}
+\end{minipage}
+\end{figure}
 
-
-
-
-
-
+\begin{figure}[h]
+\centering
+\begin{minipage}{.49\textwidth}
+	\centering
+	\includegraphics[width=0.79\linewidth]{measurement/spad_449-480}
+	\caption{449 to 480}
+	\label{fig:spad_449-480}
+\end{minipage}
+\begin{minipage}{.49\textwidth}
+	\centering
+	\includegraphics[width=0.79\linewidth]{measurement/spad_481-512}
+	\caption{481 to 512}
+	\label{fig:spad_481-512}
+\end{minipage}
+\end{figure}
 \end{document}
 
 
