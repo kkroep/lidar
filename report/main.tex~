@@ -51,7 +51,7 @@ Type an abstract
 \section*{Introduction}
 This document is a feasability study of a lidar sensor designed for the Europa Clipper. The main focus of this document will lie on the three most challenging aspects of the sensor design. How to achieve the target precision goals of the two modus of operation within the power budget, and the effect of radiation on the system.
 
-First the requirements will be stated in \cref{sec:high_level_specifications}, next the assumptions used for this study will be listed in ??,  then the feasability of the Altimetry Mode and Hazard Detection Mode will be investigated in ?? and ?? respectively. Section ?? will zoom into the effect of radiation on the system, and finally ?? and ?? will conclude the system with a spec sheet etc\dots
+First the requirements will be stated in \cref{sec:high_level_specifications}, next the assumptions used for this study will be listed in \cref{sec:system_engineering_assumptions}, then the feasability of the Altimetry Mode and Hazard Detection Mode will be investigated in ?? and ?? respectively. Section ?? will zoom into the effect of radiation on the system, and finally ?? and ?? will conclude the system with a spec sheet etc\dots
 
 
 \input{sec/high_level_specifications}
