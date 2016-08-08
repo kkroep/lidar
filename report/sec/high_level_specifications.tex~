@@ -1,5 +1,5 @@
-\subsection{High level specifications} 
-\label{ssec:high_level_specifications}
+\section{High level specifications} 
+\label{sec:high_level_specifications}
 The radiation and mass, power and volume budget are listed in \cref{tab:req_radiation} and \cref{tab:req_mpv}.
 
 \input{tab/radiation_tab}

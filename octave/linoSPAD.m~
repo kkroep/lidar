@@ -95,7 +95,7 @@ P_peak_2 = P_av_2./pulse_s./pulse_FWHM;
 
 
 %//----------------- make all latex tables
-disp('test at 98');
+disp(test at 98)
 f_pulse_tab 
 sun_irradiation_tab
 background_power_tab

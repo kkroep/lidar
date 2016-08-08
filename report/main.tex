@@ -51,15 +51,30 @@ Type an abstract
 \section*{Introduction}
 This document is a feasability study of a lidar sensor designed for the Europa Clipper. The main focus of this document will lie on the three most challenging aspects of the sensor design. How to achieve the target precision goals of the two modus of operation within the power budget, and the effect of radiation on the system.
 
-First the requirements will be stated in \cref{sec:high_level_specifications}, next the assumptions used for this study will be listed in ??,  then the feasability of the Altimetry Mode and Hazard Detection Mode will be investigated in ?? and ?? respectively. Section ?? will zoom into the effect of radiation on the system, and finally ?? and ?? will conclude the system with a spec sheet etc\dots
+First the requirements will be stated in \cref{ssec:high_level_specifications}, next the assumptions used for this study will be listed in ??,  then the feasability of the Altimetry Mode and Hazard Detection Mode will be investigated in ?? and ?? respectively. Section ?? will zoom into the effect of radiation on the system, and finally ?? and ?? will conclude the system with a spec sheet etc\dots
 
-
+\section{Requirements and Specifications}\label{sec:requirements_and_specifications}
 \input{sec/high_level_specifications}
+%\input{sec/system_engineering_level_design}
 
-\clearpage
-\input{sec/system_engineering_level_design}
+\input{sec/system_engineering_overview}
+\input{sec/system_engineering_assumptions}
+
+\section{Altimetry Mode}\label{sec:altimetry_mode}
+The Altimetry Mode is the mode in which only the altitude of the device in relationship to Europa is required. The main challenges for the altimetry mode are acquiring the required resolution, acquiring the required speed, staying within the power budget, and being sufficiently resilient against the accumulated radiation for the entire trip.
+
+The first step will be to create a model of the noise that will be present at Europa. Then the required amount of signal will be calculated, resulting in the required signal power. 
+
+\input{sec/altimetry_mode/sun_noise}
+\input{sec/altimetry_mode/high_low_freq}
+\input{sec/altimetry_mode/optics}
+\input{sec/altimetry_mode/scanning_motion}
+
+\input{sec/altimetry_mode/resolution}
+\input{sec/altimetry_mode/standard_deviation}
 
 
+%\input{sec/system_engineering_trade-offs}
 
 
 %\clearpage
@@ -67,4 +82,23 @@ First the requirements will be stated in \cref{sec:high_level_specifications}, n
 
 
 \end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

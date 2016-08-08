@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2016.7.20)  31 JUL 2016 18:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2016.7.20)  2 AUG 2016 17:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -830,7 +830,6 @@ LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
 (./tab/req_altimetry_mode_tab.tex) (./tab/req_hazard_mode_tab.tex)) [3
 
 ]
-[4] (./sec/system_engineering_level_design.tex
 (./sec/system_engineering_overview.tex (./tkz/schematic_overview_tikz.tex)
 Underfull \hbox (badness 10000) in paragraph at lines 7--32
 
@@ -876,9 +875,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--32
 
  []
 
-[5
-
-]) [6] (./sec/system_engineering_assumptions.tex
+[4]) (./sec/system_engineering_assumptions.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--16
 
  []
@@ -923,20 +920,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--27
 
  []
 
-)
-Underfull \hbox (badness 10000) in paragraph at lines 29--9
+[5])
+Underfull \hbox (badness 10000) in paragraph at lines 29--62
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 29--9
+Underfull \hbox (badness 10000) in paragraph at lines 29--62
 
  []
 
-[7
-
-] (./sec/system_engineering_trade-offs.tex
-(./sec/trade-offs/high_low_freq.tex (./tab/pulse_frequency_tab.tex)
+(./sec/altimetry_mode/background_noise.tex (./tab/sun_irradiance_tab.tex)
+[6] (./tab/effective_irradiance_tab.tex))
+(./sec/altimetry_mode/high_low_freq.tex (./tab/pulse_frequency_tab.tex)
 Underfull \hbox (badness 10000) in paragraph at lines 24--29
 
  []
@@ -946,11 +942,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--29
 
  []
 
-[8
-
-]
+[7]
 File: fig/frequency_hopping.eps Graphic file (type eps)
- <fig/frequency_hopping.eps>) (./sec/trade-offs/optics.tex
+ <fig/frequency_hopping.eps>) (./sec/altimetry_mode/optics.tex
 Underfull \hbox (badness 10000) in paragraph at lines 2--7
 
  []
@@ -960,23 +954,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--7
 
  []
 
-(./tab/basic_optics_tab.tex) [9] (./tkz/receiver_optics_tkz.tex)
-(./tab/receiver_optics_tab.tex)) (./sec/trade-offs/scanning_motion.tex
-(./tab/image_properties_tab.tex) [10]) (./sec/trade-offs/background_noise.tex
-[11] (./tab/sun_irradiance_tab.tex) (./tab/effective_irradiance_tab.tex))
-(./sec/trade-offs/resolution.tex [12] (./tab/effective_noise_power_tab.tex)
-(./tab/energy_photon_tab.tex) (./tab/PPS_B_tab.tex
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-)) (./sec/trade-offs/standard_deviation.tex [13]))) [14] (./main.aux) ) 
+(./tab/basic_optics_tab.tex [8]) (./tkz/receiver_optics_tkz.tex)
+(./tab/receiver_optics_tab.tex) [9]) (./sec/altimetry_mode/scanning_motion.tex
+(./tab/image_properties_tab.tex) [10]) (./sec/altimetry_mode/resolution.tex
+(./tab/effective_noise_power_tab.tex) [11] (./tab/energy_photon_tab.tex)
+(./tab/PPS_B_tab.tex)) (./sec/altimetry_mode/standard_deviation.tex [12])
+[13] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 31269 strings out of 493030
- 801784 string characters out of 6136260
+ 31263 strings out of 493030
+ 801596 string characters out of 6136260
  1036351 words of memory out of 5000000
  34221 multiletter control sequences out of 15000+600000
  11849 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,14n,80p,933b,676s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,14n,80p,851b,676s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.dvi (14 pages, 80148 bytes).
+Output written on main.dvi (13 pages, 80128 bytes).

@@ -1,2 +1,0 @@
-# lidar
-Nothing interesting dudepo
