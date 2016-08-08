@@ -4,14 +4,19 @@ close;
 clc;
 
 
-hours =7;
+hours =5;
 minutes = 60;
 
 % base measurement
 a = csvread('h_1/m_1.txt');
 
 
-
+k1 = 1:32;
+k2 = 65:96;
+k3 = 129:160;
+k4 = 193:224;
+k5 = 257:512;
+k_tot = [k1 k2 k3 k4 k5];
 
 for i=1:hours
 	folder_loc = 'h_';
@@ -22,7 +27,7 @@ for i=1:hours
 		file_loc = [folder_loc '/m_' int2str(j) '.txt'];
 		% disp(file_loc);
 		a = csvread(file_loc);
-		b((i-1)*minutes+j) = sum(a);
+		b((i-1)*minutes+j) = sum(a(k_tot));
 	end
 end
 

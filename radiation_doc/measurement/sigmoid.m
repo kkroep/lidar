@@ -24,19 +24,43 @@ for k=1:no_SPADs
 		end
 	end
 end
+%% 
+hold on;
+for k=1:no_SPADs
+	staven(k) = sum(b(k,1));
+end
+oops = 1:length(staven);
+oops = oops/max(oops)*100;
+semilogy(oops,sort(staven), 'b');
 
 for k=1:no_SPADs
-	staven(k) = sum(b(k,:));
+	staven(k) = sum(b(k,75));
 end
+oops = 1:length(staven);
+oops = oops/max(oops)*100;
+semilogy(oops,sort(staven), 'g');
 
-%bar(staven);
-%print -deps bars.eps;
+for k=1:no_SPADs
+	staven(k) = sum(b(k,150));
+end
+oops = 1:length(staven);
+oops = oops/max(oops)*100;
+semilogy(oops,sort(staven), 'r');
 
-b = 1:length(staven);
-semilogx(sort(staven),b);
+for k=1:no_SPADs
+	staven(k) = sum(b(k,225));
+end
+oops = 1:length(staven);
+oops = oops/max(oops)*100;
+semilogy(oops,sort(staven), 'k');
+
+xlabel('SPADs (%)');
+ylabel('sum of counts');
+legend('0 min','75 min','150 min','225 min', 'Location', 'NorthWest');
+hold off;
 
 %close;
-disp 'done'b
+
 
 
 
