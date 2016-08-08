@@ -21,8 +21,7 @@ Bw = 10e-9; % bandwidth [m]
 
 reflectivity = 0.35; % [-]
 diameter_lens = 0.05; % [m]
-opacity_filter = 0.5; % [-]
-opacity_optics = 0.146; % [-]
+opacity_optics = 0.1175; % [-]
 
 PDP = 0.35; % [-]
 DCR_SPAD = 200; % [Hz]

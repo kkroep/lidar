@@ -14,15 +14,56 @@ $T$ is the absolute temperature of the body\\
 
 
 
-The spectral irradiance of the sun is calculated in \cref{tab:sun_irradiance}.
+The spectral irradiance of the sun is calculated in \cref{tab:sun_irradiation}.
 
-\input{tab/sun_irradiance_tab}
+\input{tab/sun_irradiation_tab}
 
-The next step is to calculate the power emitted by the sun in the specified bandwidth, at the location of Europa. This is done by modelling sun as a point source, and then spreading that power over a sphere with a radius equal to the distance between the sun and Europa, as is done in \cref{eq:point_source}.
+The next step is to calculate the power emitted by the sun in the specified bandwidth, at the location of Europa. The specified bandwidth is in this case the assumed bandpass filter used on the lens. The emitted power is calculated by modelling the sun as a point source, and then spreading that power over a sphere with a radius equal to the distance between the sun and Europa, as is done in \cref{eq:point_source}.
 
 \begin{align}\label{eq:point_source}
     P_{sun} = I_{\text{sun}} B_\lambda S \frac{r_{\text{sun}}^2}{r_{\text{europa}}^2}
 \end{align}
-where $I_{\text{sun}}$ is the spectral irradiance of the sun at the center frequency of the filter, $B_\lambda$ is the bandwidth of the filter in meters, $S$ the surface area of the target area on Europa, $r_{\text{sun}}$ the of radius of the sun, and $r_{\text{europa}}$ the distance between Europa and the sun. The effective radiance of the background noise at Europa is calculated in \cref{tab:power_background} using \cref{eq:point_source}.
+where $I_{\text{sun}}$ is the spectral irradiance of the sun at the center frequency of the filter, $B_\lambda$ is the bandwidth of the filter in meters, $S$ the surface area of the target area on Europa, $r_{\text{sun}}$ the of radius of the sun, and $r_{\text{europa}}$ the distance between Europa and the sun. The effective radiance of the background noise at Europa is calculated in \cref{tab:background_power} using \cref{eq:point_source}.
 
-\input{tab/effective_irradiance_tab}
+\input{tab/background_power_tab}
+
+The next step is to calculate the percentage of energy that hits the device when hovering over Europa. The focal length and aperture ofthe lens will be configured in such a way that the target surface on Europa fills the entire view at the maximum altitude of the Hazard Detection Mode, so that altitude will be chosen to calculate the received noise power. The amount of power received at the lens of the device can be calculated using \cref{eq:power_lens}.
+
+\begin{align}\label{eq:power_lens}
+P'_B = \frac{P_B\cdot R_{Europa}\cdot D_l\cdot \text{opacity}}{2r^2}
+\end{align}
+where $P'_B$ is the power hitting the lens, \\
+$P_B$ the noise power on the target area of Europa,\\
+$R_{Europa}$ the reflectivity of Europa,\\
+$D_l$ the diameter of the lens,\\
+opacity the opacity of the lens,\\
+and $r$ the altitude of the device. The calculations are performed in \cref{tab:effective_noise_power}.
+
+\input{tab/effective_noise_power_tab}
+
+Finally the power needs to be converted to number of photons. To calculate how many photons bounce from the surface of Europa and actually hit the light. To calculate the amount of photons one needs to know the amount of energy per photon. This can be calculated using \cref{eq:e_photon}. The calculation is performed in \cref{tab:energy_of_photon}.
+
+\begin{align}\label{eq:e_photon}
+E_{photon} = \frac{hc}{\lambda}
+\end{align}
+
+\input{tab/energy_of_photon_tab} 
+
+The amout of photons per second can then be calculated using \cref{eq:PPS}. The calculation is shown in
+
+\begin{align}\label{eq:PPS}
+\text{photon}/s = \frac{P}{E_{photon}}
+\end{align}
+
+\input{tab/photons_hitting_SPADs_tab}
+
+
+
+
+
+
+
+
+
+
+

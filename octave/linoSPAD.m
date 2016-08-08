@@ -1,17 +1,23 @@
 %// linoSPAD Laser power due to scanning methods
+function linoSPAD(tab_path)
 
-
-arg_list = argv ();
-
+% arg_list = argv ();
 
 
 constants_and_variables;
 
-if(size(arg_list,1)>0)
-	tab_path = sprintf('%s',arg_list{1})
-else
-	tab_path = '../report/fig'
-end
+% if(size(arg_list,1)>0)
+	% tab_path = sprintf('%s',arg_list{1})
+% else
+	% tab_path = '../report/test'
+% end
+
+% calculate optics performance
+
+f_number = 2;
+absorption = 0.05;
+opacity = (1-absorption)/f_number^2;
+basic_optics_tab;
 %//----------------- calculate max pulsefrequency
 
 roundtrip_time = max_altitude.*2./3e8;
@@ -41,11 +47,16 @@ P_B = I_lambda*Bw*surface_area(1)*(r_sun^2/r_europa^2); %// [W]
 
 %//----------------- calculate background power at SPAD area
 
-P_B2 = P_B*reflectivity*diameter_lens*opacity_optics*opacity_filter/(2*max_altitude(2)^2); %// [W]
+P_B2 = P_B*reflectivity*diameter_lens*opacity_optics/(2*max_altitude(2)^2); %// [W]
 
 %//----------------- calculate energy of photon
 
 e_photon = h*c/lambda;
+
+% Photons hitting SPADs
+
+photons_hittings_SPAD = P_B2/e_photon;
+photons_hitting_SPADs
 
 %//----------------- calculate number of background photons that are detected per second
 
@@ -82,7 +93,7 @@ for i=1:4
 	accumulation(i)=0;
 	for events = (threshold(i)+1):threshold(i)+100
 		Poission_events = average.^events.*exp(-average)./factorial(events);
-		#chance of a number getting dropped times the amount of photons dropped
+		%chance of a number getting dropped times the amount of photons dropped
 		accumulation(i) += Poission_events*events; 
 	end
 end
@@ -95,7 +106,6 @@ P_peak_2 = P_av_2./pulse_s./pulse_FWHM;
 
 
 %//----------------- make all latex tables
-disp('test at 98');
 f_pulse_tab 
 sun_irradiation_tab
 background_power_tab

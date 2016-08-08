@@ -1,5 +1,17 @@
 \subsubsection{Resolution} 
 \label{sssec:resolution}
+This section tackles the problem of calculating the resolution of the set-up. To do this, the different types of detection by the SPADs, due to sunlight, signal source and dark counts, must be characterized first.
+
+To avoid pileup a temporary assumption will be made about the performance of the SPADs. It is temporarily assumed that the percentage of the surface that is sensitive to photons is $50\,\%$. The amount of detected sunlight photons detected by the SPADs per second can now be calculated using
+
+\begin{align}\label{eq:PPS_B}
+PPS_B = \text{photons at SPADs}\cdot \text{PDP} \cdot \text{effective area}
+\end{align}
+
+
+
+
+
 
 The maximum allowable $FWHM$ of the measurement is $333\,ps$ as shown in \cref{ssec:assumptions}. Using \cref{eq:FWHM_sigma} the maximum standard deviation is $\sigma=141\,ps$.
 
@@ -7,37 +19,3 @@ The maximum allowable $FWHM$ of the measurement is $333\,ps$ as shown in \cref{s
 	FWHM   &= 2\sqrt{2\ln2}\sigma \\
 	\sigma &= \frac{FWHM}{2\sqrt{2\ln2}}\label{eq:FWHM_sigma}
 \end{align}
-
-The power of the background noise leaving the surface of interest at europa is calculated in \cref{ssec:background_noise}, and is $P_B = 0.179\,W$. However, this is the power at Europa. One can use \cref{eq:europa_SPAD} to calculate the amount of power that hits the SPADs.
-
-\begin{align}
-	P_B' &= \frac{P_B}{2\pi r^2}\cdot R_{europa}\cdot \pi D_l\cdot L_fL_l\\
-		 &= \frac{P_BR_{europa}D_lL_fL_l}{2r^2} \label{eq:europa_SPAD}
-\end{align}
-~\\
-where $P_B'$ is the background noise at the SPADs, \\
-$r$ the altitude of the sensor, \\
-$R_{europa}$ the reflectivity of Europa, \\
-$D_l$ the diameter of the lens, \\
-$L_f$ the opacity of the bandpass filter, and \\
-$L_l$ the effective opacity of the optics. This calculation is performed in \cref{tab:effective_noise_power}.
-
-\input{tab/effective_noise_power_tab}
-
-The next step is to calculate the number of background noise photons per second ($PPS_B$) that are detected by each SPAD. For that, one first needs to know the energy of a single photon $E_{photon}$. To calculate $E_{photon}$ one can use \cref{eq:energy_photon}. The calculation of this is shown in \cref{tab:energy_photon}.
-
-\begin{align}\label{eq:energy_photon}
-	E_{photon} &= \frac{hc}{\lambda}
-\end{align}
-
-\input{tab/energy_photon_tab}
-
-The SPAD Array is assumed to be $2500\times4$ for a total of $N_{SPAD} = 10000$.
-Now to calculate the $PPS_B$ for each SPAD one can use \cref{eq:PPS_B}
-
-\begin{align}\label{eq:PPS_B}
-	PPS_B &= \frac{P_B'\cdot PDP}{E_{photon}\cdot N_{SPAD}}
-\end{align}
-where $PDP$ is the photon detection probability of the SPADs. This calculation is done in \cref{tab:PPS_B}
-
-\input{tab/PPS_B_tab}

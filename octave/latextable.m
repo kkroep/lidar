@@ -45,7 +45,7 @@ str = strcat (str, "\\end{table}\n");
 % disp(str);
 
 filename = strcat(name, "_tab.tex");
-filename = strcat(path, filename);
+filename = strcat(path,"/", filename)
 fid = fopen (filename, "w");
 fputs (fid, str);
 fclose(fid);
