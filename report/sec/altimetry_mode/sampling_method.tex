@@ -15,10 +15,10 @@ The next step is to calculate the relationship between oberved number of good an
  	\Var[aX+bY+cZ] = a^2\Var[X]+b^2\Var[Y]+c^2\Var[Z]
 \end{align}
 
-Because the DCR and sunlight photons have the same uniform distribution they are taken from the same uniform random variable $N$, where $n$ is the amount of detected sunlight and dark photons, $\mu_N = \frac{1}{2}t_{round}$, and $\sigma_N=\frac{1}{\sqrt{12}}t_{round}$. The signal photons are taken from the random variable $S$, where $s$ is the amount of detected signal photons, $\mu_S= ToF$, and $\sigma_S=42.5\,ps$. The resulting mean $\mu_{tot}$ can be calculated using \cref{eq:mu_tot}. The error with the desired $\mu$ can be calculated using \cref{eq:mu_error}.
+Because the DCR and sunlight photons have the same uniform distribution they are taken from the same uniform random variable $N$, where $n$ is the amount of detected sunlight and dark photons, $\mu_n = \frac{1}{2}t_{round}$, and $\sigma_n=\frac{1}{\sqrt{12}}t_{round}$. The signal photons are taken from the random variable $S$, where $s$ is the amount of detected signal photons, $\mu_s= ToF$, and $\sigma_s=42.5\,ps$. The resulting mean $\mu_{tot}$ can be calculated using \cref{eq:mu_tot}. The error with the desired $\mu$ can be calculated using \cref{eq:mu_error}.
 
 \begin{align}
-\mu_{tot}&=\frac{1}{s+n}\Big(\sum_{k=1}^s\mu_S+\sum_{l=1}^n\mu_N  \Big)\\
+\mu_{tot}&=\frac{1}{s+n}\Big(\sum_{k=1}^s\mu_s+\sum_{l=1}^n\mu_n  \Big)\\
 &= \frac{s\cdot Tof}{s+n}+\frac{n\cdot \frac{1}{2}t_{round}}{s+n} \label{eq:mu_tot} 
 \end{align}
 
@@ -30,72 +30,99 @@ Because the DCR and sunlight photons have the same uniform distribution they are
 The resulting standard deviation $\sigma_{tot}$ can be calculated using \cref{eq:sigma_tot}.
 
 \begin{align}
-\text{Var}_{tot} &= \text{Var}\Big[\frac{1}{s+n}\Big(\sum_{k=1}^s\text{Var}_S+\sum_{l=1}^n\text{Var}_N\Big)\Big]\\
+\text{Var}_{tot} &= \text{Var}\Big[\frac{1}{s+n}\Big(\sum_{k=1}^s\text{Var}_s+\sum_{l=1}^n\text{Var}_n\Big)\Big]\\
 &= \frac{1}{(s+n)^2}(s\sigma_s^2+n\sigma_n^2)\\
 \sigma_{tot} &= \sqrt{\text{Var}_{tot}}\\
-&= \frac{\sqrt{s\sigma_s^2+n\sigma_n^2}}{s+n} \\
-&= \frac{\sqrt{s\cdot(42.5\cdot10^{-12})^2+n\cdot(\frac{1}{\sqrt{12}}t_{round})^2}}{s+n} \\
-&= \frac{\sqrt{s\cdot1.8063\cdot10^{-21}+\frac{n}{12}t_{round}}}{s+n} \label{eq:sigma_tot}
+&= \frac{\sqrt{s\sigma_s^2+n\sigma_n^2}}{s+n} \label{eq:sigma_tot}
+%&= \frac{\sqrt{s\cdot(42.5\cdot10^{-12})^2+n\cdot(\frac{1}{\sqrt{12}}t_{round})^2}}{s+n} \\
+%&= \frac{\sqrt{s\cdot1.8063\cdot10^{-21}+\frac{n}{12}t_{round}}}{s+n} \label{eq:sigma_tot}
 \end{align}
 
+Using \cref{eq:sigma_tot}, one can calculate the relationship between the amount of signal photons needed for a given amount of noise photons. For the long distance a $t_{round}=53.3\,\mu s$ is used. Using \cref{eq:s_vs_n} the realtionship between the number of noise photons and required signal photons is shown in \cref{fig:altimetry_s_vs_n}. Note that the amount of required signal photons first rises quickly, then slowly, and finally even drops. The reason for this trend is that increasing the number of random samples also decreases the standard deviation by itself. \Cref{fig:altimetry_s_vs_n_small} shows the same relationship for a smaller number of noise photons. 
+\begin{align}
+\sigma_{tot} &= \frac{\sqrt{s\sigma_s^2+n\sigma_n^2}}{s+n} \\
+s &= \frac{\sigma_s^2+\sqrt{\sigma_s^4-4\sigma_s^2\sigma_{tot}^2n+4\sigma_n^2\sigma_{tot}^2n}-2\sigma_{tot}^2n}{2\sigma_{tot}^2}\label{eq:s_vs_n}
+\end{align} 
 
+\begin{figure}[h]
+\centering
+	\includegraphics[width=0.8\linewidth]{fig/altimetry_s_vs_n.eps}
+\caption{Relationship between number of signal and noise photons to get the required resolution}
+\label{fig:altimetry_s_vs_n}
+\end{figure}
 
-A very important restriction to the sampling method is the highest achievable peak power of the laser. If there would be no limit on the peak power, one could send out one extremely powerful pulse, listen for an extremely short period of time, and then reconstruct the altitude. The key advantage is the listening time. Shortening the listening time directly reduces the amount of background and noise that can be observed.  
+\begin{figure}[h]
+\centering
+	\includegraphics[width=0.8\linewidth]{fig/altimetry_s_vs_n_small.eps}
+\caption{Relationship between number of signal and noise photons to get the required resolution}
+\label{fig:altimetry_s_vs_n_small}
+\end{figure}
 
+% ------------- threshold
+\subsubsection{Energy Threshold}\label{sssec:energy_threshold}
+An energy threshold can be a very powerful way to improve signal to noise ratio. The signal photons all arrive with a $FWHM = 100\,ps$, while the noise photons are spread out over $53.3\,\mu s$. An energy threshold is a perfect way to take advantage of this. When the phoons are divided over bins, the expected number of bins can be modelled as Poission process. Using this the efficiency of the energy threshold can be perfomed which is shown in \cref{fig:threshold_efficiency}, where the opacity is 1 if all photons pass through the threshold, and 0 if no photons pass through the threshold. It is important to notice that a certain threshold has no effect at all if the expected number of photons is sufficiently high. The threshold is most effective when the opcity for the signal photons is close to 1, and the opacity for noise photons close to 0. To apply a threshold however, one needs to assemble a historgram of all the detections. The feasability of such a histogram will be investigated later, but for now both a system with and without an energy threshold are considered.  
+
+\begin{figure}[H]
+\centering
+	\includegraphics[width=0.8\linewidth]{fig/threshold_efficiency.eps}
+\caption{Expected number of photons per bin versus the opacity of the threshold, where opacity=1 means all photons pass through the threshold, and opacity=0 means no photons pass through the threshold}
+\label{fig:threshold_efficiency}
+\end{figure}
 
 
 %-----------------------------------------
+% \subsubsection{Two frequency sampling}
 
-The maximum pulse frequency can then be calculated using \cref{eq:pulse_f}
+% The maximum pulse frequency can then be calculated using \cref{eq:pulse_f}
 
-\begin{align}\label{eq:pulse_f}
-f_{pulse} = \frac{1}{t_{round}} = \frac{c}{2r}
-\end{align}
-
-
-
-The maximum altitude are different for the Altimetry and Hazard Detection mode. The maximum pulse frequency of both modes is shown in \cref{tab:pulse_frequency}.
-
-%\input{tab/pulse_frequency_tab}
-
-In order to increase the frequency, it is intersting to see what happens if the frequency is increased. The TDC measures the time between the last outgoing pulse and the incomming pulse. This means that the performed measurement $t_{TDC}$ can be calculated using \cref{eq:t_TDC_ToF}.
-
-\begin{align}\label{eq:t_TDC_ToF}
-	t_{TDC} &=ToF \mod T_{pulse}\\	
-	ToF &= t_{TDC}+k\cdot T_{pulse} & k \in \mathbb{N}\label{eq:ToF_t_TDC}
-\end{align}
-
- where $t_{TDC}$ is the measurement of the TDC, $ToF$ the time of flight, and $T_{pulse}$ the time period of the laser pulses. The returned answer is related to $ToF$ as shown in \cref{eq:ToF_t_TDC}. The precision of the measurement is maintained,  but on a larger scale the information is lost. \\
- \\
-To solve this problem one can make measurements in two different frequencies. The idea is also applied in TDCs (Name of technique?), where two ring oscillators with different frequencies are used to amplify the range of the TDC. A similar idea can be applied here, but instead of using two oscillators, the time is devided in half, and in the first half the laser sends pulses in frequency $f_1$, and in the second half pulses with frequncy $f_2$. These two different measurements can first be used to determine the large scale ToF, and then the measurements can be combined to get a high accuracy to accompany that.\\
-\\
-As a proof of concept. This idea is applied to the Altimetry Mode. It is assumed that a difference of $5\,ns$ between $\lambda_1$ and $\lambda_2$ is sufficient. Now using a maximum $ToF$ one can calculate that optimal two frequencies, such that $f1_>f_2$ and $f_2$ as high as possible. 
-
-\begin{align}
- 	\frac{50\mu}{5n} &= 10660\\ 
- 	\sqrt{\frac{50\mu}{5n}} &\approx 103
- \end{align} 
- Now two coprime numbers in $\mathbb{N}$ around 103 are 103 and 104. The resulting frequencies are
- \begin{align}
- 	T_1 &= 103\cdot5n = 515n\\
- 	T_2 &= 104\cdot5n = 520n\\
- 	f_1 &= \frac{1}{T_1} = 1.9417\,MHz\\
- 	f_2 &= \frac{1}{T_1} = 1.9231\,MHz\\
- \end{align}
-The pulse frequency increases by a factor 100. A matlab plot of the resulting system is shown in \cref{fig:frequency_hopping}, where the measurement values of the TDC are plotted against the $ToF$.
+% \begin{align}\label{eq:pulse_f}
+% f_{pulse} = \frac{1}{t_{round}} = \frac{c}{2r}
+% \end{align}
 
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\textwidth]{fig/frequency_hopping.eps}
-    \caption{Matlab plot of TDC measurements vs ToF}
-    \label{fig:frequency_hopping}
-\end{figure}
 
-The $ToF$ can be calculated using \cref{eq:ToF}.
+% The maximum altitude are different for the Altimetry and Hazard Detection mode. The maximum pulse frequency of both modes is shown in \cref{tab:pulse_frequency}.
 
-\begin{align}
-	t_{1-2} &= (t_1-t_2)\mod T_2\\
-	ToF &= \frac{t_{1-2}}{T_2-T_1}T_1+\frac{t_1+t_2-t_{1-2}}{2}\label{eq:ToF}
-\end{align}
-where $t_1$ and $t_2$ are the timestamp measurements for $f_1$ and $f_2$ respectively. $t_{1-2}$ is the modulus of the time difference between $t_1$ and $t_2$.
+% %\input{tab/pulse_frequency_tab}
+
+% In order to increase the frequency, it is intersting to see what happens if the frequency is increased. The TDC measures the time between the last outgoing pulse and the incomming pulse. This means that the performed measurement $t_{TDC}$ can be calculated using \cref{eq:t_TDC_ToF}.
+
+% \begin{align}\label{eq:t_TDC_ToF}
+% 	t_{TDC} &=ToF \mod T_{pulse}\\	
+% 	ToF &= t_{TDC}+k\cdot T_{pulse} & k \in \mathbb{N}\label{eq:ToF_t_TDC}
+% \end{align}
+
+%  where $t_{TDC}$ is the measurement of the TDC, $ToF$ the time of flight, and $T_{pulse}$ the time period of the laser pulses. The returned answer is related to $ToF$ as shown in \cref{eq:ToF_t_TDC}. The precision of the measurement is maintained,  but on a larger scale the information is lost. \\
+%  \\
+% To solve this problem one can make measurements in two different frequencies. The idea is also applied in TDCs (Name of technique?), where two ring oscillators with different frequencies are used to amplify the range of the TDC. A similar idea can be applied here, but instead of using two oscillators, the time is devided in half, and in the first half the laser sends pulses in frequency $f_1$, and in the second half pulses with frequncy $f_2$. These two different measurements can first be used to determine the large scale ToF, and then the measurements can be combined to get a high accuracy to accompany that.\\
+% \\
+% As a proof of concept. This idea is applied to the Altimetry Mode. It is assumed that a difference of $5\,ns$ between $\lambda_1$ and $\lambda_2$ is sufficient. Now using a maximum $ToF$ one can calculate that optimal two frequencies, such that $f1_>f_2$ and $f_2$ as high as possible. 
+
+% \begin{align}
+%  	\frac{50\mu}{5n} &= 10660\\ 
+%  	\sqrt{\frac{50\mu}{5n}} &\approx 103
+%  \end{align} 
+%  Now two coprime numbers in $\mathbb{N}$ around 103 are 103 and 104. The resulting frequencies are
+%  \begin{align}
+%  	T_1 &= 103\cdot5n = 515n\\
+%  	T_2 &= 104\cdot5n = 520n\\
+%  	f_1 &= \frac{1}{T_1} = 1.9417\,MHz\\
+%  	f_2 &= \frac{1}{T_1} = 1.9231\,MHz\\
+%  \end{align}
+% The pulse frequency increases by a factor 100. A matlab plot of the resulting system is shown in \cref{fig:frequency_hopping}, where the measurement values of the TDC are plotted against the $ToF$.
+
+
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=\textwidth]{fig/frequency_hopping.eps}
+%     \caption{Matlab plot of TDC measurements vs ToF}
+%     \label{fig:frequency_hopping}
+% \end{figure}
+
+% The $ToF$ can be calculated using \cref{eq:ToF}.
+
+% \begin{align}
+% 	t_{1-2} &= (t_1-t_2)\mod T_2\\
+% 	ToF &= \frac{t_{1-2}}{T_2-T_1}T_1+\frac{t_1+t_2-t_{1-2}}{2}\label{eq:ToF}
+% \end{align}
+% where $t_1$ and $t_2$ are the timestamp measurements for $f_1$ and $f_2$ respectively. $t_{1-2}$ is the modulus of the time difference between $t_1$ and $t_2$.
