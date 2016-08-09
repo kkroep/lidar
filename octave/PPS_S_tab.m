@@ -1,0 +1,23 @@
+% linoSPAD Laser power due to scanning methods
+
+name = sprintf('PPS_S');
+
+A=[];
+A{1,1} = sprintf('\\textbf{PPS for background photons}');
+A{1,2} = sprintf('');
+
+A{2,1} = sprintf('$P_S$');
+A{2,2} = number_converter_exp(P_S, 'W');
+
+A{3,1} = sprintf('Altitude');
+A{3,2} = number_converter(max_altitude(1)/1000, 'km');
+
+A{4,1} = sprintf("$P\'_S$");
+A{4,2} = number_converter_exp(P_S2, 'W');
+
+A{5,1} = sprintf('$PPS_S$');
+A{5,2} = number_converter_exp(PPS_S, '\text{photon}/s');
+
+caption = sprintf('Amount of detected signal photons detected per second');
+latextable(A, name, tab_path, caption);
+	

@@ -22,7 +22,7 @@ A{6,1} = sprintf('$T$');
 A{6,2} = number_converter(T, 'K');
 
 A{7,1} = sprintf('$I_\\lambda$');
-A{7,2} = number_converter_exp(I_lambda, 'W/m^3');
+A{7,2} = number_converter_exp(I_lambda*1e-9, 'W/m^2/nm');
 
 caption = sprintf('Calculation of sun irradiation');
 latextable(A, name, tab_path, caption);

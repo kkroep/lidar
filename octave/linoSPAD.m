@@ -60,8 +60,25 @@ photons_hitting_SPADs
 
 %//----------------- calculate number of background photons that are detected per second
 
-PPS_B = P_B2*PDP/e_photon;
+effective_area = 0.5; % percentage of surface area that is sensitive
+PPS_B = photons_hittings_SPAD*PDP*effective_area;
 
+% calculate the amount of detected signal photons per watt of electrical energy
+
+P_S = 1;
+P_S2 = P_S*reflectivity*diameter_lens*opacity_optics/(2*max_altitude(1)^2); %// [W]
+PS_hittings_SPAD = P_S2/e_photon;
+PPS_S = PS_hittings_SPAD*PDP*effective_area;
+PPS_S_tab
+
+% calculate the requirements for altimetry mode
+
+AM_altitude = [max_altitude(2), max_altitude(1)];
+AM_resolution = AM_altitude.*0.001; % 0.1% resolution
+AM_FWHM = AM_resolution.*2./c;
+AM_sigma = AM_FWHM./(2*sqrt(2*log(2)));
+
+AM_requirements_tab
 %//----------------- calculate number of unwanted photons detected per SPAD per second
 
 PPS_B2 = PPS_B.*surface_area.*exposure_time./surface_length^2;

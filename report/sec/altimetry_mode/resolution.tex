@@ -1,21 +1,18 @@
-\subsubsection{Resolution} 
-\label{sssec:resolution}
-This section tackles the problem of calculating the resolution of the set-up. To do this, the different types of detection by the SPADs, due to sunlight, signal source and dark counts, must be characterized first.
+\subsection{Resolution} 
+\label{ssec:resolution}
+The requirement for the altimetry mode changes based on the height. The target is a resolution of at least $0.1\,\%$. To ensure that this requirement is met, both the largest altitude of $8\,km$, and the smallest altitude of $500\,m$ will be investigated.
 
-To avoid pileup a temporary assumption will be made about the performance of the SPADs. It is temporarily assumed that the percentage of the surface that is sensitive to photons is $50\,\%$. The amount of detected sunlight photons detected by the SPADs per second can now be calculated using
+The minimum resolution for the largest and shortest altitude are $8\,m$ and $0.5\,m$ respectively. The maximum allowable FWHM can be calculated using \cref{eq:max_FWHM}.
+ Using \cref{eq:FWHM_sigma} the maximum standard deviation can be calculated. The calculations are performed
 
-\begin{align}\label{eq:PPS_B}
-PPS_B = \text{photons at SPADs}\cdot \text{PDP} \cdot \text{effective area}
+\begin{align}\label{eq:max_FWHM}
+FWHM_{max} = \frac{2x}{c}
 \end{align}
 
+\input{tab/AM_requirements_tab}
 
 
 
 
 
-The maximum allowable $FWHM$ of the measurement is $333\,ps$ as shown in \cref{ssec:assumptions}. Using \cref{eq:FWHM_sigma} the maximum standard deviation is $\sigma=141\,ps$.
 
-\begin{align}\label{eq:sigma_FWHM}
-	FWHM   &= 2\sqrt{2\ln2}\sigma \\
-	\sigma &= \frac{FWHM}{2\sqrt{2\ln2}}\label{eq:FWHM_sigma}
-\end{align}

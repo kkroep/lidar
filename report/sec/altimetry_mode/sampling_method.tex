@@ -1,18 +1,62 @@
-\subsubsection{High Frequency vs Low Frequency pulses}\label{sssec:high_low_freq}
-The pulse frequency is limited by the roundtrip time  of the transmitted photons. The roundtrip time can be calculated using \cref{eq:roundtrip}
+\subsection{Sampling Method}\label{ssec:sampling_method}
+The sampling method used has a massive impact on the performance of the system. This section investigates the options that can be chosen from.
+
+The time that the sensor should listen to a response is determined by the maximum round trip time of a photon, and can be calculated using \cref{eq:roundtrip}.
 
 \begin{align}\label{eq:roundtrip}
 t_{round} = \frac{2r}{c}
 \end{align}
-where $c\approx 3\cdot10^8$ is the speed of light, and $r$ the altitude of the sensor. The maximum pulse frequency can then be calculated using \cref{eq:pulse_f}
+where $c\approx 3\cdot10^8$ is the speed of light, and $r$ the altitude of the sensor. 
+
+The next step is to calculate the relationship between oberved number of good and bad photons for a given listening period, and the resulting standard deviation of the measurement. To calculate the standard deviation of the sum of multiple random variables that are independent and uncorrelated, one can use \cref{eq:variance_weighted_sum}
+
+\begin{align}\label{eq:variance_weighted_sum}
+\newcommand{\Var}{\mathrm{Var}}
+ 	\Var[aX+bY+cZ] = a^2\Var[X]+b^2\Var[Y]+c^2\Var[Z]
+\end{align}
+
+Because the DCR and sunlight photons have the same uniform distribution they are taken from the same uniform random variable $N$, where $n$ is the amount of detected sunlight and dark photons, $\mu_N = \frac{1}{2}t_{round}$, and $\sigma_N=\frac{1}{\sqrt{12}}t_{round}$. The signal photons are taken from the random variable $S$, where $s$ is the amount of detected signal photons, $\mu_S= ToF$, and $\sigma_S=42.5\,ps$. The resulting mean $\mu_{tot}$ can be calculated using \cref{eq:mu_tot}. The error with the desired $\mu$ can be calculated using \cref{eq:mu_error}.
+
+\begin{align}
+\mu_{tot}&=\frac{1}{s+n}\Big(\sum_{k=1}^s\mu_S+\sum_{l=1}^n\mu_N  \Big)\\
+&= \frac{s\cdot Tof}{s+n}+\frac{n\cdot \frac{1}{2}t_{round}}{s+n} \label{eq:mu_tot} 
+\end{align}
+
+\begin{align}
+\mu_{\text{error}} &= |ToF-\mu_{tot}|\\
+&= \Big|\frac{n(ToF-\frac{1}{2}t_{round})}{s+n}\Big|\label{eq:mu_error}
+\end{align}
+
+The resulting standard deviation $\sigma_{tot}$ can be calculated using \cref{eq:sigma_tot}.
+
+\begin{align}
+\text{Var}_{tot} &= \text{Var}\Big[\frac{1}{s+n}\Big(\sum_{k=1}^s\text{Var}_S+\sum_{l=1}^n\text{Var}_N\Big)\Big]\\
+&= \frac{1}{(s+n)^2}(s\sigma_s^2+n\sigma_n^2)\\
+\sigma_{tot} &= \sqrt{\text{Var}_{tot}}\\
+&= \frac{\sqrt{s\sigma_s^2+n\sigma_n^2}}{s+n} \\
+&= \frac{\sqrt{s\cdot(42.5\cdot10^{-12})^2+n\cdot(\frac{1}{\sqrt{12}}t_{round})^2}}{s+n} \\
+&= \frac{\sqrt{s\cdot1.8063\cdot10^{-21}+\frac{n}{12}t_{round}}}{s+n} \label{eq:sigma_tot}
+\end{align}
+
+
+
+A very important restriction to the sampling method is the highest achievable peak power of the laser. If there would be no limit on the peak power, one could send out one extremely powerful pulse, listen for an extremely short period of time, and then reconstruct the altitude. The key advantage is the listening time. Shortening the listening time directly reduces the amount of background and noise that can be observed.  
+
+
+
+%-----------------------------------------
+
+The maximum pulse frequency can then be calculated using \cref{eq:pulse_f}
 
 \begin{align}\label{eq:pulse_f}
 f_{pulse} = \frac{1}{t_{round}} = \frac{c}{2r}
 \end{align}
 
+
+
 The maximum altitude are different for the Altimetry and Hazard Detection mode. The maximum pulse frequency of both modes is shown in \cref{tab:pulse_frequency}.
 
-\input{tab/pulse_frequency_tab}
+%\input{tab/pulse_frequency_tab}
 
 In order to increase the frequency, it is intersting to see what happens if the frequency is increased. The TDC measures the time between the last outgoing pulse and the incomming pulse. This means that the performed measurement $t_{TDC}$ can be calculated using \cref{eq:t_TDC_ToF}.
 
