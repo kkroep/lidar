@@ -29,7 +29,7 @@ pulse_length = 100e-12;
 
 pulses = 1;
 
-for i=1:300
+for i=1:370
 	pulses = ceil(1.1^i);
 	n = ceil(pulses*PPS_B*pulse_length);
 	req_s = -(a^2-sqrt(a^4-4*a^2*sigma^2*n+4*b^2*sigma^2*n)-2*sigma^2*n)/(2*sigma^2);
