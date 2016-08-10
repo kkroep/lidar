@@ -33,7 +33,7 @@ for i=1:370
 	pulses = ceil(1.1^i);
 	n = ceil(pulses*PPS_B*pulse_length);
 	req_s = -(a^2-sqrt(a^4-4*a^2*sigma^2*n+4*b^2*sigma^2*n)-2*sigma^2*n)/(2*sigma^2);
-	P_av(i) = req_s/PPS_S;
+	P_av(i) = req_s/PPS_S*256; %number of bins!!!
 	P_peak(i) = P_av(i)/(pulses*pulse_length);
 end
 
@@ -55,7 +55,7 @@ loglog(P_av, P_peak, 'linewidth', 4);
 xlabel('average optical power [W]');
 ylabel('peak optical power [W]')
 % legend('thr=1','thr=2','thr=4','thr=8','thr=16','thr=32','thr=64', 'thr=128','thr=256', 'thr=512','thr=1024', 'location', 'northeastoutside');
-title('Peak vs average power, altitude=500 m');
+title('Peak vs average power, HDM, altitude=500 m');
 print('-deps', '-color', '../report/fig/hdm_peak_vs_av.eps');
 
 
