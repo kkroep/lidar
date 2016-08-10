@@ -97,7 +97,7 @@ energy_of_photon_tab
 pixels = 2048*8;
 PPS_B
 PPS_S
-PPSS_B = PPS_B/pixels; 
+PPSS_B = PPS_B/pixels/2048*8; 
 PPSS_S = PPS_S*max_altitude(1)^2/(max_altitude(2)^2)/pixels;
 PPSS_N = 2000;
 
