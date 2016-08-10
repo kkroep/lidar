@@ -65,7 +65,7 @@ PPS_B = photons_hittings_SPAD*PDP*effective_area;
 
 % calculate the amount of detected signal photons per watt of electrical energy
 
-P_S = 0.1;
+P_S = 1;
 P_S2 = P_S*reflectivity*diameter_lens*opacity_optics/(2*max_altitude(1)^2); %// [W]
 PS_hittings_SPAD = P_S2/e_photon;
 PPS_S = PS_hittings_SPAD*PDP*effective_area;
@@ -95,7 +95,8 @@ energy_of_photon_tab
 %% HAZARD DETECTION MODE
 %%
 pixels = 2048*8;
-
+PPS_B
+PPS_S
 PPSS_B = PPS_B/pixels; 
 PPSS_S = PPS_S*max_altitude(1)^2/(max_altitude(2))/pixels;
 PPSS_N = 2000;
