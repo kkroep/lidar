@@ -84,6 +84,24 @@ AM_FWHM = AM_resolution.*2./c;
 AM_sigma = AM_FWHM./(2*sqrt(2*log(2)));
 
 AM_requirements_tab
+
+% --- calculate some graphs
+f_pulse_tab 
+sun_irradiation_tab
+background_power_tab
+energy_of_photon_tab
+
+%%
+%% HAZARD DETECTION MODE
+%%
+pixels = 2048*8;
+
+PPSS_B = PPS_B/pixels; 
+PPSS_S = PPS_S*max_altitude(1)^2/(max_altitude(2))/pixels;
+PPSS_N = 2000;
+
+photons_per_SPAD_tab
+
 %//----------------- calculate number of unwanted photons detected per SPAD per second
 
 PPS_B2 = PPS_B.*surface_area.*exposure_time./surface_length^2;
@@ -128,10 +146,6 @@ P_peak_2 = P_av_2./pulse_s./pulse_FWHM;
 
 
 %//----------------- make all latex tables
-f_pulse_tab 
-sun_irradiation_tab
-background_power_tab
-energy_of_photon_tab
 scanning_power_tab
 effective_noise_power_tab
 PPS_tab
