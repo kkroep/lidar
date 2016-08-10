@@ -40,6 +40,7 @@ xlabel('noise photons');
 ylabel('signal photons')
 %legend('reset', 'location', 'northeastoutside');
 title('\sigma_{tot}=26.65 ns, \sigma_s = 42.5 ps, \sigma_n = 15.4 us');
+disp('../report/fig/altimetry_s_vs_n_small.eps');
 print('-deps', '-color', '../report/fig/altimetry_s_vs_n_small.eps');
 
 close;
