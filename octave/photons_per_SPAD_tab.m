@@ -12,7 +12,7 @@ A{2,2} = number_converter_exp(PPSS_B, '\text{photon}/s');
 A{3,1} = sprintf('$PPS_N$');
 A{3,2} = number_converter(PPSS_N, '\text{photon}/s');
 
-A{4,1} = sprintf('PPS_S');
+A{4,1} = sprintf('$PPS_S$');
 A{4,2} = number_converter_2(PPSS_S, '\text{photon}/s');
 
 caption = sprintf('Amount of backgroun (B), dark count (N), and signal (S) photons that hit a single SPAD per second');
