@@ -98,7 +98,7 @@ pixels = 2048*8;
 PPS_B
 PPS_S
 PPSS_B = PPS_B/pixels; 
-PPSS_S = PPS_S*max_altitude(1)^2/(max_altitude(2))/pixels;
+PPSS_S = PPS_S*max_altitude(1)^2/(max_altitude(2)^2)/pixels;
 PPSS_N = 2000;
 
 photons_per_SPAD_tab
