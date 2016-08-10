@@ -13,7 +13,7 @@ A{3,1} = sprintf('$PPS_N$');
 A{3,2} = number_converter_exp(PPSS_N, ' \text{photon}/s');
 
 A{4,1} = sprintf('$PPS_S$');
-A{4,2} = number_converter_exp(PPSS_S, ' \text{photon}/s');
+A{4,2} = number_converter_exp(PPSS_S, ' \text{photon}/s/W');
 
 caption = sprintf('Amount of backgroun (B), dark count (N), and signal (S) photons that hit a single SPAD per second');
 latextable(A, name, tab_path, caption);
