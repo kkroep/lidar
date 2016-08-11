@@ -1,0 +1,31 @@
+\begin{figure}[H]
+    \centering
+
+
+
+\begin{tikzpicture}
+
+\draw  (-6,-5.5) rectangle (5,-6) node[pos=.5]{circuitboard};
+\draw  (0,-5) rectangle (4.5,-5.5)node[pos=.5]{ROIC and FPGA};
+\draw  (-4.5,-5) rectangle (-2.5,-5.5)node[pos=.5]{SPADs};
+
+\draw (5.5,-4) -- (-1,-4) -- (-1,-2.5) -- (5.5,-2.5);
+
+\node at (2.5,-3.25) {radiation shield};
+
+\draw [>=latex, ->] (-3.5,2) -- (-3.5,-5);
+\node at (-3.5,2.5) {proton beam};
+\draw  (-8.5,0) rectangle (-3.75,-1) node[pos=.5]{collimator};
+\draw  (-3.25,0) rectangle (1.5,-1) node[pos=.5]{collimator};
+
+\draw [>=latex, ->] (-3.6,2) -- (-3,0);
+\draw [>=latex, ->] (-3.7,2) -- (-3.8,0);
+\draw [>=latex, ->] (-3.4,2) -- (-3.75,-.5);
+\draw [>=latex, ->] (-3.45,2) -- (-3.65,-5);
+
+\end{tikzpicture}
+
+
+    \caption{schematic of radiation test setup}
+    \label{tkz:test_setup}
+\end{figure}
