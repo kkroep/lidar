@@ -1,4 +1,4 @@
-\subsection{Laser}
+\subsubsection{Laser}
 The laser is responsible for the photons that are used for the Time of Flight (ToF) measurement. The laser has to ensure that the Signal to Background Noise Ratio (SBNR) is at least 0 dB. The power budget of the entire system is $50\,W$, which is the main bottleneck for the performance of the laser. The wavelength of the laser is $850\,nm$. The $P_B$ is already calculated in \cref{ssec:background_noise}. In order to achieve an SNR of 0 dB, the signal power $P_S$ must therefore at least match the background noise power that hits the surface of Europa. One can calculate the signal power at the optics using \cref{eq:P_S}.
 
 \begin{align}\label{eq:P_S}

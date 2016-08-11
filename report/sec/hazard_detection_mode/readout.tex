@@ -1,0 +1,6 @@
+\section{Readout}\label{ssec:readout}
+In \cref{ssec:SPADs} two circuitry components where mentioned that are required for each SPAD: a ROIC and a TDC. While the decision on whether or not to push out the ROIC has not yet been made, \cref{ssec:SPAD_layout} concluded that it is necessary to push out the TDC. One other important aspect of the TDC is that it must meet the designed resolution of $50\,ps$. The proposed TDC design uses a Phase Locked Loop (PLL) to generate signals that the TDC can use to timestamp an incomming pulse. The PLL, for which a schematic is shown in \cref{tkz:PLL}, locks onto an input in such a way, that both signals entering te phase detector are equal. By using a divider by $X$ block, one can generate a signal with a frequency that is equal to $x$ times the clock frequency. The voltage controlled oscilator is capable of generating 4 signals with 4 different phases to increase the resolution further. \Cref{tkz:TDC_line_PLL} shows a line of TDCs connected to the PLL.
+
+\input{tkz/PLL_tkz}
+
+\input{tkz/TDC_line_PLL_tkz}

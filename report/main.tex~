@@ -1,10 +1,11 @@
-\documentclass{article}
+\documentclass[]{report}
 \usepackage[utf8x]{inputenc}
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{tikz}
 \usepackage{todonotes}
+\usepackage[outdir=./]{epstopdf}
 \usepackage{pgfplots}
 \usepackage{epstopdf}
 \usepackage{listings}
@@ -29,8 +30,8 @@
 %\usepackage{bm}
 
 
-\title{NASA project}
-\author{Kees Kroep 4246373}
+\title{Lidar sensor for Europa Clipper feasability study}
+\author{Kees Kroep}
 
 
 \begin{document}
@@ -42,37 +43,60 @@
 
 
 \section*{Abstract}
-Type an abstract
+This document investigates the feasability of a lidar sensor based of performance requirements provided by NASA. The main focus of this study is both the required laser power and the resilience of the device against proton radiation. Other considerations include manufacturability, readout specifications and lens specifications. Based on the results of this study a design will be proposed. Finally a radiation test is performed to increase the knowledge about the radiation resilience of the technology used in the proposed design.
 
-\clearpage
+%\clearpage
 \tableofcontents
 \clearpage
 
 \section*{Introduction}
-This document is a feasability study of a lidar sensor designed for the Europa Clipper. The main focus of this document will lie on the three most challenging aspects of the sensor design. How to achieve the target precision goals of the two modus of operation within the power budget, and the effect of radiation on the system.
+The Europa Clipper is a planned mission by NASA  to conduct  detailed reconnaissance of Juliter;s moon Europa and investigate whether the moon could harbor condition suitable for life. To aid in the landing process, a lidar sensor is proposed. The functionaily of the lidar sensor is twofold. At hig altitudes, the Lidar sensor must operate in Altimetry Mode, and be capable to accurately measure the altitude of the device with respect to the surface of Europa. When the Europa Clipper gets closer to Europa, the lidar sensor must switch to a Hazard Detection Mode, where it scans the landing site on the surface of Europa to make a heightmap to pick a suitable landing spot and to aid the final stages of the landing process.
 
-First the requirements will be stated in \cref{ssec:high_level_specifications}, next the assumptions used for this study will be listed in ??,  then the feasability of the Altimetry Mode and Hazard Detection Mode will be investigated in ?? and ?? respectively. Section ?? will zoom into the effect of radiation on the system, and finally ?? and ?? will conclude the system with a spec sheet etc\dots
+This study will investigate the feasability of such a lidar sensor. The focus will lie on required laser power to meet the required resollution, and the resilience of the device against proton irradiation. 
 
-\section{Requirements and Specifications}\label{sec:requirements_and_specifications}
+\Cref{sec:requirements_and_specifications} will state the relevant specifications as provided by NASA, and elaborate on the basic structure of the lidar sensor. Finally all assumptions used throughout the study will be listed. \Cref{sec:altimetry_mode} will investigate design choices for the Altimetry Mode and make perdictions about the feasability of the proposed design. \Cref{sec:hazard_detection_mode} will investigate design choices for the Hazaerd Detection Mode, with a larger emphasis on SPAD design and manufacturability. \Cref{sec:radiation} will investigate the resilience against proton irradiation of the proposed technology by performing a radiation test with a proton beam.
+
+\chapter{Requirements and Specifications}\label{sec:requirements_and_specifications}
 \input{sec/high_level_specifications}
 %\input{sec/system_engineering_level_design}
 
 \input{sec/system_engineering_overview}
 \input{sec/system_engineering_assumptions}
 
-\section{Altimetry Mode}\label{sec:altimetry_mode}
+\chapter{Altimetry Mode}\label{sec:altimetry_mode}
 The Altimetry Mode is the mode in which only the altitude of the device in relationship to Europa is required. The main challenges for the altimetry mode are acquiring the required resolution, acquiring the required speed, staying within the power budget, and being sufficiently resilient against the accumulated radiation for the entire trip.
 
 The first step will be to create a model of the noise that will be present at Europa. Then the required amount of signal will be calculated, resulting in the required signal power. 
 
-\input{sec/altimetry_mode/background_noise}
-\input{sec/altimetry_mode/high_low_freq}
 \input{sec/altimetry_mode/optics}
-\input{sec/altimetry_mode/scanning_motion}
-
+\input{sec/altimetry_mode/sun_noise}
+% \input{sec/altimetry_mode/scanning_motion}
+\input{sec/altimetry_mode/detected_photon_characterisation}
+\input{sec/altimetry_mode/sampling_method}
 \input{sec/altimetry_mode/resolution}
-\input{sec/altimetry_mode/standard_deviation}
+%\input{sec/altimetry_mode/standard_deviation}
 
+\chapter{Hazard Detection Mode}\label{sec:hazard_detection_mode}
+The Hazard Detection Mode is the mode of operation that operates closer to Europa than the Altimetry Mode. The main difference and challenge is however, is that this time a detailed heightmap must be formed. Therefore, for the Hazard Detection Mode, the layout of the SPADs and the scanning method are essential in determining the feasability of the device. 
+
+
+\input{sec/hazard_detection_mode/SPADs}
+\input{sec/hazard_detection_mode/detected_photon_characterisation}
+\input{sec/hazard_detection_mode/required_laser_power}
+
+\clearpage
+\input{sec/hazard_detection_mode/readout}
+
+
+\chapter{Radiation}\label{sec:radiation}
+One of the key challenges for deploying a sensor on the Europa Clipper is it's resilience on large amounts of radiation. The performance of the SPAD technology considered in this report when exposed to large amounts of radiation must therefore be examined.
+
+\input{sec/radiation/linoSPAD}
+\input{sec/radiation/test_setup}
+\clearpage
+\input{sec/radiation/results}
+\clearpage
+\input{sec/radiation/effect_on_performance}
 
 %\input{sec/system_engineering_trade-offs}
 
@@ -81,5 +105,27 @@ The first step will be to create a model of the noise that will be present at Eu
 %\input{sec/old_draft}
 
 
+\chapter{Specs}\label{sec:specs}
+Work in progress
+
 \end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

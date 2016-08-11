@@ -1,4 +1,4 @@
-\subsection{SPAD Array and Scanning Motion}
+\subsubsection{SPAD Array and Scanning Motion}
 The specifications state the dimensions and resolution of the image. The specifications are provided in \cref{tab:image_properties}.
 
 \input{tab/image_properties_tab}

@@ -1,4 +1,4 @@
-\section{Detected photon characterisation} 
+\subsection{Detected photon characterisation} 
 \label{ssec:detected_photon_characterisation}
 This section tackles the problem of calculating the resolution of the set-up. To do this, the different types of detection by the SPADs, due to sunlight, signal source and dark counts, must be characterized first.
 
