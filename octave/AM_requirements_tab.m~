@@ -24,5 +24,5 @@ A{5,2} = number_converter(AM_sigma(1), 's');
 A{5,3} = number_converter(AM_sigma(2), 's');
 
 
-caption = sprintf('Required standard deviation to meet the system requirements');
+caption = sprintf('Pulse frequency for both modes of operation');
 latextable(A, name, tab_path, caption);
