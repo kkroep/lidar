@@ -1,6 +1,16 @@
-\subsection{Effect of radiation on performance}\label{ssec:effect_on_performance}
+\section{Effect of radiation on performance}\label{ssec:effect_on_performance}
 Now that the results of the radiation tests are in, it is worth revisisting the calculations performed in \cref{ssec:HDM_detected_photon_characterisation} and \cref{ssec:HDM_required_laser_power}.
-In these sections, the DCR was so low that it was of absolutely no consequence, and completely dominated by the background noise. \Cref{fig:sigmoid_sweep} however, shows that with a dose of $40\,krad$ applied in approximately 2 hours, the average DCR can rise to approximately $10^{7}\,\text{photon}/s$. This means that for a large amount of radiation damage, the DCR starts to dominate over the background noise. For a DCR of $10^{7}\,\text{photon}/s$ one would require a peak power of $P_{peak}=0.7\,kW$ and $P_{av}=18\,\mu W$ approximately, using the same calculations as performed in \cref{ssec:HDM_detected_photon_characterisation} and \cref{ssec:HDM_required_laser_power}.
+In these sections, the DCR was so low that it was of absolutely no consequence, and completely dominated by the background noise. \Cref{fig:sigmoid_sweep} however, shows that with a dose of $40\,krad$ applied in approximately 2 hours, the average DCR can rise to approximately $10^{7}\,\text{photon}/s$. 
+This means that for a large amount of radiation damage, the DCR starts to dominate over the background noise. Now the expected amount of background noise is expected to be $500\,krad$ as is listed in \cref{tab:radiation}. Now assuming that all this radiation is $60\,MeV$ radiation build up with similar conditions as during the radiation test, that the relationship between dose and DCR stays linear as observed, and assuming that about half of the damage is healed over time due to annealing, one can make a loose estimation about the required peak and average power of the laser to meet the resolution requirements.
 
-\subsection{Possible improvements}\label{ssec:possible_improvements}
+The average amount of DCR after $40\,krad$ of radiation is $10^{7}\text{counts}/s$. Extrapolating this number to the assumptions made previously on gets a $6.25\cdot10^8\,\text{counts}/s$. The resulting peak and average optical laser power are calculated below.
+
+\begin{align*}
+	P_{peak}&= \frac{10\cdot DCR}{PPS_S}\\
+	&= 33\,kW\\
+	P_{av} &= P_{peak}\cdot FWHM\\
+	&= 3.3\,\mu W
+\end{align*}
+
+\section{Possible improvements}\label{ssec:possible_improvements}
 There are several ways that the resilience against radiation could be improvement. The first improvement could be a shield in front of the sensor that can be removed when the sensor is desployed. A second improvement could be to look in the FPGA for unusually high counts among the SPADs to filter out the SPADs who are damaged the most. This solution could mean however that not all pixels of the target image can be produced, because some data is missing. A third improvement could be to look at the area of the SPADs that are susceptible to traps caused by radiation, and try to reduce that area in the SPAD design to improve the overall resilience against radiation.

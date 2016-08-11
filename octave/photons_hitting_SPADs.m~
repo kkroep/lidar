@@ -13,8 +13,8 @@ A{3,1} = sprintf('$E_{photon}$');
 A{3,2} = number_converter_exp(e_photon, 'J');
 
 A{4,1} = sprintf('photons at SPADs');
-A{4,2} = number_converter_exp(photons_hittings_SPAD, '\text{counts`}/s');
+A{4,2} = number_converter_exp(photons_hittings_SPAD, '\text{photon}/s');
 
 
-caption = sprintf('calculation of amount of photons that hit the SPAD array per second');
+caption = sprintf('Pulse frequency for both modes of operation');
 latextable(A, name, tab_path, caption);

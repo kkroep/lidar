@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.7.20)  11 AUG 2016 10:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.7.20)  11 AUG 2016 11:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1157,21 +1157,25 @@ Chapter 4.
 (./sec/radiation/linoSPAD.tex (./tkz/schematic_linoSPAD_tkz.tex))
 (./sec/radiation/test_setup.tex [25
 
-]
+] (./tkz/test_setup_tkz.tex)
 <fig/dosis.pdf, id=167, 497.86pt x 386.44376pt>
 File: fig/dosis.pdf Graphic file (type pdf)
  <use fig/dosis.pdf>
-Package pdftex.def Info: fig/dosis.pdf used on input line 12.
+Package pdftex.def Info: fig/dosis.pdf used on input line 11.
 (pdftex.def)             Requested size: 258.00539pt x 200.2679pt.
-) [26 <./fig/dosis.pdf>] (./sec/radiation/results.tex
-<fig/count_vs_time_sum_all.pdf, id=177, 495.8525pt x 371.3875pt>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) [26] [27 <./fig/dosis.pdf>] (./sec/radiation/results.tex
+<fig/count_vs_time_sum_all.pdf, id=180, 495.8525pt x 371.3875pt>
 File: fig/count_vs_time_sum_all.pdf Graphic file (type pdf)
 
 <use fig/count_vs_time_sum_all.pdf>
 Package pdftex.def Info: fig/count_vs_time_sum_all.pdf used on input line 10.
 (pdftex.def)             Requested size: 258.00539pt x 193.24161pt.
 
-<fig/count_vs_time_sum_some.pdf, id=178, 503.8825pt x 371.3875pt>
+<fig/count_vs_time_sum_some.pdf, id=181, 503.8825pt x 371.3875pt>
 File: fig/count_vs_time_sum_some.pdf Graphic file (type pdf)
 
 <use fig/count_vs_time_sum_some.pdf>
@@ -1181,7 +1185,7 @@ Package pdftex.def Info: fig/count_vs_time_sum_some.pdf used on input line 18.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<fig/bars.pdf, id=179, 495.8525pt x 371.3875pt>
+<fig/bars.pdf, id=182, 495.8525pt x 371.3875pt>
 File: fig/bars.pdf Graphic file (type pdf)
  <use fig/bars.pdf>
 Package pdftex.def Info: fig/bars.pdf used on input line 27.
@@ -1200,7 +1204,7 @@ Package epstopdf Info: Source file: <fig/spad_high.eps>
 to.pdf fig/spad_high.eps>
 (epstopdf)             \includegraphics on input line 36.
 Package epstopdf Info: Output file is already uptodate.
-<./spad_high-eps-converted-to.pdf, id=180, 502.87875pt x 377.41pt>
+<./spad_high-eps-converted-to.pdf, id=183, 502.87875pt x 377.41pt>
 File: ./spad_high-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./spad_high-eps-converted-to.pdf>
@@ -1221,7 +1225,7 @@ Package epstopdf Info: Source file: <fig/spad_mid.eps>
 o.pdf fig/spad_mid.eps>
 (epstopdf)             \includegraphics on input line 44.
 Package epstopdf Info: Output file is already uptodate.
-<./spad_mid-eps-converted-to.pdf, id=181, 510.90875pt x 377.41pt>
+<./spad_mid-eps-converted-to.pdf, id=184, 510.90875pt x 377.41pt>
 File: ./spad_mid-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./spad_mid-eps-converted-to.pdf>
@@ -1242,7 +1246,7 @@ Package epstopdf Info: Source file: <fig/spad_low.eps>
 o.pdf fig/spad_low.eps>
 (epstopdf)             \includegraphics on input line 52.
 Package epstopdf Info: Output file is already uptodate.
-<./spad_low-eps-converted-to.pdf, id=182, 502.87875pt x 377.41pt>
+<./spad_low-eps-converted-to.pdf, id=185, 502.87875pt x 377.41pt>
 File: ./spad_low-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./spad_low-eps-converted-to.pdf>
@@ -1253,7 +1257,7 @@ Package pdftex.def Info: ./spad_low-eps-converted-to.pdf used on input line 52.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<fig/sigmoid_sweep.pdf, id=183, 505.89pt x 386.44376pt>
+<fig/sigmoid_sweep.pdf, id=186, 505.89pt x 386.44376pt>
 File: fig/sigmoid_sweep.pdf Graphic file (type pdf)
 
 <use fig/sigmoid_sweep.pdf>
@@ -1263,16 +1267,16 @@ Package pdftex.def Info: fig/sigmoid_sweep.pdf used on input line 61.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[27
+[28
 
- <./fig/count_vs_time_sum_all.pdf>]) [28 <./fig/count_vs_time_sum_some.pdf>] [2
-9 <./fig/bars.pdf> <./spad_high-eps-converted-to.pdf>] [30 <./spad_mid-eps-conv
-erted-to.pdf> <./spad_low-eps-converted-to.pdf>] [31 <./fig/sigmoid_sweep.pdf>]
- (./sec/radiation/effect_on_performance.tex) [32
+ <./fig/count_vs_time_sum_all.pdf>]) [29 <./fig/count_vs_time_sum_some.pdf>] [3
+0 <./fig/bars.pdf> <./spad_high-eps-converted-to.pdf>] [31 <./spad_mid-eps-conv
+erted-to.pdf> <./spad_low-eps-converted-to.pdf>] [32 <./fig/sigmoid_sweep.pdf>]
+ (./sec/radiation/effect_on_performance.tex) [33
 
 ]
 Chapter 5.
-[33
+[34
 
 ] (./main.aux)
 
@@ -1280,10 +1284,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 32012 strings out of 493029
- 815194 string characters out of 6136234
+ 32032 strings out of 493029
+ 815576 string characters out of 6136234
  1039509 words of memory out of 5000000
- 34899 multiletter control sequences out of 15000+600000
+ 34916 multiletter control sequences out of 15000+600000
  13061 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,14n,77p,1323b,676s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1301,10 +1305,10 @@ s/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (34 pages, 447160 bytes).
+Output written on main.pdf (35 pages, 449396 bytes).
 PDF statistics:
- 302 PDF objects out of 1000 (max. 8388607)
- 203 compressed objects within 3 object streams
+ 305 PDF objects out of 1000 (max. 8388607)
+ 205 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  93 words of extra memory for PDF output out of 10000 (max. 10000000)
 

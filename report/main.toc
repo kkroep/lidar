@@ -24,7 +24,7 @@
 \contentsline {chapter}{\numberline {4}Radiation}{25}
 \contentsline {section}{\numberline {4.1}linoSPAD}{25}
 \contentsline {section}{\numberline {4.2}Test setup}{26}
-\contentsline {section}{\numberline {4.3}Results}{27}
-\contentsline {section}{\numberline {4.4}Effect of radiation on performance}{32}
-\contentsline {section}{\numberline {4.5}Possible improvements}{32}
-\contentsline {chapter}{\numberline {5}Specs}{33}
+\contentsline {section}{\numberline {4.3}Results}{28}
+\contentsline {section}{\numberline {4.4}Effect of radiation on performance}{33}
+\contentsline {section}{\numberline {4.5}Possible improvements}{33}
+\contentsline {chapter}{\numberline {5}Specs}{34}

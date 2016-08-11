@@ -19,5 +19,5 @@ A{5,1} = sprintf('$E_{photon}$');
 A{5,2} = number_converter_exp(e_photon, 'J');
 
 
-caption = sprintf('calculation of photon energy at the specified wavelength');
+caption = sprintf('Pulse frequency for both modes of operation');
 latextable(A, name, tab_path, caption);

@@ -7,4 +7,4 @@
 \textbf{Radiation}      &          \\ \hline
 \begin{tabular}[c]{@{}l@{}}Total Integrated Dose in Silicon\\     behind 100 mil Al spherical shell\end{tabular} & 500 krad \\ \hline
 \end{tabular}
-\end{table}\label{tab:radiation}
+\end{table}
