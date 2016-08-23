@@ -16,7 +16,7 @@ A{4,1} = sprintf("$P\'_S$");
 A{4,2} = number_converter_exp(P_S2, 'W');
 
 A{5,1} = sprintf('$PPS_S$');
-A{5,2} = number_converter_exp(PPS_S, '\text{photon}/s');
+A{5,2} = number_converter_exp(PPS_S, '\text{counts}/s');
 
 caption = sprintf('Amount of detected signal photons detected per second');
 latextable(A, name, tab_path, caption);

@@ -21,10 +21,13 @@
 \contentsline {section}{\numberline {3.4}Detected photon characterisation}{20}
 \contentsline {section}{\numberline {3.5}Required laser power}{21}
 \contentsline {section}{\numberline {3.6}Readout}{24}
-\contentsline {chapter}{\numberline {4}Radiation}{25}
-\contentsline {section}{\numberline {4.1}linoSPAD}{25}
-\contentsline {section}{\numberline {4.2}Test setup}{26}
-\contentsline {section}{\numberline {4.3}Results}{28}
-\contentsline {section}{\numberline {4.4}Effect of radiation on performance}{33}
-\contentsline {section}{\numberline {4.5}Possible improvements}{33}
-\contentsline {chapter}{\numberline {5}Specs}{34}
+\contentsline {subsection}{\numberline {3.6.1}Histogram}{24}
+\contentsline {subsection}{\numberline {3.6.2}On chip signal processing}{25}
+\contentsline {subsection}{\numberline {3.6.3}connection to FPGA}{25}
+\contentsline {chapter}{\numberline {4}Radiation}{26}
+\contentsline {section}{\numberline {4.1}linoSPAD}{26}
+\contentsline {section}{\numberline {4.2}Test setup}{27}
+\contentsline {section}{\numberline {4.3}Results}{29}
+\contentsline {section}{\numberline {4.4}Effect of radiation on performance}{34}
+\contentsline {section}{\numberline {4.5}Possible improvements}{34}
+\contentsline {chapter}{\numberline {5}Recommendations}{35}

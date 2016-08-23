@@ -49,6 +49,6 @@
 \node[align=center] at (-4,1) {circular\\active area};
 \node[align=center] at (-4,-5) {rectangular\\active area};
 \end{tikzpicture}
-    \caption{Options for lenses with varying types of active areas and microlenses}
+    \caption{Options for lenzes with varying types of active areas and microlenses}
     \label{tkz:SPAD_types}
 \end{figure}
