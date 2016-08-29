@@ -1,33 +1,39 @@
-\contentsline {chapter}{\numberline {1}Requirements and Specifications}{4}
-\contentsline {section}{\numberline {1.1}High level specifications}{4}
-\contentsline {section}{\numberline {1.2}Altimetry Mode}{4}
-\contentsline {section}{\numberline {1.3}Hazard Detection Mode}{5}
-\contentsline {section}{\numberline {1.4}Overview}{5}
-\contentsline {section}{\numberline {1.5}Assumptions}{6}
-\contentsline {chapter}{\numberline {2}Altimetry Mode}{8}
-\contentsline {section}{\numberline {2.1}Optics}{8}
-\contentsline {subsection}{\numberline {2.1.1}Improvements}{8}
-\contentsline {section}{\numberline {2.2}Noise caused by the sun}{9}
-\contentsline {section}{\numberline {2.3}Detected photon characterisation}{12}
-\contentsline {section}{\numberline {2.4}Sampling Method}{13}
-\contentsline {subsection}{\numberline {2.4.1}Energy Threshold}{14}
-\contentsline {section}{\numberline {2.5}Required Laser Power}{16}
-\contentsline {subsection}{\numberline {2.5.1}Peak Power}{16}
-\contentsline {subsection}{\numberline {2.5.2}Reducing the field of view}{17}
-\contentsline {chapter}{\numberline {3}Hazard Detection Mode}{18}
-\contentsline {section}{\numberline {3.1}Types of SPADs}{18}
-\contentsline {section}{\numberline {3.2}Scanning motion}{19}
-\contentsline {section}{\numberline {3.3}SPAD layout}{20}
-\contentsline {section}{\numberline {3.4}Detected photon characterisation}{20}
-\contentsline {section}{\numberline {3.5}Required laser power}{21}
-\contentsline {section}{\numberline {3.6}Readout}{24}
-\contentsline {subsection}{\numberline {3.6.1}Histogram}{24}
-\contentsline {subsection}{\numberline {3.6.2}On chip signal processing}{25}
-\contentsline {subsection}{\numberline {3.6.3}connection to FPGA}{25}
-\contentsline {chapter}{\numberline {4}Radiation}{26}
-\contentsline {section}{\numberline {4.1}linoSPAD}{26}
-\contentsline {section}{\numberline {4.2}Test setup}{27}
-\contentsline {section}{\numberline {4.3}Results}{29}
-\contentsline {section}{\numberline {4.4}Effect of radiation on performance}{34}
-\contentsline {section}{\numberline {4.5}Possible improvements}{34}
-\contentsline {chapter}{\numberline {5}Recommendations}{35}
+\contentsline {chapter}{\numberline {1}Requirements and Specifications}{5}
+\contentsline {section}{\numberline {1.1}High level specifications}{5}
+\contentsline {section}{\numberline {1.2}Altimetry Mode}{5}
+\contentsline {section}{\numberline {1.3}Hazard Detection Mode}{6}
+\contentsline {section}{\numberline {1.4}Overview}{6}
+\contentsline {section}{\numberline {1.5}Assumptions}{7}
+\contentsline {chapter}{\numberline {2}Altimetry Mode}{9}
+\contentsline {section}{\numberline {2.1}Optics}{9}
+\contentsline {subsection}{\numberline {2.1.1}Improvements}{9}
+\contentsline {section}{\numberline {2.2}Noise caused by the sun}{10}
+\contentsline {section}{\numberline {2.3}Detected photon characterisation}{13}
+\contentsline {section}{\numberline {2.4}Sampling Method}{14}
+\contentsline {subsection}{\numberline {2.4.1}Intensity Threshold}{15}
+\contentsline {section}{\numberline {2.5}Required Laser Power}{17}
+\contentsline {subsection}{\numberline {2.5.1}Peak Power}{17}
+\contentsline {subsection}{\numberline {2.5.2}Reducing the field of view}{18}
+\contentsline {chapter}{\numberline {3}Hazard Detection Mode}{19}
+\contentsline {section}{\numberline {3.1}Types of SPADs}{19}
+\contentsline {section}{\numberline {3.2}Scanning motion}{20}
+\contentsline {section}{\numberline {3.3}SPAD layout}{21}
+\contentsline {section}{\numberline {3.4}Detected photon characterisation}{21}
+\contentsline {section}{\numberline {3.5}Required laser power}{22}
+\contentsline {section}{\numberline {3.6}Readout}{25}
+\contentsline {subsection}{\numberline {3.6.1}Histogram}{25}
+\contentsline {subsection}{\numberline {3.6.2}On chip signal processing}{26}
+\contentsline {subsection}{\numberline {3.6.3}connection to FPGA}{26}
+\contentsline {chapter}{\numberline {4}Radiation}{28}
+\contentsline {section}{\numberline {4.1}linoSPAD}{28}
+\contentsline {section}{\numberline {4.2}Test setup}{29}
+\contentsline {section}{\numberline {4.3}Measurements}{31}
+\contentsline {section}{\numberline {4.4}Comparison}{36}
+\contentsline {section}{\numberline {4.5}Effect of radiation on performance}{37}
+\contentsline {section}{\numberline {4.6}Possible improvements}{37}
+\contentsline {chapter}{\numberline {5}Recommendations}{38}
+\contentsline {section}{\numberline {5.1}Altimetry Mode Recommendations}{38}
+\contentsline {section}{\numberline {5.2}Hazard Detection Mode}{38}
+\contentsline {section}{\numberline {5.3}Radiation}{38}
+\contentsline {chapter}{\numberline {A}Double frequency sampling}{39}
+\contentsline {subsubsection}{Two frequency sampling}{39}

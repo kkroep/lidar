@@ -107,6 +107,8 @@ hold off;
 xlabel('pitch [um]');
 ylabel('fillfactor')
 h = legend('no ROIC, no TDC','ROIC, no TDC','ROIC and TDC','spherical microlens','rectangular microlens', 'real life implementations no ROIC, no TDC', 'location', 'northeastoutside');
+set(h, 'edgecolor', 'white');
+set(h, 'boxoff');
 title('fillfactor for different approaches on 0.18 um technology');
 print('-deps', '-color', '../report/fig/effective_area.eps');
 

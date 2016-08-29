@@ -1,0 +1,18 @@
+\clearpage
+\section{Comparison}\label{ssec:results}
+
+The next step is to compare the results from the measurements obtained in this experiment, and results from precious experiments. An overview of the performance of this device when compared to another with $3.5\,\mu m$ technology is shown in \cref{tab:comparison}. A first observation is that the DCR of the new measurements show DCR measurements that are way higher than the other devices. There are three possible explanations for this. Firstly, in the knowledge that the device would be unusable after the test, a relatively noise device was used. Secondly, the SPADs used in the new device have a lot more active area that is capable of receiving photons, but also receive radiation, generate DCR and traps. A third possibility is an error in the software where the DCR does not match the read-out values. consistent. Also the effect of radiation is different. The old measurements show an increase of rougly 50 times the DCR, while the new test shows an increase of 250 times.
+
+\begin{table}[h]
+		\centering
+\caption{Comparison of DCR for different radiation tests. The bold entry is the one described in this report}
+\label{tab:comparison}
+\begin{tabular}{|ll|lll|} \hline
+\textbf{proton energy} & dose             & initial DCR       & final DCR         & DCR after annealing (anneal time) \\ \hline
+10 Mev                 & 40 krad          & 140               & 6298              & 3884 (10 days)                    \\
+60 Mev                 & 40 krad          & 142               & 6290              & 1299 (21 days)                    \\
+\textbf{60 Mev}        & \textbf{40 krad} & $\mathbf{2\cdot10^4}$ & $\mathbf{5\cdot10^6}$ & $\mathbf{4\cdot10^6 \textbf{(2 hours)}}$      \\  \hline
+\end{tabular}
+\end{table}
+
+There are two considerations to be made on these observations. The first one is to redo the measurements to confirm them. The measurements don't line up with the expectations, especially for the $10\,MeV$ beam. A second option is to not use the technology used in the experiment but another one that is more resilient against radiation. The DCR and sensitivity to radiation are a function of active area, which means that reducing this will improve the DCR. For example a deliberatly small active area with microlenses could potentially increas the resilience against radiation.

@@ -1,0 +1,30 @@
+%-----------------------------------------
+\subsubsection{Two frequency sampling}
+
+The measurement time based on The maximum pulse frequency can then be calculated using \cref{eq:t_TDC_ToF}.  
+
+\begin{align}\label{eq:t_TDC_ToF}
+	t_{TDC} &=ToF \mod T_{pulse}\\	
+	ToF &= t_{TDC}+k\cdot T_{pulse} & k \in \mathbb{N}\label{eq:ToF_t_TDC}
+\end{align}
+
+
+where $t_{TDC}$ is the measurement of the TDC, $ToF$ the time of flight, and $T_{pulse}$ the time period of the laser pulses. The returned answer is related to $ToF$ as shown in \cref{eq:ToF_t_TDC}. There will be ambiguity when it is possible for $T_{pulse}$ to be smaller than $ToF$. The maximum frequency without ambiguity can be calculated using \cref{eq:pulse_f}.
+
+\begin{align}\label{eq:pulse_f}
+f_{pulse} = \frac{1}{t_{round}} = \frac{c}{2r}
+\end{align}
+
+To solve the ambiguity problem one can make measurements in two different frequencies. In the first half of the measurement, the pulses will have a period $t_1$, and in the second half a smaller period $t_2$. These two different measurements can first be used to determine the large scale ToF, and then the measurements can be combined to get a high accuracy to accompany that. The difference between the different measurements are in steps of equal distance. The size of these steps can be calculate with \cref{eq:t}.
+
+\begin{align}\label{eq:t_step}
+		t_{step} = t_1 - t_2
+\end{align}
+
+Given measurements $t_1$ and $t_2$ one can calculate the time of flight using \cref{eq:ToF}. 
+
+\begin{align}
+	t_{1-2} &= (t_1-t_2)\mod T_2\\
+	ToF &= \frac{t_{1-2}}{T_2-T_1}T_1+\frac{t_1+t_2-t_{1-2}}{2}\label{eq:ToF}
+\end{align}
+where $t_1$ and $t_2$ are the timestamp measurements for $f_1$ and $f_2$ respectively. $t_{1-2}$ is the modulus of the time difference between $t_1$ and $t_2$.

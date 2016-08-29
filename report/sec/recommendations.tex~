@@ -1,0 +1,10 @@
+This section contains the recommendations based on findings described in this report. The recommendations will be structured based on the rest of the document.
+
+\section{Altimetry Mode Recommendations}
+The calculations in \cref{sec:altimetry_mode} show that the Altimetry mode requires a focussed laser and focussed observation in order to be resource efficient. This might be achieved by turning of SPADs during the altimetry mode and sending a focussed laser pulse. The performance can be further improved by using an intensity threshold to filter noise. Also the period of the laser, and the measurement time should be at least the maximum time of flight which is $53.3\,\mu s$. There is no need for complex optics. The Altimetry Mode is less critical than the Hazard Detection Mode. 
+
+\section{Hazard Detection Mode}
+Considering the required resolution and the size of a SPAD, it is not feasable to have a SPAD for every pixel. Therefore a $2048\times8$ grid is proposed. Depending on the achievable peak laser power, it is advantages to use very few pulses per measurement. A histogram with an intensity threshold is recommended to keep the required average and peak power within proportions. The histograms should be read out to the FPGA using a single bit serial shift register, where the intensity threshold is applied. The option to use a more soffisticated measurement method is worth consideration.
+
+\section{Radiation}
+The results from the radiation test are not in line with the expectation which means that extra investigation and confirmation is necessary to draw final conclusions about the technology. If the measured performance is reprentative for the performance it might be necessary to deliberately decrease the photon sensitivity of the chip to decrease the DCR and resilience against radiation of the SPADs. It might be worth considering using an older SPAD technology that has a proven relience against radiation instead.

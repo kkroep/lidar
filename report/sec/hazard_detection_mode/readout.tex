@@ -21,4 +21,19 @@ The next step is to investigate the limitations of these variables. First of all
 When a histogram is constructed one can decide to process the data on the chip before sending it to the FPGA. This limits the complexity of the processingstep however. It is difficult to implement a reasonable dynamic threshold for every individual histrogram, and more complex waveforms that utilize known characteristics of the signal and noise photons other than intensity becomes infeasable. However a simple circuit that only sends the largest peak, or eliminates all values before the threshold is possible. 
 
 \subsection{connection to FPGA}
-The information stored in the histograms needs to be transported to the FPGA. There are several approaches that can be used to do this. 
+The information stored in the histograms needs to be transported to the FPGA. There are several approaches that can be used to do this. The first possibility is a simple serial shift register to transport the data to the FPGA. A schematic of this is shown in \cref{tkz:serial_no_shadow}. This is a relatively slow solution, and the device cannot be used to receive photons during it, but this solution is very resource efficient.
+
+\input{tkz/serial_no_shadow_tkz}
+
+A second option is to include shadowlatches in the design. A schematic is shown in \cref{tkz:serial_shadow}. This allows the device to continue operation during readout but one needs twice as much storage to achieve this.
+
+\input{tkz/serial_shadow_tkz}
+
+A third option is to use the same shadowlatches, but read them out in parallel. This can be done at a faster pace than the previous designs. A schematic is shown in \cref{tkz:parallel_shadow}. 
+
+\input{tkz/parallel_shadow_tkz}
+
+Considering the fact that one wants to measure for as short a time as possible, there is most likely enough time to transport the data at a small pace before the device needs to measure again. Therefore the investment into shadowlatches is not worth it. A simple serial shift register would be the best fit in this case.
+
+
+

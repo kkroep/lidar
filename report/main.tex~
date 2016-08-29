@@ -96,8 +96,10 @@ One of the key challenges for deploying a sensor on the Europa Clipper is it's r
 \input{sec/radiation/linoSPAD}
 \input{sec/radiation/test_setup}
 \clearpage
-\input{sec/radiation/results}
+\input{sec/radiation/measurements}
+\input{sec/radiation/comparison}
 \clearpage
+
 \input{sec/radiation/effect_on_performance}
 
 %\input{sec/system_engineering_trade-offs}
@@ -107,9 +109,12 @@ One of the key challenges for deploying a sensor on the Europa Clipper is it's r
 %\input{sec/old_draft}
 
 
-\chapter{Specs}\label{sec:specs}
-Work in progress
+\chapter{Recommendations}\label{sec:recommendations}
+% \input{sec/recommendations}
 
+\appendix
+\chapter{Double frequency sampling}
+\input{sec/appendix/double_frequency_sampling}
 \end{document}
 
 

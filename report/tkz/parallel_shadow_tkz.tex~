@@ -70,5 +70,5 @@
 
 \end{tikzpicture}
     \caption{Method of transporting data from TDCs to the FPGA using a parallel shift register with shadowlatches}
-    \label{tkz:parallel_shadow}
+    \label{tkz:serial_no_shadow}
 \end{figure}

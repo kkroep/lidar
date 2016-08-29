@@ -8,7 +8,7 @@ t_{round} = \frac{2r}{c}
 \end{align}
 where $c\approx 3\cdot10^8$ is the speed of light, and $r$ the altitude of the sensor. 
 
-The next step is to calculate the relationship between oberved number of good and bad photons for a given listening period, and the resulting standard deviation of the measurement. To calculate the standard deviation of the sum of multiple random variables that are independent and uncorrelated, one can use \cref{eq:variance_weighted_sum}
+The next step is to calculate the relationship between oberved number of good and bad photons for a given listening period, and the resulting standard deviation of the measurement. To calculate the standard deviation of the sum of multiple random variables that are statistically independent, one can use \cref{eq:variance_weighted_sum}
 
 \begin{align}\label{eq:variance_weighted_sum}
 \newcommand{\Var}{\mathrm{Var}}
@@ -59,8 +59,8 @@ s &= \frac{\sigma_s^2+\sqrt{\sigma_s^4-4\sigma_s^2\sigma_{tot}^2n+4\sigma_n^2\si
 \end{figure}
 
 % ------------- threshold
-\subsection{Energy Threshold}\label{sssec:energy_threshold}
-An energy threshold can be a very powerful way to improve signal to noise ratio. The signal photons all arrive with a $FWHM = 100\,ps$, while the noise photons are spread out over $53.3\,\mu s$. An energy threshold is a perfect way to take advantage of this. When the phoons are divided over bins, the expected number of bins can be modelled as Poission process. Using this the efficiency of the energy threshold can be perfomed which is shown in \cref{fig:threshold_efficiency}, where the opacity is 1 if all photons pass through the threshold, and 0 if no photons pass through the threshold. It is important to notice that a certain threshold has no effect at all if the expected number of photons is sufficiently high. The threshold is most effective when the opcity for the signal photons is close to 1, and the opacity for noise photons close to 0. To apply a threshold however, one needs to assemble a historgram of all the detections. The feasability of such a histogram will be investigated later, but for now both a system with and without an energy threshold are considered.  
+\subsection{Intensity Threshold}\label{sssec:energy_threshold}
+An intensity threshold can be a very powerful way to improve signal to noise ratio. The signal photons all arrive with a $FWHM = 100\,ps$, while the noise photons are spread out over $53.3\,\mu s$. An intesnity threshold is a perfect way to take advantage of this. When the phoons are divided over bins, the expected number of bins can be modelled as Poission process. Using this the efficiency of the intesnity threshold can be perfomed which is shown in \cref{fig:threshold_efficiency}, where the opacity is 1 if all photons pass through the threshold, and 0 if no photons pass through the threshold. It is important to notice that a certain threshold has no effect at all if the expected number of photons is sufficiently high. The threshold is most effective when the opcity for the signal photons is close to 1, and the opacity for noise photons close to 0. To apply a threshold however, one needs to assemble a historgram of all the detections. The feasability of such a histogram will be investigated later, but for now both a system with and without an intesnity threshold are considered.  
 
 \begin{figure}[H]
 \centering
