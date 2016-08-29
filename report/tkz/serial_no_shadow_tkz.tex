@@ -1,0 +1,23 @@
+\begin{figure}[H]
+    \centering
+
+\begin{tikzpicture}[scale=.5]
+
+
+%% serial no shadowlatch
+    \draw  (4,1) rectangle (6,-5);
+    \draw (5,1) to (5,2) to (8,2)[>=latex,->]  to (8,1);
+    \draw (2,-5) to (2,-6) to (5,-6)[>=latex,->] to (5,-5);
+    \draw  (1,1) rectangle (3,-5);
+
+    \draw  (10,1) rectangle (12,-5);
+    \draw (11,1) to (11,2) to (13,2)[>=latex,->]  to (13,-2)  to (14,-2);
+    \draw (8,-5) to (8,-6) to (11,-6)[>=latex,->] to (11,-5);
+    \draw  (7,1) rectangle (9,-5);
+
+    \draw  (14,0) rectangle (16,-4);
+
+\end{tikzpicture}
+    \caption{Method of transporting data from TDCs to the FPGA using a one bit serial shift register without shadowlatches}
+    \label{tkz:serial_no_shadow}
+\end{figure}
