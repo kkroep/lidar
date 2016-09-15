@@ -11,6 +11,7 @@
 \usepackage{listings}
 \usepackage{circuitikz}
 \usepackage{float}
+\usepackage{cite}
 \usepackage{cleveref}
 \usepackage{ragged2e} % For text alignment
 
@@ -43,7 +44,7 @@
 
 
 \section*{Abstract}
-This document investigates the feasability of a lidar sensor based of performance requirements provided by NASA. The main focus of this study is both the required laser power and the resilience of the device against proton radiation. Other considerations include manufacturability, readout specifications and lens specifications. Based on the results of this study a design will be proposed. Finally a radiation test is performed to increase the knowledge about the radiation resilience of the technology used in the proposed design.
+This document investigates the feasability of a lidar sensor based of performance requirements provided by NASA. The main focus of this study is both the required laser power and the resilience of the device against proton radiation. Other considerations include manufacturability, readout specifications and lens specifications. Based on the results of this study a design will be proposed. A radiation test is performed to increase the knowledge about the radiation resilience of the technology used in the proposed design. Based on these findings a design is proposed.
 
 %\clearpage
 \tableofcontents
@@ -112,9 +113,15 @@ One of the key challenges for deploying a sensor on the Europa Clipper is it's r
 \chapter{Recommendations}\label{sec:recommendations}
 \input{sec/recommendations}
 
+
 \appendix
 \chapter{Double frequency sampling}
 \input{sec/appendix/double_frequency_sampling}
+
+
+\bibliographystyle{plain}
+\bibliography{bib}{}
+
 \end{document}
 
 
