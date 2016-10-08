@@ -7,19 +7,19 @@ A schematic overview of the sensor is shown in \cref{tkz:schematic_overview}.
 ~\\
 \textbf{Laser}: The laser must send short pulses but powerful pulses at a predefined frequency, to transmit photons that can be detected by the SPAD Sensor. A critical requirement for the laser is the amount of photons it is able to transmit as a function of time, within the budget and technical limitations. \\
 \\
-\textbf{SPAD Sensor}: The Single Photon Avalange Diode (SPAD) is responsible for generating a digital pulse when hit by a photon. A circuit build around the SPAD must ensure that the sPAD is quenched as quickly as possible to minimize the deadline. A critical requirement for the SPAD is a small jitter to maximize the accuracy of the sensor.  \\
+\textbf{SPAD Sensor}: The Single Photon Avalanche Diode (SPAD) is responsible for generating a digital pulse when hit by a photon. A circuit build around the SPAD must ensure that the SPAD is quenched as quickly as possible to minimize the deadline. A critical requirement for the SPAD is a small jitter to maximize the accuracy of the sensor.  \\
 \\
-\textbf{TDC}: The Time Interval to Digital Converter (TDC) is connected to the laser and the SPAD Sensor. The TDC must measure the time difference between the transmission of teh laser and the receiving at the SPAD sensor. This measurement requires an accuracy of tens of picoseconds to meet the accuracy requirements.\\
+\textbf{TDC}: The Time Interval to Digital Converter (TDC) is connected to the laser and the SPAD Sensor. The TDC must measure the time difference between the transmission of the laser and the receiving at the SPAD sensor. This measurement requires an accuracy of tens of picoseconds to meet the accuracy requirements.\\
 \\
-\textbf{Scanner}: The scanner handles the scanning motion that is needed to accumulate the entire picture. Different scanning motions can introduce undesired jitter and heavily influency the amount of SPAD Sensors that are needed on teh SPAD Array. \\
+\textbf{Scanner}: The scanner handles the scanning motion that is needed to accumulate the entire picture. Different scanning motions can introduce undesired jitter and heavily influence the amount of SPAD Sensors that are needed on teh SPAD Array. \\
 \\
-\textbf{SPAD Array}: The SPAD Array integrates the SPAD Sensors on a chip and connects them to the TDC's. The layout of the SPAD Array is closely rtelated to the scanning motion that is used in the scanner.\\
+\textbf{SPAD Array}: The SPAD Array integrates the SPAD Sensors on a chip and connects them to the TDCs. The layout of the SPAD Array is closely related to the scanning motion that is used in the scanner.\\
 \\
 \textbf{Optics}:
-The optics must tranfer as much of the incomming photons as possible to the sensitive area on the SPAD Sensors. The Optics part also implements a bandpass filter around the target frequency. \\
+The optics must transfer as much of the incoming photons as possible to the sensitive area on the SPAD Sensors. The Optics part also implements a bandpass filter around the target frequency. \\
 \\
 \textbf{FPGA Board}:
-The FPGA Board controls the sensor. It is responsible for accumulating and interpreting the measurements from the TDC's, and controlling the Scanner and Laser. \\
+The FPGA Board controls the sensor. It is responsible for accumulating and interpreting the measurements from the TDCs, and controlling the Scanner and Laser. \\
 \\
 \textbf{Cooling}:
 The cooling has to keep the temperature of the FPGA chip under a threshold temperature.\\

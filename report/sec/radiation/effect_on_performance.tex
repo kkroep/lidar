@@ -1,5 +1,5 @@
 \section{Effect of radiation on performance}\label{ssec:effect_on_performance}
-Now that the results of the radiation tests are in, it is worth revisisting the calculations performed in \cref{ssec:HDM_detected_photon_characterisation} and \cref{ssec:HDM_required_laser_power}.
+Now that the results of the radiation tests are in, it is worth revisiting the calculations performed in \cref{ssec:HDM_detected_photon_characterisation} and \cref{ssec:HDM_required_laser_power}.
 In these sections, the DCR was so low that it was of absolutely no consequence, and completely dominated by the background noise. \Cref{fig:sigmoid_sweep} however, shows that with a dose of $40\,krad$ applied in approximately 2 hours, the average DCR can rise to approximately $10^{7}\,\text{counts}/s$. 
 This means that for a large amount of radiation damage, the DCR starts to dominate over the background noise. Now the expected amount of background noise is expected to be $500\,krad$ as is listed in \cref{tab:radiation}. Now assuming that all this radiation is $60\,MeV$ radiation build up with similar conditions as during the radiation test, that the relationship between dose and DCR stays linear as observed, and assuming that about half of the damage is healed over time due to annealing, one can make a loose estimation about the required peak and average power of the laser to meet the resolution requirements.
 
@@ -13,4 +13,4 @@ The average amount of DCR after $40\,krad$ of radiation is $10^{7}\text{counts}/
 \end{align*}
 
 \section{Possible improvements}\label{ssec:possible_improvements}
-Finally there are several ways that the resilience against radiation could be improvement. A first improvement could be a shield in front of the sensor that can be removed when the sensor is desployed. A second improvement could be to look in the FPGA for unusually high counts among the SPADs to filter out the SPADs who are damaged the most. This solution could mean however that not all pixels of the target image can be produced, because some data is missing. 
+Finally there are several ways that the resilience against radiation could be improvement. A first improvement could be a shield in front of the sensor that can be removed when the sensor is deployed. A second improvement could be to look in the FPGA for unusually high counts among the SPADs to filter out the SPADs who are damaged the most. This solution could mean however that not all pixels of the target image can be produced, because some data is missing. 

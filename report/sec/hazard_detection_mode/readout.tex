@@ -1,39 +1,39 @@
 \section{Readout}\label{ssec:readout}
-In \cref{ssec:SPADs} two circuitry components where mentioned that are required for each SPAD: a ROIC and a TDC. While the decision on whether or not to push out the ROIC has not yet been made, \cref{ssec:SPAD_layout} concluded that it is necessary to push out the TDC. One other important aspect of the TDC is that it must meet the designed resolution of $50\,ps$. The proposed TDC design uses a Phase Locked Loop (PLL) to generate signals that the TDC can use to timestamp an incomming pulse. The PLL, for which a schematic is shown in \cref{tkz:PLL}, locks onto an input in such a way, that both signals entering te phase detector are equal. By using a divider by $X$ block, one can generate a signal with a frequency that is equal to $x$ times the clock frequency. The voltage controlled oscilator is capable of generating 4 signals with 4 different phases to increase the resolution further. \Cref{tkz:TDC_line_PLL} shows a line of TDCs connected to the PLL.
+In \cref{ssec:SPADs} two circuitry components where mentioned that are required for each SPAD: a ROIC and a TDC. While the decision on whether or not to push out the ROIC has not yet been made, \cref{ssec:SPAD_layout} concluded that it is necessary to push out the TDC. One other important aspect of the TDC is that it must meet the designed resolution of $50\,ps$. The proposed TDC design uses a Phase Locked Loop (PLL) to generate signals that the TDC can use to time stamp an incoming pulse. The PLL, for which a schematic is shown in \cref{tkz:PLL}, locks onto an input in such a way, that both signals entering the phase detector are equal. By using a divider by $X$ block, one can generate a signal with a frequency that is equal to $x$ times the clock frequency. The voltage controlled oscillator is capable of generating 4 signals with 4 different phases to increase the resolution further. \Cref{tkz:TDC_line_PLL} shows a line of TDCs connected to the PLL.
 		
 \input{tkz/PLL_tkz}
 
 \input{tkz/TDC_line_PLL_tkz}
 
 \subsection{Histogram}
-Depending on whether an energy threshold is used or not, the data must be stored in a histogram. If no energy threshold is needed, one can simply add all the timestamps together and devide by the amount of oberserved counts to get a simple  average. For more sophisticated signal processing however, more data needs to be transferred to the FPGA than just an average. One can either read every TDC value directly into the FPGA, but for the expected amount of traffic, this  is not feasable. Therefore a histogram is necessary to condense the data into a smaller package without losing essential information. Considering that a histogram will be needed for every SPAD, the amount of space on the chip that the histograms can turn out to be quite large. 
+Depending on whether an energy threshold is used or not, the data must be stored in a histogram. If no energy threshold is needed, one can simply add all the timestamps together and divide by the amount of observed counts to get a simple  average. For more sophisticated signal processing however, more data needs to be transferred to the FPGA than just an average. One can either read every TDC value directly into the FPGA, but for the expected amount of traffic, this  is not feasible. Therefore a histogram is necessary to condense the data into a smaller package without losing essential information. Considering that a histogram will be needed for every SPAD, the amount of space on the chip that the histograms can turn out to be quite large. 
 
-The amount of bits required per SPAD are dependent on the binzise, resolution and bandwidth, and can be calculated using \cref{eq:histogram_bits}. 
+The amount of bits required per SPAD are dependent on the bin size, resolution and bandwidth, and can be calculated using \cref{eq:histogram_bits}. 
 
 \begin{equation}
 		\text{bits} = \text{SPADs}\cdot\lceil \log_2(\text{binsize}) \rceil\cdot \lceil \frac{\text{bandwidth}}{\text{resolution}}\rceil
 		\label{eq:histogram_bits}
 \end{equation}
 
-The next step is to investigate the limitations of these variables. First of all, the resolution is very important for both the accuracy of the device and the performance of the energy detection. The latter has a direct relationship with the power of the laser. Lowering the resolution will effectively decrease the peak power of the signal, because the power is effectively distributed over the length of a single bin. It is assumed that the FWHM of the laser is $100\,ps$i. So in order to ensure that at least one bin is exposed to the signal pulse in it's entire duration, one needs a resolution of $50\,ps$. This is also the resolution that is considered for the TDC. The binsize is dependedent on the light intensity, which will increase when approaching Europa. The bandwidth allows for some flexibility. For example, when the previous measurements where close to 8 km the device can't travel far from that altitude in the next second. The next measurement will most likely also not yield an altitude further away than the previous one. Therefore the bandwidth can be limited to some extend, and adjusted between measurements.
+The next step is to investigate the limitations of these variables. First of all, the resolution is very important for both the accuracy of the device and the performance of the energy detection. The latter has a direct relationship with the power of the laser. Lowering the resolution will effectively decrease the peak power of the signal, because the power is effectively distributed over the length of a single bin. It is assumed that the FWHM of the laser is $100\,ps$i. So in order to ensure that at least one bin is exposed to the signal pulse in it's entire duration, one needs a resolution of $50\,ps$. This is also the resolution that is considered for the TDC. The bin size is dependent on the light intensity, which will increase when approaching Europa. The bandwidth allows for some flexibility. For example, when the previous measurements where close to 8 km the device can't travel far from that altitude in the next second. The next measurement will most likely also not yield an altitude further away than the previous one. Therefore the bandwidth can be limited to some extend, and adjusted between measurements.
 
 \subsection{On chip signal processing}
-When a histogram is constructed one can decide to process the data on the chip before sending it to the FPGA. This limits the complexity of the processingstep however. It is difficult to implement a reasonable dynamic threshold for every individual histrogram, and more complex waveforms that utilize known characteristics of the signal and noise photons other than intensity becomes infeasable. However a simple circuit that only sends the largest peak, or eliminates all values before the threshold is possible. 
+When a histogram is constructed one can decide to process the data on the chip before sending it to the FPGA. This limits the complexity of the processing step however. It is difficult to implement a reasonable dynamic threshold for every individual histogram, and more complex waveforms that utilize known characteristics of the signal and noise photons other than intensity becomes infeasible. However a simple circuit that only sends the largest peak, or eliminates all values before the threshold is possible. 
 
 \subsection{connection to FPGA}
 The information stored in the histograms needs to be transported to the FPGA. There are several approaches that can be used to do this. The first possibility is a simple serial shift register to transport the data to the FPGA. A schematic of this is shown in \cref{tkz:serial_no_shadow}. This is a relatively slow solution, and the device cannot be used to receive photons during it, but this solution is very resource efficient.
 
 \input{tkz/serial_no_shadow_tkz}
 
-A second option is to include shadowlatches in the design. A schematic is shown in \cref{tkz:serial_shadow}. This allows the device to continue operation during readout but one needs twice as much storage to achieve this.
+A second option is to include shadow latches in the design. A schematic is shown in \cref{tkz:serial_shadow}. This allows the device to continue operation during readout but one needs twice as much storage to achieve this.
 
 \input{tkz/serial_shadow_tkz}
 
-A third option is to use the same shadowlatches, but read them out in parallel. This can be done at a faster pace than the previous designs. A schematic is shown in \cref{tkz:parallel_shadow}. 
+A third option is to use the same shadow latches, but read them out in parallel. This can be done at a faster pace than the previous designs. A schematic is shown in \cref{tkz:parallel_shadow}. 
 
 \input{tkz/parallel_shadow_tkz}
 
-Considering the fact that one wants to measure for as short a time as possible, there is most likely enough time to transport the data at a small pace before the device needs to measure again. Therefore the investment into shadowlatches is not worth it. A simple serial shift register would be the best fit in this case.
+Considering the fact that one wants to measure for as short a time as possible, there is most likely enough time to transport the data at a small pace before the device needs to measure again. Therefore the investment into shadow latches is not worth it. A simple serial shift register would be the best fit in this case.
 
 
 

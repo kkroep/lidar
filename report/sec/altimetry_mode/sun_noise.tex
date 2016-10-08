@@ -1,14 +1,14 @@
 \section{Noise caused by the sun}\label{ssec:background_noise}
 The sun is the most dominant source of unwanted photons at Europa. This section will investigate how much energy is hitting the surface of Europa. 
 
-To calculate that the sun will be modelled as an ideal black body. The spectral irradiance of the sun can be calculated using \cref{eq:spectral_irradiance}.
+To calculate that the sun will be modeled as an ideal black body. The spectral irradiance of the sun can be calculated using \cref{eq:spectral_irradiance}.
 \begin{align}\label{eq:spectral_irradiance}
 I_\lambda(\lambda,T) = \frac{2hc^2}{\lambda^5}\frac{1}{e^{\frac{hc}{\lambda kT}}-1}
 \end{align}
 where $I_\lambda(v,t)$ is spectral irradiance with unit $W/m^3$. \\
-$h$ is the planck constant\\
+$h$ is the Planck constant\\
 $c$ is the speed of light in vacuum \\
-$k$ is the Boltzman constant \\
+$k$ is the Boltzmann Constant \\
 $\lambda$ is the wavelength of the electromagnetic radiation\\
 $T$ is the absolute temperature of the body\\
 
@@ -18,7 +18,7 @@ The spectral irradiance of the sun is calculated in \cref{tab:sun_irradiation}.
 
 \input{tab/sun_irradiation_tab}
 
-The next step is to calculate the power emitted by the sun in the specified bandwidth, at the location of Europa. The specified bandwidth is in this case the assumed bandpass filter used on the lens. The emitted power is calculated by modelling the sun as a point source, and then spreading that power over a sphere with a radius equal to the distance between the sun and Europa, as is done in \cref{eq:point_source}.
+The next step is to calculate the power emitted by the sun in the specified bandwidth, at the location of Europa. The specified bandwidth is in this case the assumed bandpass filter used on the lens. The emitted power is calculated by modeling the sun as a point source, and then spreading that power over a sphere with a radius equal to the distance between the sun and Europa, as is done in \cref{eq:point_source}.
 
 \begin{align}\label{eq:point_source}
     P_{sun} = I_{\text{sun}} B_\lambda S \frac{r_{\text{sun}}^2}{r_{\text{Europa}}^2}
@@ -27,7 +27,7 @@ where $I_{\text{sun}}$ is the spectral irradiance of the sun at the center frequ
 
 \input{tab/background_power_tab}
 
-The next step is to calculate the percentage of energy that hits the device when hovering over Europa. The focal length and aperture ofthe lens will be configured in such a way that the target surface on Europa fills the entire view at the maximum altitude of the Hazard Detection Mode, so that altitude will be chosen to calculate the received noise power. The amount of power received at the lens of the device can be calculated using \cref{eq:power_lens}.
+The next step is to calculate the percentage of energy that hits the device when hovering over Europa. The focal length and aperture of the lens will be configured in such a way that the target surface on Europa fills the entire view at the maximum altitude of the Hazard Detection Mode, so that altitude will be chosen to calculate the received noise power. The amount of power received at the lens of the device can be calculated using \cref{eq:power_lens}.
 
 \begin{align}\label{eq:power_lens}
 P'_B = \frac{P_B\cdot R_{Europa}\cdot D_l\cdot \text{opacity}}{2r^2}
