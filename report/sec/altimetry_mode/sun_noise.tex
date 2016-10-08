@@ -21,9 +21,9 @@ The spectral irradiance of the sun is calculated in \cref{tab:sun_irradiation}.
 The next step is to calculate the power emitted by the sun in the specified bandwidth, at the location of Europa. The specified bandwidth is in this case the assumed bandpass filter used on the lens. The emitted power is calculated by modelling the sun as a point source, and then spreading that power over a sphere with a radius equal to the distance between the sun and Europa, as is done in \cref{eq:point_source}.
 
 \begin{align}\label{eq:point_source}
-    P_{sun} = I_{\text{sun}} B_\lambda S \frac{r_{\text{sun}}^2}{r_{\text{europa}}^2}
+    P_{sun} = I_{\text{sun}} B_\lambda S \frac{r_{\text{sun}}^2}{r_{\text{Europa}}^2}
 \end{align}
-where $I_{\text{sun}}$ is the spectral irradiance of the sun at the center frequency of the filter, $B_\lambda$ is the bandwidth of the filter in meters, $S$ the surface area of the target area on Europa, $r_{\text{sun}}$ the of radius of the sun, and $r_{\text{europa}}$ the distance between Europa and the sun. The effective radiance of the background noise at Europa is calculated in \cref{tab:background_power} using \cref{eq:point_source}.
+where $I_{\text{sun}}$ is the spectral irradiance of the sun at the center frequency of the filter, $B_\lambda$ is the bandwidth of the filter in meters, $S$ the surface area of the target area on Europa, $r_{\text{sun}}$ the of radius of the sun, and $r_{\text{Europa}}$ the distance between Europa and the sun. The effective radiance of the background noise at Europa is calculated in \cref{tab:background_power} using \cref{eq:point_source}.
 
 \input{tab/background_power_tab}
 
@@ -49,7 +49,7 @@ E_{photon} = \frac{hc}{\lambda}
 
 \input{tab/energy_of_photon_tab} 
 
-The amout of photons per second can then be calculated using \cref{eq:PPS}. The calculation is shown in
+The amount of photons per second can then be calculated using \cref{eq:PPS}. The calculation is shown in
 
 \begin{align}\label{eq:PPS}
 \text{photon}/s = \frac{P}{E_{photon}}

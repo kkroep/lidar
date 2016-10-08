@@ -11,9 +11,9 @@
 \contentsline {section}{\numberline {2.3}Detected photon characterisation}{13}
 \contentsline {section}{\numberline {2.4}Sampling Method}{14}
 \contentsline {subsection}{\numberline {2.4.1}Intensity Threshold}{15}
-\contentsline {section}{\numberline {2.5}Required Laser Power}{17}
-\contentsline {subsection}{\numberline {2.5.1}Peak Power}{17}
-\contentsline {subsection}{\numberline {2.5.2}Reducing the field of view}{18}
+\contentsline {section}{\numberline {2.5}Required Laser Power}{16}
+\contentsline {subsection}{\numberline {2.5.1}Peak Power}{16}
+\contentsline {subsection}{\numberline {2.5.2}Reducing the field of view}{17}
 \contentsline {chapter}{\numberline {3}Hazard Detection Mode}{19}
 \contentsline {section}{\numberline {3.1}Types of SPADs}{19}
 \contentsline {section}{\numberline {3.2}Scanning motion}{20}

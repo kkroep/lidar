@@ -38,18 +38,11 @@ The resulting standard deviation $\sigma_{tot}$ can be calculated using \cref{eq
 %&= \frac{\sqrt{s\cdot1.8063\cdot10^{-21}+\frac{n}{12}t_{round}}}{s+n} \label{eq:sigma_tot}
 \end{align}
 
-Using \cref{eq:sigma_tot}, one can calculate the relationship between the amount of signal photons needed for a given amount of noise photons. For the long distance a $t_{round}=53.3\,\mu s$ is used. Using \cref{eq:s_vs_n} the realtionship between the number of noise photons and required signal photons is shown in \cref{fig:altimetry_s_vs_n}. Note that the amount of required signal photons first rises quickly, then slowly, and finally even drops. The reason for this trend is that increasing the number of random samples also decreases the standard deviation by itself. \Cref{fig:altimetry_s_vs_n_small} shows the same relationship for a smaller number of noise photons. 
+Using \cref{eq:sigma_tot}, one can calculate the relationship between the amount of signal photons needed for a given amount of noise photons. For the long distance a $t_{round}=53.3\,\mu s$ is used. Using \cref{eq:s_vs_n} the realtionship between the number of noise photons and required signal photons is shown in \cref{fig:altimetry_s_vs_n_small}.
 \begin{align}
 \sigma_{tot} &= \frac{\sqrt{s\sigma_s^2+n\sigma_n^2}}{s+n} \\
 s &= \frac{\sigma_s^2+\sqrt{\sigma_s^4-4\sigma_s^2\sigma_{tot}^2n+4\sigma_n^2\sigma_{tot}^2n}-2\sigma_{tot}^2n}{2\sigma_{tot}^2}\label{eq:s_vs_n}
 \end{align} 
-
-\begin{figure}[h]
-\centering
-	\includegraphics[width=0.8\linewidth]{fig/altimetry_s_vs_n.eps}
-\caption{Relationship between number of signal and noise photons to get the required resolution}
-\label{fig:altimetry_s_vs_n}
-\end{figure}
 
 \begin{figure}[h]
 \centering
@@ -60,7 +53,8 @@ s &= \frac{\sigma_s^2+\sqrt{\sigma_s^4-4\sigma_s^2\sigma_{tot}^2n+4\sigma_n^2\si
 
 % ------------- threshold
 \subsection{Intensity Threshold}\label{sssec:energy_threshold}
-An intensity threshold can be a very powerful way to improve signal to noise ratio. The signal photons all arrive with a $FWHM = 100\,ps$, while the noise photons are spread out over $53.3\,\mu s$. An intesnity threshold is a perfect way to take advantage of this. When the phoons are divided over bins, the expected number of bins can be modelled as Poission process. Using this the efficiency of the intesnity threshold can be perfomed which is shown in \cref{fig:threshold_efficiency}, where the opacity is 1 if all photons pass through the threshold, and 0 if no photons pass through the threshold. It is important to notice that a certain threshold has no effect at all if the expected number of photons is sufficiently high. The threshold is most effective when the opcity for the signal photons is close to 1, and the opacity for noise photons close to 0. To apply a threshold however, one needs to assemble a historgram of all the detections. The feasability of such a histogram will be investigated later, but for now both a system with and without an intesnity threshold are considered.  
+An intensity threshold can be a very powerful way to improve signal to noise ratio. The signal photons all arrive with a $FWHM = 100\,ps$, while the noise photons are spread out over $53.3\,\mu s$. An intensity threshold is a perfect way to take advantage of this. When the photons are divided over bins, the expected number of bins can be modelled as a Poisson process. Using this the efficiency of the intensity threshold can be calculated which is shown in \cref{fig:threshold_efficiency}, where the detection probabily is 1 if the bin with counts is higher than the threshold, and 0 if it is lower. It is important to notice that a certain threshold has no effect at all if the expected number of photons is sufficiently high. The threshold is most effective when the opacity for the signal photons is close to 1, and the opacity for noise photons close to 0. To apply a threshold however, one needs to assemble a historgram of all the detections. The feasability of such a histogram will be investigated later, but for now both a system with and without an intensity threshold are considered.  
+%\todo[inline]{remove large scale standartd deviation plot}
 
 \begin{figure}[H]
 \centering
