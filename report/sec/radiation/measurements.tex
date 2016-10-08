@@ -1,7 +1,7 @@
 \section{Measurements}\label{ssec:results}
 This section shows the measurements and results obtained during the radiation experiment. Note that the linoSPAD used is a relatively noise one, in the knowledge that the device  would no longer be usable for normal applications after the radiation test.
 
-\Cref{fig:count_vs_time_sum_all} shows the accumulative DCR of all SPADs as a function of time. The first 150 minutes are behaving as expected. The plot shows that the DCR linearly increases when the $60\,MeV$ beam  is turned on with a constant intensity. After the beam is turned off, the DCR stops rising and the device starts annealing, resulting in a gradual decease of the DCR. A approximately 145 minutes, the device receives a total of 0 counts, and the reason for that is that the power on the SPAD array was briefly turned off at that time. However the device behaves unexpectedly when the $10\,MeV$ beam is turned on. There is no change in DCR that can be observed due to the $10\,MeV$ beam, which is contradictories with the expectations that the $10\,MeV$ beam would cause more damage than the $60\,MeV$ beam. Another interesting event is that at approximately 165 minutes, $25\,\%$ of the SPADs no longer detect counts. \Cref{fig:count_vs_time_sum_some} shows the same graph, but with the $25\,\%$ defect SPADs removed. Here one can see that the other SPADs are not at all affected by the $10\,MeV$ beam and continue annealing. At approximately 240 minutes the entire sensor stops communicating, 10 minutes before the beam is turned off.
+\Cref{fig:count_vs_time_sum_all} shows the cumulative DCR of all SPADs as a function of time. The first 150 minutes are behaving as expected. The plot shows that the DCR linearly increases when the $60\,MeV$ beam  is turned on with a constant intensity. After the beam is turned off, the DCR stops rising and the device starts annealing, resulting in a gradual decease of the DCR. A approximately 145 minutes, the device receives a total of 0 counts, and the reason for that is that the power on the SPAD array was briefly turned off at that time. However the device behaves unexpectedly when the $10\,MeV$ beam is turned on. There is no change in DCR that can be observed due to the $10\,MeV$ beam, which is contradictories with the expectations that the $10\,MeV$ beam would cause more damage than the $60\,MeV$ beam. Another interesting event is that at approximately 165 minutes, $25\,\%$ of the SPADs no longer detect counts. \Cref{fig:count_vs_time_sum_some} shows the same graph, but with the $25\,\%$ defect SPADs removed. Here one can see that the other SPADs are not at all affected by the $10\,MeV$ beam and continue annealing. At approximately 240 minutes the entire sensor stops communicating, 10 minutes before the beam is turned off.
 
 
 
@@ -59,7 +59,7 @@ This section shows the measurements and results obtained during the radiation ex
 \begin{figure}[h]
 \centering
 	\includegraphics[width=0.6\linewidth]{fig/sigmoid_sweep.pdf}
-\caption{distribution of DCR over individual SPADs at different time frames. After the 165 minute mark $25\,\%$ of SPADs stop working, which is why the black line starts later at $25\,\%$}
+\caption{distribution of DCR over individual SPADs at different time frames. After the 165 minute mark $25\,\%$ of SPADs stop working, which is why the black line starts later at $25\,\%$. The black line starts later in the graph because $25\,\%$ of the SPADs no longer deliver measurements}
 \label{fig:sigmoid_sweep}
 \end{figure}
 
